@@ -24,10 +24,19 @@ find $DATA_DIR/plugins/ -maxdepth 1 -name "*.jar" -type f | while read jar; do
 done
 
 # 2. Sincronizar Configs de MODS
-echo "   --> Sincronizando Configs de Forge..."
+echo "🔄 Sincronizando configuraciones y plugins desde GitOps..."
+
+# Sincronizamos CONFIGS con --update (protege cambios en runtime)
 mkdir -p $DATA_DIR/config
-# Para mods, mantenemos rsync simple sin delete para evitar sustos
 rsync -av --update $SOURCE_DIR/config/ $DATA_DIR/config/
+
+# Sincronizamos JARs SIN --update (siempre copia los del repo)
+echo "📦 Copiando plugin JARs..."
+rsync -av --include='*.jar' --exclude='*/' $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
+
+# Sincronizamos carpetas de configuración de plugins CON --update
+echo "⚙️ Sincronizando configuraciones de plugins..."
+rsync -av --update --exclude='*.jar' $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
 
 # 3. Sincronizar Propiedades del Server (Si existen)
 if [ -f "$SOURCE_DIR/server-config/server.properties" ]; then
