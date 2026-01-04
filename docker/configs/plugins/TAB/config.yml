@@ -41,6 +41,8 @@ scoreboard-teams:
   case-sensitive-sorting: true
   can-see-friendly-invisibles: false
   disable-condition: '%world%=disabledworld'
+  unlimited-nametag-mode:
+    enabled: true
 
 # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Playerlist-Objective
 playerlist-objective:
@@ -212,6 +214,8 @@ placeholder-refresh-intervals:
 # assigning groups by permission nodes instead of taking them from permission plugin
 assign-groups-by-permissions: false
 
+use-primary-group: true
+
 # if the option above is true, all groups are taken based on permissions and the one higher in this list is used as primary
 # Warning! This is not sorting list and has nothing to do with sorting players in tablist!
 primary-group-finding-list:
@@ -297,28 +301,3 @@ use-bukkit-permissions-manager: false
 # Only affects proxies with online mode enabled
 use-online-uuid-in-tablist: true
 
-groups:
-  administrador:
-    priority: 40
-    tabprefix: "%animation:admin_prefix% "
-    tagprefix: "%animation:admin_prefix% "
-
-  moderador:
-    priority: 30
-    tabprefix: "%animation:mod_prefix% "
-    tagprefix: "%animation:mod_prefix% "
-
-  realeza:
-    priority: 20
-    tabprefix: "%animation:realeza_prefix% "
-    tagprefix: "%animation:realeza_prefix% "
-
-  elite:
-    priority: 10
-    tabprefix: "%animation:elite_prefix% "
-    tagprefix: "%animation:elite_prefix% "
-
-  default:
-    priority: 1
-    tabprefix: "%animation:default_prefix% "
-    tagprefix: "%animation:default_prefix% "

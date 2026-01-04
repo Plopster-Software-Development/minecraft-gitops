@@ -18,3 +18,27 @@ per-world:
     Owner:
       tabprefix: "&0&l[&a&lOwner&0&l] &a"
       tagprefix: "&2&lOwner &a"
+
+administrador:
+  priority: 40
+  tabprefix: "%animation:admin_prefix% "
+  tagprefix: "%animation:admin_prefix% "
+
+moderador:
+  priority: 30
+  tabprefix: "%animation:mod_prefix% "
+  tagprefix: "%animation:mod_prefix% "
+realeza:
+  priority: 20
+  tabprefix: "%animation:realeza_prefix% "
+  tagprefix: "%animation:realeza_prefix% "
+
+elite:
+  priority: 10
+  tabprefix: "%animation:elite_prefix% "
+  tagprefix: "%animation:elite_prefix% "
+
+default:
+  priority: 1
+  tabprefix: "%animation:default_prefix% "
+  tagprefix: "%animation:default_prefix% "
