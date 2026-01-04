@@ -103,10 +103,20 @@ minecraftServer:
     - "https://download.luckperms.net/1611/bukkit/loader/LuckPerms-Bukkit-5.5.22.jar"
     - "https://github.com/NEZNAMY/TAB/releases/download/5.4.0/TAB.v5.4.0.jar"
 
-  overrideCommand:
-      - "/bin/bash"
-      - "-c"
-      - "/usr/local/bin/gitops-entrypoint.sh && /start"
+# Ejecutamos el script de GitOps ANTES de que Minecraft arranque
+initContainers:
+  - name: gitops-sync
+    image: nicolasestevez/minecraft-survival:latest
+    command: ["/bin/bash", "-c"]
+    args:
+      - |
+        echo "🔄 GitOps: Sincronizando configuraciones..."
+        /usr/local/bin/gitops-entrypoint.sh
+        echo "✅ GitOps: Sincronización completada"
+    volumeMounts:
+      - name: datadir
+        mountPath: /data
+
 # Recursos del Contenedor (Nivel raíz, fuera de minecraftServer)
 resources:
   requests:
