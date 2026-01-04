@@ -1,11 +1,12 @@
 name: Deploy Minecraft Server
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches: [ "main" ]
     paths:
       - 'helm/**'
-      - 'custom-plugins/**'
+      - 'docker/**'
       - 'Dockerfile'
       - '.github/workflows/**'
 
@@ -17,6 +18,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment: Deploy
+    # Solo ejecutar si el PR fue mergeado (no solo cerrado)
+    if: github.event.pull_request.merged == true
     
     steps:
       - name: 📥 Bajar código del repositorio
