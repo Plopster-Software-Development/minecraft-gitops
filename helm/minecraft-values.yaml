@@ -45,7 +45,7 @@ minecraftServer:
   motd: "\u00A76Bienvenidos al \u00A7bmundo Bbcos \u00A7c[1.20.1]"
   viewDistance: 6   # Ayuda con el timeout al cargar menos mapa
   maxTickTime: -1   # Evita que el servidor se cierre por lag procesando mods
-
+  
   # SOLUCIÓN AL ERROR: Eliminamos la lista y lo dejamos como 'default'
   # o lo quitamos, ya que viewDistance hace el trabajo pesado.
   overrideServerProperties: default

@@ -416,7 +416,7 @@ Protection:
     countriesBlacklist: 
     - A1
     # Do we need to enable automatic antibot system?
-    enableAntiBot: true
+    enableAntiBot: false
     # The interval in seconds
     antiBotInterval: 5
     # Max number of players allowed to login in the interval
