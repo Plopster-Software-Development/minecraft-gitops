@@ -110,7 +110,6 @@ resources:
 # Persistencia (Línea 329 del original)
 persistence:
   dataDir:
-  dataDir:
     enabled: true
     existingClaim: "survival-server-minecraft-datadir"
     # size: 15Gi # Comentado para usar el existente
