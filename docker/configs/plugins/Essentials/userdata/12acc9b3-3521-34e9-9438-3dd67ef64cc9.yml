@@ -1,0 +1,47 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 10.42.0.1
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 1767497686593
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1767497690438
+  login: 1767497421139
+money: '0'
+last-account-name: soyalejandro23
+lastlocation:
+  world: 606f0926-8170-4dd4-9a87-a475c13a066a
+  world-name: world
+  x: 3661.699999988079
+  y: 2.0
+  z: 4723.706189396681
+  yaw: -150.59353637695312
+  pitch: 29.249719619750977
+logoutlocation:
+  world: 606f0926-8170-4dd4-9a87-a475c13a066a
+  world-name: world
+  x: 18813.686721890204
+  y: 68.0
+  z: -3070.8707673132985
+  yaw: -66.294189453125
+  pitch: 32.69998550415039
+homes:
+  home:
+    world: 606f0926-8170-4dd4-9a87-a475c13a066a
+    world-name: world
+    x: 18815.356722556207
+    y: 68.0
+    z: -3069.4708955726855
+    yaw: 152.85595703125
+    pitch: 17.550031661987305

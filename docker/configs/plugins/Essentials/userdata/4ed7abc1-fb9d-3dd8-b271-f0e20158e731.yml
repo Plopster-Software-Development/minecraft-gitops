@@ -1,0 +1,38 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 10.42.0.1
+afk: true
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 1767533538720
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1767533281376
+  login: 1767533336652
+money: '0'
+last-account-name: Nicodav28
+lastlocation:
+  world: 606f0926-8170-4dd4-9a87-a475c13a066a
+  world-name: world
+  x: 2.586613857691502
+  y: 42.0
+  z: 141.33618392053134
+  yaw: 1.6980862617492676
+  pitch: 4.1538004875183105
+logoutlocation:
+  world: 606f0926-8170-4dd4-9a87-a475c13a066a
+  world-name: world
+  x: -17.523388467835183
+  y: 77.0
+  z: 38.30975190924347
+  yaw: 15.309076309204102
+  pitch: 20.6119384765625

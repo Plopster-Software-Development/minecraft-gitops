@@ -1,0 +1,17 @@
+accounts:
+  4ed7abc1-fb9d-3dd8-b271-f0e20158e731:
+    nickname: Nicodav28
+    uuid: 4ed7abc1-fb9d-3dd8-b271-f0e20158e731
+    payable: true
+    balances:
+      49526286-d3df-426f-865f-8c96be8c87ac: 10.0
+currencies:
+  49526286-d3df-426f-865f-8c96be8c87ac:
+    singular: Astral
+    plural: Astrals
+    defaultbalance: 0.0
+    decimalsupported: true
+    defaultcurrency: true
+    payable: true
+    color: WHITE
+    exchange_rate: 1.0

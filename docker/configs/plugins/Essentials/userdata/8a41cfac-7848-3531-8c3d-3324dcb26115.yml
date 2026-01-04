@@ -1,0 +1,47 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 10.42.0.1
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 1767504758084
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1767505864634
+  login: 1767502862227
+money: '0'
+last-account-name: Infernux
+lastlocation:
+  world: 606f0926-8170-4dd4-9a87-a475c13a066a
+  world-name: world
+  x: 3670.2836215642837
+  y: 20.922960979112148
+  z: 4782.660433082001
+  yaw: -73.9510498046875
+  pitch: 12.000022888183594
+logoutlocation:
+  world: 606f0926-8170-4dd4-9a87-a475c13a066a
+  world-name: world
+  x: -6.728950677051987
+  y: 74.0
+  z: 27.30000001192093
+  yaw: -99.74948120117188
+  pitch: 22.7999210357666
+homes:
+  home:
+    world: 606f0926-8170-4dd4-9a87-a475c13a066a
+    world-name: world
+    x: 3732.00517647204
+    y: 100.0
+    z: 4866.699999988079
+    yaw: 106.80474853515625
+    pitch: 27.449697494506836

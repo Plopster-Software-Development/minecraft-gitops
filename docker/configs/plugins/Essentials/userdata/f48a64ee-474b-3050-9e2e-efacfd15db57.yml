@@ -1,0 +1,38 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 10.42.0.1
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 1767495739741
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1767497052039
+  login: 1767496126675
+money: '0'
+last-account-name: Freus00
+lastlocation:
+  world: 606f0926-8170-4dd4-9a87-a475c13a066a
+  world-name: world
+  x: 4213.517153618045
+  y: 69.0
+  z: 6199.731105889007
+  yaw: 71.39193725585938
+  pitch: -20.099987030029297
+logoutlocation:
+  world: 606f0926-8170-4dd4-9a87-a475c13a066a
+  world-name: world
+  x: 4213.517153618045
+  y: 69.0
+  z: 6199.731105889007
+  yaw: 71.39193725585938
+  pitch: -20.099987030029297

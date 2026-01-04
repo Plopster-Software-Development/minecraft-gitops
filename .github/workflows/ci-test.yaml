@@ -1,0 +1,67 @@
+name: CI - Test Minecraft Build
+
+# Se activa SOLO en Pull Requests
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-server-startup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Bajar código
+        uses: actions/checkout@v4
+
+      - name: 🐳 Construir imagen Docker (Test Build)
+        run: docker build -t minecraft-test:pr-${{ github.event.number }} .
+
+      - name: 🧪 Ejecutar "Smoke Test" (Arrancar servidor)
+        timeout-minutes: 10 # Si tarda más de 10 min, falla
+        run: |
+          echo "Iniciando servidor de prueba..."
+          
+          # Arrancamos el contenedor en segundo plano (-d)
+          # Le damos 6GB de RAM al runner (tienen 7GB total)
+          # Aceptamos EULA automáticamente para que arranque
+          docker run -d --name mc-test \
+            -e EULA=TRUE \
+            -e TYPE=FORGE \
+            -e VERSION=1.20.1 \
+            -e MEMORY=6G \
+            minecraft-test:pr-${{ github.event.number }}
+
+          # Esperamos a ver señales de vida en los logs
+          echo "Esperando a que el servidor arranque (esto puede tardar unos minutos)..."
+          
+          # Bucle de verificación (Polling)
+          # Busca "Done" (éxito) o "Exception" (error)
+          SUCCESS=0
+          for i in {1..30}; do
+            sleep 20
+            echo "--- Revisando logs (Intento $i/30) ---"
+            
+            # Si encuentra "Done" o "Helpo", el server arrancó bien
+            if docker logs mc-test 2>&1 | grep -q -E "Done \(|For help, type"; then
+              echo "✅ ¡ÉXITO! El servidor arrancó correctamente."
+              SUCCESS=1
+              break
+            fi
+            
+            # Si encuentra un crash report
+            if docker logs mc-test 2>&1 | grep -q "Stopping server"; then
+              echo "❌ ERROR: El servidor se detuvo inesperadamente."
+              docker logs mc-test
+              exit 1
+            fi
+          done
+
+          if [ $SUCCESS -eq 0 ]; then
+            echo "❌ TIMEOUT: El servidor no arrancó a tiempo o falló silenciosamente."
+            # Mostramos las últimas líneas para depurar
+            docker logs --tail 100 mc-test
+            exit 1
+          fi
+
+      - name: 🧹 Limpieza
+        if: always() # Se ejecuta aunque falle
+        run: docker rm -f mc-test

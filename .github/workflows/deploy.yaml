@@ -1,0 +1,76 @@
+name: Deploy Minecraft Server
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'helm/**'
+      - 'custom-plugins/**'
+      - 'Dockerfile'
+      - '.github/workflows/**'
+
+env:
+  # Define aquí el nombre de tu imagen en Docker Hub
+  IMAGE_NAME: nicodav28/minecraft-survival 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Bajar código del repositorio
+        uses: actions/checkout@v4
+
+      - name: 🔐 Login en Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: 🏷️ Generar Tag de Versión
+        id: meta
+        run: |
+          # Creamos una variable VERSION = v1.0.numero_de_ejecucion
+          echo "VERSION=v1.0.${{ github.run_number }}" >> $GITHUB_ENV
+          echo "La nueva versión será: v1.0.${{ github.run_number }}"
+
+      - name: 🐳 Construir y Subir Imagen (Build & Push)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          # Subimos dos tags: el específico (v1.0.55) y el latest
+          tags: |
+            ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+            ${{ env.IMAGE_NAME }}:latest
+
+      - name: ☸️ Instalar Helm
+        uses: azure/setup-helm@v3
+
+      - name: 🔌 Configurar Kubectl
+        uses: azure/k8s-set-context@v3
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+
+      - name: 🚀 Desplegar en Kubernetes
+        run: |
+          echo "Desplegando versión: ${{ env.VERSION }}"
+          
+          # Registramos el repo de itzg
+          helm repo add itzg https://itzg.github.io/minecraft-server-charts/
+          helm repo update
+
+          # Actualizamos Helm inyectando la imagen exacta que acabamos de crear
+          helm upgrade --install survival-server itzg/minecraft \
+            --version 4.19.0 \
+            --namespace minecraft \
+            -f helm/minecraft-values.yaml \
+            --set image.repository=${{ env.IMAGE_NAME }} \
+            --set image.tag=${{ env.VERSION }}
+
+          # Forzamos el reinicio para asegurar que baje la nueva imagen
+          kubectl rollout restart deployment/survival-server-minecraft -n minecraft
+          
+          # Verificamos que el despliegue haya sido exitoso
+          kubectl rollout status deployment/survival-server-minecraft -n minecraft

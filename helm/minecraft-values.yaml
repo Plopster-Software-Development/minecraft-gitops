@@ -1,0 +1,119 @@
+image:
+  #repository: itzg/minecraft-server
+  repository: docker.io/nicodav28/minecraft-survival
+  tag: latest
+  #tag: java21
+  pullPolicy: Always
+
+minecraftServer:
+  eula: "TRUE"
+  version: "1.20.1"
+  type: "MOHIST"
+    #type: "FORGE"
+    #forgeVersion: "47.4.0"
+  difficulty: normal
+  ops: "Nicodav28"
+  maxPlayers: 10
+  onlineMode: false
+  
+  # Flags de optimización de Aikar
+  env:
+    USE_AIKAR_FLAGS: "true"
+
+  # Configuración del Servicio (Líneas 246-249 del original)
+  serviceType: LoadBalancer
+  servicePort: 25565
+
+  memory: 6G
+
+  # RCON (Línea 294 del original)
+  rcon:
+    enabled: true
+    password: "CambiaEstaContrasena123"
+
+  # Personalización y Optimización
+  motd: "\u00A76Bienvenidos al \u00A7bmundo Bbcos \u00A7c[1.20.1]"
+  viewDistance: 6   # Ayuda con el timeout al cargar menos mapa
+  maxTickTime: -1   # Evita que el servidor se cierre por lag procesando mods
+
+  # SOLUCIÓN AL ERROR: Eliminamos la lista y lo dejamos como 'default'
+  # o lo quitamos, ya que viewDistance hace el trabajo pesado.
+  overrideServerProperties: default
+
+  modUrls:
+    - "https://mediafilez.forgecdn.net/files/7087/245/balm-forge-1.20.1-7.3.37-all.jar"
+    - "https://mediafilez.forgecdn.net/files/5137/938/architectury-9.2.14-forge.jar"
+    - "https://mediafilez.forgecdn.net/files/7296/748/ftb-library-forge-2001.2.12.jar"
+    - "https://mediafilez.forgecdn.net/files/6555/287/ftb-essentials-forge-2001.2.3.jar"
+    - "https://mediafilez.forgecdn.net/files/6130/786/ftb-teams-forge-2001.3.1.jar"
+    - "https://mediafilez.forgecdn.net/files/4810/975/ferritecore-6.0.1-forge.jar"
+    - "https://mediafilez.forgecdn.net/files/4631/193/starlight-1.1.2%2Bforge.1cda73c.jar"
+    - "https://mediafilez.forgecdn.net/files/6856/603/waystones-forge-1.20.1-14.1.17.jar"
+    - "https://mediafilez.forgecdn.net/files/5789/363/journeymap-1.20.1-5.10.3-forge.jar"
+    - "https://mediafilez.forgecdn.net/files/6431/735/ftb-chunks-forge-2001.3.6.jar"
+    - "https://mediafilez.forgecdn.net/files/6956/885/tombstone-1.20.1-9.0.9.jar"
+    - "https://mediafilez.forgecdn.net/files/6047/153/Dungeon%20Crawl-1.20.1-2.3.15.jar"
+    - "https://mediafilez.forgecdn.net/files/4983/862/DungeonsArise-1.20.x-2.1.58-release.jar"
+    - "https://mediafilez.forgecdn.net/files/4923/828/Towns-and-Towers-1.12-Fabric%2BForge.jar"
+    - "https://mediafilez.forgecdn.net/files/6948/722/InventoryProfilesNext-forge-1.20-1.10.19.jar"
+    - "https://mediafilez.forgecdn.net/files/4770/828/appleskin-forge-mc1.20.1-2.5.1.jar"
+    - "https://mediafilez.forgecdn.net/files/7391/695/jei-1.20.1-forge-15.20.0.129.jar"
+    - "https://mediafilez.forgecdn.net/files/4638/51/ironchests-5.0.2-forge.jar"
+    - "https://mediafilez.forgecdn.net/files/7010/10/brutalbosses-1.20.1-8.4.jar"
+    - "https://mediafilez.forgecdn.net/files/7110/922/refurbished_furniture-forge-1.20.1-1.0.20.jar"
+    - "https://mediafilez.forgecdn.net/files/5333/907/spelunkers_charm-3.6.0-1.20.1.jar"
+    - "https://mediafilez.forgecdn.net/files/5280/609/moremobvariants-forge%2B1.20.1-1.3.0.1.jar"
+    - "https://mediafilez.forgecdn.net/files/7024/377/PhilipsRuins1.20.1-5.7.jar"
+    - "https://mediafilez.forgecdn.net/files/7113/231/supplementaries-1.20-3.1.41.jar"
+    - "https://mediafilez.forgecdn.net/files/6427/817/Quark-4.0-462.jar"
+    - "https://mediafilez.forgecdn.net/files/6330/928/effortlessbuilding-1.20.1-3.10.jar"
+    - "https://mediafilez.forgecdn.net/files/7335/229/Zeta-1.0-31.jar"
+    - "https://mediafilez.forgecdn.net/files/7291/67/kotlinforforge-4.12.0-all.jar"
+    - "https://mediafilez.forgecdn.net/files/6531/428/framework-forge-1.20.1-0.7.15.jar"
+    - "https://mediafilez.forgecdn.net/files/5869/180/cristellib-1.1.6-forge.jar"
+    - "https://mediafilez.forgecdn.net/files/5470/32/cupboard-1.20.1-2.7.jar"
+    - "https://mediafilez.forgecdn.net/files/7388/296/moonlight-1.20-2.16.19-forge.jar"
+    - "https://mediafilez.forgecdn.net/files/5208/511/libIPN-forge-1.20-4.0.2.jar"
+    - "https://mediafilez.forgecdn.net/files/7414/216/sophisticatedbackpacks-1.20.1-3.24.18.1488.jar"
+    - "https://mediafilez.forgecdn.net/files/7402/37/sophisticatedcore-1.20.1-1.2.117.1347.jar"
+
+
+  pluginUrls:
+    - "https://github.com/espidev/ProtectionStones/releases/download/2.10.4/ProtectionStones-2.10.4.jar"
+    - "https://mediafilez.forgecdn.net/files/4675/318/worldguard-bukkit-7.0.9-dist.jar"
+    - "https://mediafilez.forgecdn.net/files/5326/355/worldedit-bukkit-7.3.1.jar"
+    - "https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar"
+    - "https://github.com/gecolay/GSit/releases/download/3.1.1/GSit-3.1.1.jar"
+    - "https://mediafilez.forgecdn.net/files/3198/633/Clearlag.jar"
+    - "https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsX-2.22.0-dev+53-9ad754b.jar"
+    - "https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXChat-2.22.0-dev+53-9ad754b.jar"
+    - "https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXSpawn-2.22.0-dev+53-9ad754b.jar"
+    - "https://download.luckperms.net/1611/bukkit/loader/LuckPerms-Bukkit-5.5.22.jar"
+    - "https://github.com/NEZNAMY/TAB/releases/download/5.4.0/TAB.v5.4.0.jar"
+
+  overrideCommand:
+      - "/bin/bash"
+      - "-c"
+      - "/usr/local/bin/gitops-entrypoint.sh && /start"
+# Recursos del Contenedor (Nivel raíz, fuera de minecraftServer)
+resources:
+  requests:
+    memory: 6Gi
+    cpu: 2000m
+  limits:
+    memory: 8Gi
+    cpu: 4000m
+
+# Persistencia (Línea 329 del original)
+persistence:
+  dataDir:
+    enabled: true
+    size: 10Gi # Ojo: En tu archivo original 'Size' es con S mayúscula
+    storageClass: "local-path"
+
+# Probes: Aseguramos que K8s espere a que los mods carguen (5 min margen)
+startupProbe:
+  tcpSocket:
+    port: 25565
+  failureThreshold: 30 # 30 intentos * 10 segundos = 300s (5 min)
+  periodSeconds: 10
