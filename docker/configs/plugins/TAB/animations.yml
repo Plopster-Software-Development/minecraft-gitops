@@ -33,12 +33,12 @@ MyAnimation1:
 ServerName:
   change-interval: 300
   texts:
-  - '&c&lServerName'
-  - '&c&n&lServerName'
-  - '&b&lServerName'
-  - '&b&l&nServerName'
-  - '&e&lServerName'
-  - '&e&n&lServerName'
+  - '&c&lMundo Astralis'
+  - '&c&n&lMundo Astralis'
+  - '&b&lMundo Astralis'
+  - '&b&l&nMundo Astralis'
+  - '&e&lMundo Astralis'
+  - '&e&n&lMundo Astralis'
 web:
   change-interval: 200
   texts:
