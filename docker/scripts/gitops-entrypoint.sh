@@ -8,13 +8,25 @@ SOURCE_DIR="/opt/gitops"
 DATA_DIR="/data"
 
 # 1. Sincronizar PLUGINS (Jars y Configs)
-# Usamos rsync para copiar solo lo nuevo o modificado, sin borrar datos de usuarios (bases de datos)
+# Primero copiamos todo lo nuevo sin borrar nada (Seguridad)
 echo "   --> Sincronizando Plugins y Configs..."
 rsync -av --update $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
+
+# Borrado Selectivo: Solo eliminamos .jar que ya no están en el repo
+# Esto evita borrar carpetas de datos (ej: plugins/Essentials/)
+echo "   --> Limpiando plugins antiguos..."
+find $DATA_DIR/plugins/ -maxdepth 1 -name "*.jar" -type f | while read jar; do
+    filename=$(basename "$jar")
+    if [ ! -f "$SOURCE_DIR/plugins/$filename" ]; then
+        echo "       [DELETE] Eliminando plugin obsoleto: $filename"
+        rm "$jar"
+    fi
+done
 
 # 2. Sincronizar Configs de MODS
 echo "   --> Sincronizando Configs de Forge..."
 mkdir -p $DATA_DIR/config
+# Para mods, mantenemos rsync simple sin delete para evitar sustos
 rsync -av --update $SOURCE_DIR/config/ $DATA_DIR/config/
 
 # 3. Sincronizar Propiedades del Server (Si existen)
