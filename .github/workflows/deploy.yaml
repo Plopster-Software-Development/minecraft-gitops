@@ -63,6 +63,7 @@ jobs:
           helm repo update
 
           # Creamos el secreto para bajar la imagen (si es privada)
+          # Usamos la URL v1 que es compatible con k3s y containerd
           kubectl create secret docker-registry regcred \
             --docker-server=https://index.docker.io/v1/ \
             --docker-username="${{ secrets.DOCKER_USERNAME }}" \
@@ -82,8 +83,17 @@ jobs:
             --set image.repository=${{ env.IMAGE_NAME }} \
             --set image.tag=${{ env.VERSION }}
 
+          # WORKAROUND: El chart de itzg no usa imagePullSecrets del values.yaml
+          # Inyectamos el secreto manualmente en el Deployment
+          echo "Inyectando imagePullSecrets en el Deployment..."
+          kubectl patch deployment survival-server-minecraft -n minecraft -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"regcred"}]}}}}'
+
           # Forzamos el reinicio para asegurar que baje la nueva imagen
           kubectl rollout restart deployment/survival-server-minecraft -n minecraft
+          
+          # Esperamos a que el despliegue se complete (timeout 10min)
+          echo "Esperando a que el nuevo pod arranque..."
+          kubectl rollout status deployment/survival-server-minecraft -n minecraft --timeout=10m
 
       - name: 🔔 Notificar Éxito a Discord
         uses: rjstone/discord-webhook-notify@v1
