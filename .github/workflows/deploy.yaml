@@ -11,11 +11,12 @@ on:
 
 env:
   # Define aquí el nombre de tu imagen en Docker Hub
-  IMAGE_NAME: nicodav28/minecraft-survival 
+  IMAGE_NAME: nicolasestevez/minecraft-survival 
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: Deploy
     
     steps:
       - name: 📥 Bajar código del repositorio
