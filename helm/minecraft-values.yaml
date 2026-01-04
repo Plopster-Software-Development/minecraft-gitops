@@ -8,6 +8,13 @@ image:
 imagePullSecrets:
   - name: regcred
 
+# Estrategia para evitar caídas durante el pull de imagen
+deploymentStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 0
+    maxSurge: 1
+
 minecraftServer:
   eula: "TRUE"
   version: "1.20.1"
