@@ -8,6 +8,7 @@ on:
 jobs:
   test-server-startup:
     runs-on: ubuntu-latest
+    environment: Deploy
     steps:
       - name: 📥 Bajar código
         uses: actions/checkout@v4
@@ -65,3 +66,30 @@ jobs:
       - name: 🧹 Limpieza
         if: always() # Se ejecuta aunque falle
         run: docker rm -f mc-test
+        
+
+      - name: 🔔 Notificar Éxito a Discord
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with:
+          severity: info
+          username: "Minecraft CI"
+          details: |
+            ✅ **Test Exitoso**: El servidor de prueba arrancó correctamente.
+            🔹 **PR**: #${{ github.event.number }} - ${{ github.event.pull_request.title }}
+            🔹 **Autor**: ${{ github.actor }}
+            🔹 **Job**: [Ver Logs en GitHub](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: 🚨 Notificar Error a Discord
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with:
+          severity: error
+          username: "Minecraft CI"
+          details: |
+            ❌ **Test FALLIDO**: El servidor no pudo arrancar.
+            🔸 **PR**: #${{ github.event.number }} - ${{ github.event.pull_request.title }}
+            🔸 **Autor**: ${{ github.actor }}
+            🔸 **Job**: [Ver Logs y Errores](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}

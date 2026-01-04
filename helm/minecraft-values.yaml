@@ -5,6 +5,9 @@ image:
   #tag: java21
   pullPolicy: Always
 
+imagePullSecrets:
+  - name: regcred
+
 minecraftServer:
   eula: "TRUE"
   version: "1.20.1"
@@ -107,9 +110,11 @@ resources:
 # Persistencia (Línea 329 del original)
 persistence:
   dataDir:
+  dataDir:
     enabled: true
-    size: 15Gi
-    storageClass: "local-path"
+    existingClaim: "survival-server-minecraft-datadir"
+    # size: 15Gi # Comentado para usar el existente
+    # storageClass: "local-path"
 
 # Probes: Aseguramos que K8s espere a que los mods carguen (5 min margen)
 startupProbe:
