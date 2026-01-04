@@ -1,6 +1,6 @@
 image:
   #repository: itzg/minecraft-server
-  repository: docker.io/nicolasestevez/minecraft-survival
+  repository: nicolasestevez/minecraft-survival
   tag: latest
   #tag: java21
   pullPolicy: Always
