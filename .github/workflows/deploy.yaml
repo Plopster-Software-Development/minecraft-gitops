@@ -73,5 +73,14 @@ jobs:
           # Forzamos el reinicio para asegurar que baje la nueva imagen
           kubectl rollout restart deployment/survival-server-minecraft -n minecraft
           
+
           # Verificamos que el despliegue haya sido exitoso
           kubectl rollout status deployment/survival-server-minecraft -n minecraft
+
+      - name: 🔔 Notificar a Discord
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with:
+          severity: info
+          details: "🚀 **Nuevo Despliegue Exitoso!**\nVersión: `${{ env.VERSION }}`\nEl servidor se está reiniciando con los nuevos cambios."
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}

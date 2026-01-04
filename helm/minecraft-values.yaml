@@ -108,7 +108,7 @@ resources:
 persistence:
   dataDir:
     enabled: true
-    size: 10Gi # Ojo: En tu archivo original 'Size' es con S mayúscula
+    size: 15Gi
     storageClass: "local-path"
 
 # Probes: Aseguramos que K8s espere a que los mods carguen (5 min margen)
@@ -117,3 +117,14 @@ startupProbe:
     port: 25565
   failureThreshold: 30 # 30 intentos * 10 segundos = 300s (5 min)
   periodSeconds: 10
+
+# Copias de Seguridad Automáticas
+mcBackup:
+  enabled: true
+  # Hacemos backup cada 24h
+  interval: 24h
+  # Guardamos los últimos 7 días
+  args: ["-k", "7"]
+  # (Opcional) Si quieres subir a S3/Google Drive, aquí irían las configs
+  # Por defecto guarda en /data/Backups
+
