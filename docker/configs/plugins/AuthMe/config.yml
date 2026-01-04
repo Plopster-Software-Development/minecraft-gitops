@@ -142,7 +142,7 @@ settings:
         - /totp
         # Max number of allowed registrations per IP
         # The value 0 means an unlimited number of registrations!
-        maxRegPerIp: 1
+        maxRegPerIp: 0
         # Minimum allowed username length
         minNicknameLength: 3
         # Maximum allowed username length
@@ -238,7 +238,7 @@ settings:
         UnrestrictedInventories: []
     security:
         # Minimum length of password
-        minPasswordLength: 6
+        minPasswordLength: 5
         # Maximum length of password
         passwordMaxLength: 30
         # Possible values: SHA256, BCRYPT, BCRYPT2Y, PBKDF2, SALTEDSHA512,
