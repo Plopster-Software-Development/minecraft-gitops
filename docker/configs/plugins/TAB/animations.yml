@@ -109,35 +109,35 @@ barcolors:
     - GREEN
     - YELLOW
 admin_prefix:
-  change-interval: 60
+  change-interval: 50
   texts:
     - "&4&l⚡ &c&lADMIN &4&l⚡"
     - "&c&l⚡ &f&lADMIN &c&l⚡"
     - "&f&l⚡ &c&lADMIN &f&l⚡"
     - "&c&l⚡ &4&lADMIN &c&l⚡"
 mod_prefix:
-  change-interval: 90
+  change-interval: 100
   texts:
     - "&2&l✦ &aMOD &2&l✦"
     - "&a&l✦ &fMOD &a&l✦"
     - "&f&l✦ &aMOD &f&l✦"
     - "&a&l✦ &2MOD &a&l✦"
 realeza_prefix:
-  change-interval: 120
+  change-interval: 100
   texts:
     - "&6&l♛ &e&lREALEZA &6&l♛"
     - "&e&l♛ &f&lREALEZA &e&l♛"
     - "&f&l♛ &e&lREALEZA &f&l♛"
     - "&e&l♛ &6&lREALEZA &e&l♛"
 elite_prefix:
-  change-interval: 130
+  change-interval: 150
   texts:
     - "&b&l✧ ELITE ✧"
     - "&3&l✧ &bELITE &3&l✧"
     - "&f&l✧ &bELITE &f&l✧"
     - "&b&l✧ &3ELITE &b&l✧"
 default_prefix:
-  change-interval: 200
+  change-interval: 150
   texts:
     - "&7Viajero"
     - "&fViajero"
