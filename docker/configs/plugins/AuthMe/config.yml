@@ -104,7 +104,7 @@ settings:
         # The next time the player joins the server, if his IP
         # is the same as last time and the timeout hasn't
         # expired, he will not need to authenticate.
-        enabled: false
+        enabled: true
         # After how many minutes should a session expire?
         # A player's session ends after the timeout or if his IP has changed
         timeout: 10
@@ -238,7 +238,7 @@ settings:
         UnrestrictedInventories: []
     security:
         # Minimum length of password
-        minPasswordLength: 5
+        minPasswordLength: 6
         # Maximum length of password
         passwordMaxLength: 30
         # Possible values: SHA256, BCRYPT, BCRYPT2Y, PBKDF2, SALTEDSHA512,

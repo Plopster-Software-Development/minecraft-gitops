@@ -8,13 +8,13 @@ LABEL type="GitOps-Ready"
 ENV GITOPS_DIR="/opt/gitops"
 RUN mkdir -p $GITOPS_DIR/plugins $GITOPS_DIR/config $GITOPS_DIR/server-config
 
-# 2. Copiamos tus JARs físicos ("static-plugins")
-COPY docker/static-plugins/ $GITOPS_DIR/plugins/
-
-# 3. Copiamos tus CONFIGURACIONES (El corazón de tu servidor)
+# 3. Copiamos tus CONFIGURACIONES primero (carpetas de plugins)
 COPY docker/configs/plugins/ $GITOPS_DIR/plugins/
 COPY docker/configs/config/ $GITOPS_DIR/config/
 COPY docker/configs/server.properties $GITOPS_DIR/server-config/
+
+# 2. Copiamos tus JARs físicos DESPUÉS (para que no se sobrescriban)
+COPY docker/static-plugins/*.jar $GITOPS_DIR/plugins/
 
 # 4. Copiamos el script de inyección
 COPY docker/scripts/gitops-entrypoint.sh /usr/local/bin/
