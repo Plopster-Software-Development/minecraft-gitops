@@ -92,4 +92,4 @@ jobs:
             🔸 **PR**: #${{ github.event.number }} - ${{ github.event.pull_request.title }}
             🔸 **Autor**: ${{ github.actor }}
             🔸 **Job**: [Ver Logs y Errores](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL_PRIVATE }}

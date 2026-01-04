@@ -86,10 +86,24 @@ jobs:
           # Verificamos que el despliegue haya sido exitoso
           kubectl rollout status deployment/survival-server-minecraft -n minecraft
 
-      - name: 🔔 Notificar a Discord
+      - name: 🔔 Notificar Éxito a Discord
         uses: rjstone/discord-webhook-notify@v1
         if: success()
         with:
           severity: info
-          details: "🚀 **Nuevo Despliegue Exitoso!**\nVersión: `${{ env.VERSION }}`\nEl servidor se está reiniciando con los nuevos cambios."
+          username: "Minecraft Server"
+          details: "🚀 **¡Servidor Actualizado!** (Versión: `${{ env.VERSION }}`)"
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: 🚨 Notificar Fallo a Discord
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with:
+          severity: error
+          username: "GitOps Deployer"
+          details: |
+            ❌ **Despliegue FALLIDO**
+            Versión Intentada: `${{ env.VERSION }}`
+            Verifica los logs en GitHub Actions.
+            [Ver Error](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL_PRIVATE }}
