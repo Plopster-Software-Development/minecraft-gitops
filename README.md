@@ -11,7 +11,7 @@ Este proyecto implementa un servidor de Minecraft moderno utilizando prácticas 
 
 ## 🚀 Requisitos Previos
 
-Para que el pipeline de CI/CD funcione, necesitas configurar los siguientes **Secrets** en tu repositorio de GitHub (Settings -> Secrets and variables -> Actions):
+Para que el pipeline de CI/CD funcione, necesitas configurar los siguientes **Secrets** en tu repositorio de GitHub (Settings -> Environments -> **Deploy** -> Environment secrets):
 
 | Secret | Descripción |
 | :--- | :--- |
