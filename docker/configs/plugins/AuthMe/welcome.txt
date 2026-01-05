@@ -1,3 +1,7 @@
-Welcome {PLAYER} on {SERVER} server
+&8&m--------------------------------------------------
+              &6&l¡Bienvenido a Mundo Astralis!
+      &eHola, &f{PLAYER}&e. ¡Esperamos que te diviertas!
 
-This server uses AuthMeReloaded protection!
+  &7Jugadores Online: &b{ONLINE}&7/&b{MAXPLAYERS}
+  &7Ping: &a{PING} &8| &7Hora: &a{TIME}
+&8&m--------------------------------------------------
