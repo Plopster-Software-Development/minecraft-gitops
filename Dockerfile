@@ -16,9 +16,9 @@ COPY docker/configs/server.properties $GITOPS_DIR/server-config/
 # 2. Copiamos tus JARs físicos DESPUÉS (para que no se sobrescriban)
 COPY docker/static-plugins/*.jar $GITOPS_DIR/plugins/
 
-# 4. Copiamos el script de inyección
-COPY docker/scripts/gitops-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/gitops-entrypoint.sh
+# 4. Copiamos scripts de inyección y utilidades
+COPY docker/scripts/*.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/*.sh
 
 # 5. Permisos: Aseguramos que el usuario 'minecraft' (UID 1000) sea dueño de esto
 USER root
