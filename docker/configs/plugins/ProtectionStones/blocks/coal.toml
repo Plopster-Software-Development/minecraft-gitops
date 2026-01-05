@@ -1,0 +1,95 @@
+type = "COAL_ORE"
+alias = "ps-basico"
+description = "Zona de protección básica de 11x11 bloques."
+restrict_obtaining = true
+
+# Permitir en todos los mundos excepto los listados (lista vacía = permitida en todos)
+world_list_type = "blacklist"
+worlds = []
+
+prevent_block_place_in_restricted_world = true
+allow_placing_in_wild = true
+placing_bypasses_wg_passthrough = true
+
+[region]
+    distance_between_claims = -1
+    # Radio 5 = 5 bloque a cada lado + centro = 11 bloques de ancho
+    x_radius = 5
+    y_radius = -1
+    z_radius = 5
+    chunk_radius = -1
+    home_x_offset = 0.0
+    home_y_offset = 1.0
+    home_z_offset = 0.0
+
+    flags = [
+        "pvp deny",
+        "tnt deny",
+        "creeper-explosion deny",
+        "wither-damage deny",
+        "greeting &aEntrando a la zona protegida de &f%player%",
+        "farewell &aSaliendo de la zona protegida de &f%player%"
+    ]
+
+    allowed_flags = [
+        "greeting",
+        "farewell",
+        "mob-spawning",
+        "pvp",
+        "use",
+        "chest-access"
+    ]
+
+    hidden_flags_from_info = ["ps-name", "ps-block-material", "ps-price", "ps-rent-settings", "ps-tax-payments-due"]
+    priority = 0
+    allow_overlap_unowned_regions = false
+    allow_other_regions_to_overlap = "owner"
+    allow_merging = true
+    allowed_merging_into_types = ["all"]
+
+[block_data]
+    display_name = "&a&lBloque de Protección: &f&lBásico"
+    lore = [
+        "&7Protege un área de &f11x11 &7bloques.",
+        "&7Ideal para iniciar tu aventura.",
+        "&e(Requiere Carbón)"
+    ]
+    enchanted_effect = false
+    price = 0.0
+    allow_craft_with_custom_recipe = false
+    recipe_amount = 1
+    custom_model_data = -1
+
+[economy]
+    tax_amount = 0.0
+    tax_period = -1
+    tax_payment_time = 86400
+    start_with_tax_autopay = true
+    tenant_rent_role = "member"
+    landlord_still_owner = false
+
+[behaviour]
+    auto_hide = false
+    auto_merge = false
+    no_drop = false
+    prevent_piston_push = true
+    prevent_explode = true
+    destroy_region_when_explode = false
+    prevent_silk_touch = true
+    cost_to_place = 0.0
+    allow_smelt_item = false
+    allow_use_in_crafting = false
+
+[player]
+    allow_shift_right_break = false
+    prevent_teleport_in = false
+    no_moving_when_tp_waiting = true
+    tp_waiting_seconds = 0
+    prevent_ps_get = false
+    prevent_ps_home = false
+    permission = ''
+
+[event]
+    enable = false
+    on_region_create = ['global_message: &e%player% ha creado una zona protegida básica!']
+    on_region_destroy = []

@@ -1,9 +1,9 @@
 # Dynamic Jobs & Economy Pro Configuration
-# Plugin by BooPug Studios - Advanced job and economy system
+# Configuración optimizada para uso conjunto con Jobs Reborn
 
 # Database Configuration
 database:
-  type: "sqlite" # Options: sqlite, mysql, mongodb
+  type: "sqlite"
   mysql:
     host: "localhost"
     port: 3306
@@ -15,212 +15,131 @@ database:
     connection_string: "mongodb://localhost:27017/dynamicjobs"
 
 # Jobs Settings
+# DESACTIVADO: Usamos 'Jobs Reborn' como plugin principal de trabajos.
 jobs:
-  # Enable/disable the job system
-  enabled: true
-  
-  # Maximum jobs a player can have simultaneously
+  enabled: false
   max_jobs_per_player: 3
-  
-  # Job configurations
   miner:
-    enabled: true
-    display_name: "&6Miner"
-    description: "Extract valuable resources from the earth"
-    base_income: 50
-    xp_per_action: 10
-    max_level: 100
-    perks:
-      level_5: "double_ores"
-      level_10: "fortune_boost"
-      level_25: "night_vision"
-      level_50: "haste_permanent"
-    
+    enabled: false
   chef:
-    enabled: true
-    display_name: "&cChef"
-    description: "Master the culinary arts"
-    base_income: 40
-    xp_per_cooking: 8
-    max_level: 100
-    perks:
-      level_5: "saturation_boost"
-      level_15: "speed_cooking"
-      level_30: "golden_food"
-  
+    enabled: false
   farmer:
-    enabled: true
-    display_name: "&aFarmer"
-    description: "Cultivate crops and raise livestock"
-    base_income: 35
-    xp_per_harvest: 12
-    max_level: 100
-    perks:
-      level_5: "crop_growth_boost"
-      level_20: "animal_breeding_bonus"
-      level_40: "weather_immunity"
-  
+    enabled: false
   builder:
-    enabled: true
-    display_name: "&eBuilder"
-    description: "Construct magnificent structures"
-    base_income: 45
-    xp_per_block: 5
-    max_level: 100
-    perks:
-      level_10: "block_efficiency"
-      level_25: "structure_templates"
-      level_50: "creative_flight"
-  
+    enabled: false
   merchant:
-    enabled: true
-    display_name: "&bMerchant"
-    description: "Trade goods and manage commerce"
-    base_income: 60
-    xp_per_trade: 15
-    max_level: 100
-    perks:
-      level_5: "discount_trades"
-      level_15: "bulk_trading"
-      level_35: "market_insights"
+    enabled: false
 
 # Economy Settings
 economy:
   # Enable dynamic pricing based on supply and demand
   dynamic_pricing: true
   
-  # Daily inflation rate (0.02 = 2%)
-  inflation_rate: 0.02
+  # Daily inflation rate (0.0 = 0%) - Desactivado para estabilidad
+  inflation_rate: 0.0
   
-  # Starting money for new players
-  starting_money: 1000
+  # Starting money for new players (Sincronizado con Essentials)
+  starting_money: 500
   
   # Maximum money a player can hold
   max_money: 10000000
   
-  # Admin confirmation settings for large economy transactions
-  # Transactions at or above 'threshold' require a second '/djeconomy confirm' within 'expiry_seconds'.
+  # Admin confirmation settings
   admin_confirmation:
-    threshold: 100000.0       # Default: $100,000.00
-    expiry_seconds: 30        # Default: 30 seconds
+    threshold: 100000.0
+    expiry_seconds: 30
   
   # Tax settings
   taxes:
     enabled: true
-    income_tax_rate: 0.10 # 10% income tax
-    business_tax_rate: 0.15 # 15% business tax
-    property_tax_rate: 0.05 # 5% property tax
+    income_tax_rate: 0.05 # 5% income tax (bajado de 10%)
+    business_tax_rate: 0.10 # 10% business tax
+    property_tax_rate: 0.02 # 2% property tax
 
-# Business Settings
+# Business Settings (Tiendas de jugadores, Restaurantes, etc.)
 business:
-  # Enable the business system
   enabled: true
-  
-  # Maximum employees per business
   max_employees: 10
-  
-  # Business payroll settings
   default_salary: 100.0
-  payroll_interval_hours: 1  # How often to run payroll (in hours)
+  payroll_interval_hours: 24 # Pagar salarios diariamente
   payroll_enabled: true
   max_employees_per_business: 10
+  creation_cost: 5000 # Cuesta 5000 gemas abrir un negocio
   
-  # Cost to create a business
-  creation_cost: 5000
-  
-  # Business types and their settings
   types:
     shop:
-      display_name: "&eShop"
+      display_name: "&eTienda"
       max_employees: 5
-      daily_upkeep: 100
-    
+      daily_upkeep: 50
     restaurant:
-      display_name: "&cRestaurant"
+      display_name: "&cRestaurante"
       max_employees: 8
-      daily_upkeep: 150
-    
+      daily_upkeep: 100
     factory:
-      display_name: "&8Factory"
+      display_name: "&8Fábrica"
       max_employees: 15
-      daily_upkeep: 300
-    
-    farm:
-      display_name: "&aFarm"
-      max_employees: 12
       daily_upkeep: 200
+    farm:
+      display_name: "&aGranja"
+      max_employees: 12
+      daily_upkeep: 100
 
-# Government Settings
+# Government Settings (Alcalde, Elecciones)
 government:
-  # Enable government system
   enabled: true
-  
-  # Election settings
   elections:
     duration_days: 30
-    voting_cost: 0 # Free voting
+    voting_cost: 0
     campaign_cost: 1000
-  
-  # Mayor powers
   mayor:
     can_set_taxes: true
     can_fund_projects: true
-    salary: 1000 # Daily salary
-    max_tax_rate: 0.25 # 25% maximum tax rate
+    salary: 500
+    max_tax_rate: 0.15
 
-# Gig Economy Settings
+# Gig Economy Settings (Encargos puntuales)
 gigs:
-  # Enable gig system
   enabled: true
-  
-  # Maximum active gigs per player
   max_gigs_per_player: 5
-  
-  # Gig posting settings
-  posting_cost: 50.0
-  commission_rate: 0.05  # 5% commission
-  cancellation_penalty: 0.1  # 10% penalty for cancelling
-  timeout_days: 7  # Auto-resolve gigs after 7 days
-  max_active_gigs_per_player: 5  # Maximum active gigs per player in-progress gigs
-  auto_approve_hours: 168      # Auto-approve after 7 days if no response
-  escrow_enabled: true         # Use escrow system for secure payments
+  posting_cost: 20.0
+  commission_rate: 0.05
+  cancellation_penalty: 0.1
+  timeout_days: 7
+  max_active_gigs_per_player: 5
+  auto_approve_hours: 168
+  escrow_enabled: true
 
 # Integration Settings
 integrations:
   vault:
     enabled: true
     use_vault_economy: true
-  
   worldguard:
     enabled: true
     block_xp_in_protected_regions: true
     allowed_regions: []
-  
   mcmmo:
     enabled: true
     stack_perks: true
-  
   luckperms:
     enabled: true
     auto_assign_job_permissions: true
 
 # Messages
 messages:
-  prefix: "&8[&6DynamicJobs&8] "
-  job_joined: "&aYou have joined the %job% job!"
-  job_left: "&cYou have left the %job% job!"
-  job_levelup: "&6Congratulations! You reached level %level% in %job%!"
-  insufficient_funds: "&cYou don't have enough money!"
-  business_created: "&aYour business '%name%' has been created!"
-  gig_posted: "&aYour gig has been posted successfully!"
-  gig_completed: "&aGig completed! You earned $%amount%!"
+  prefix: "&8[&6Economía&8] "
+  job_joined: "&aTe has unido al trabajo %job%!"
+  job_left: "&cHas dejado el trabajo %job%!"
+  job_levelup: "&6¡Felicidades! Alcanzaste el nivel %level% en %job%!"
+  insufficient_funds: "&cNo tienes suficiente dinero."
+  business_created: "&aTu negocio '%name%' ha sido creado!"
+  gig_posted: "&aTu encargo ha sido publicado!"
+  gig_completed: "&aEncargo completado. Ganaste $%amount%!"
 
-# Debug settings
 debug:
   enabled: false
   log_database_queries: false
   log_xp_gains: false
   
 gui:
-  # Fill empty GUI slots with neutral panes to frame menus. Set to false to avoid hover tooltips on empty slots.
   useFillerPanes: true

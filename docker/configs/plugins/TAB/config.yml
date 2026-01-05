@@ -12,7 +12,7 @@ header-footer:
       header:
         - "<#FFFFFF>&m                                                </#FFFF00>"
         - "&3&lMundo Astralis"
-        - "&r&7&l>> %animation:Bienvenido/a%&3 &l%player%&7&l! &7&l<<"
+        - "&r&7&l>> %animation:Bienvenido%&3 &l%player%&7&l! &7&l<<"
         - "&r&7Jugadores en linea: &f%online%"
         - "&6Staff en linea: &e%staffonline%"
         - ""
@@ -246,7 +246,7 @@ mysql:
 
 # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Multi-server-support
 proxy-support:
-  enabled: true
+  enabled: false
   # Supported types: PLUGIN, REDIS, RABBITMQ
   type: PLUGIN
   plugin:

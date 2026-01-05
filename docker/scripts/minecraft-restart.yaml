@@ -1,0 +1,69 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: minecraft-reinicio-programado
+  namespace: minecraft
+spec:
+  schedule: "0 1 * * *" # 8:00 PM Bogotá (01:00 UTC)
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: default 
+          containers:
+          - name: script-reinicio
+            image: bitnami/kubectl:latest
+            env:
+              - name: DISCORD_WEBHOOK_URL
+                valueFrom:
+                  secretKeyRef:
+                    name: discord-webhook-secret
+                    key: url
+            command:
+            - /bin/sh
+            - -c
+            - |
+              # URL viene del secreto 'discord-webhook-secret'
+              WEBHOOK_URL="$DISCORD_WEBHOOK_URL"
+              if [ -z "$WEBHOOK_URL" ]; then echo "Error: Webhook URL no encontrada en variables"; exit 1; fi
+              
+              # 1. Detectar el Pod
+              POD_NAME=$(kubectl get pods -n minecraft --no-headers -o custom-columns=":metadata.name" | grep "survival-server-minecraft" | head -n 1)
+              
+              if [ -z "$POD_NAME" ]; then echo "Pod no encontrado"; exit 1; fi
+
+              # 2. AVISO 5 MINUTOS
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "title @a subtitle {\"text\":\"Guardando mundo y optimizando...\",\"color\":\"yellow\"}"
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "title @a title {\"text\":\"REINICIO EN 5 MIN\",\"color\":\"red\",\"bold\":true}"
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "save-all"
+              sleep 120
+
+              # 3. AVISO 3 MINUTOS
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "title @a subtitle {\"text\":\"Preparen sus bases para el reinicio\",\"color\":\"yellow\"}"
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "title @a title {\"text\":\"REINICIO EN 3 MIN\",\"color\":\"red\",\"bold\":true}"
+              sleep 120
+
+              # 4. AVISO 1 MINUTO
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "title @a subtitle {\"text\":\"El servidor volverá en 1 minuto\",\"color\":\"yellow\"}"
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "title @a title {\"text\":\"¡1 MINUTO!\",\"color\":\"dark_red\",\"bold\":true}"
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "save-all"
+              sleep 50
+
+              # 5. CUENTA REGRESIVA FINAL (10 seg)
+              for i in 10 9 8 7 6 5 4 3 2 1
+              do
+                kubectl exec -n minecraft $POD_NAME -- rcon-cli "title @a subtitle {\"text\":\"Limpiando caché en $i...\",\"color\":\"white\"}"
+                kubectl exec -n minecraft $POD_NAME -- rcon-cli "title @a title {\"text\":\"$i\",\"color\":\"gold\",\"bold\":true}"
+                sleep 1
+              done
+
+              # 6. REINICIO FINAL
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "save-all"
+              if kubectl delete pod $POD_NAME -n minecraft --now; then
+                # Si el borrado fue exitoso, enviamos el aviso a Discord
+                # Usamos wget porque suele venir preinstalado en imágenes ligeras
+                wget --post-data="{\"content\": \"🚀 **El servidor se está reiniciando para optimizar RAM.** \n⌛ Estará en línea en breve (aprox 1-2 min).\"}" --header="Content-Type: application/json" $WEBHOOK_URL -O /dev/null
+              else
+                wget --post-data="{\"content\": \"❌ **Error al intentar reiniciar el pod.** \"}" --header="Content-Type: application/json" $WEBHOOK_URL -O /dev/null
+              fi
+          restartPolicy: OnFailure

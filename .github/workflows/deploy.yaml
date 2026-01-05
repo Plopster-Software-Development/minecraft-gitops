@@ -78,6 +78,38 @@ jobs:
           echo "Verificando existencia del secreto regcred..."
           kubectl get secret regcred -n minecraft
 
+          # ==================================================================================
+          # AVISO EN EL JUEGO + GUARDADO (Pre-Deploy)
+          # Intentamos mandar un mensaje al server actual si está vivo
+          # ==================================================================================
+          echo "📢 Notificando a los jugadores y guardando..."
+          # Buscamos el pod actual (si existe)
+          POD_NAME=$(kubectl get pods -n minecraft -l app=survival-server-minecraft -o jsonpath="{.items[0].metadata.name}" || echo "")
+          
+          if [ ! -z "$POD_NAME" ]; then
+            echo "Pod encontrado: $POD_NAME"
+            # Mandamos alerta RCON
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "title @a title {\"text\":\"⚠ ACTUALIZACIÓN ⚠\",\"color\":\"red\"}" || true
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "title @a subtitle {\"text\":\"Reinicio en 30s - Guardando datos...\",\"color\":\"yellow\"}" || true
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §c⚠ SERVIDOR REINICIANDO PARA ACTUALIZACIÓN ⚠" || true
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §eGuardando mundo..." || true
+            
+            # Forzamos guardado
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "save-all" || true
+            
+            # BACKUP DE EMERGENCIA
+            echo "📦 Generando backup de emergencia (world)..."
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §7[System] Creando copia de seguridad..." || true
+            # Usamos tar para empaquetar el mundo. Puede tardar unos segundos.
+            # Asumimos que el mundo se llama 'world'. Si usas otro nombre, ajustalo.
+            kubectl exec -n minecraft "$POD_NAME" -- /bin/bash -c "mkdir -p /data/Backups && tar -czf /data/Backups/pre-deploy-$(date +%Y%m%d-%H%M%S).tar.gz /data/world" || echo "⚠ Aviso: El backup falló o tardó demasiado, pero continuamos."
+
+            # Esperamos un poco para que lean el mensaje
+            sleep 5
+          else
+            echo "No se encontró un pod activo. Saltando notificación ingame."
+          fi
+
           # Actualizamos Helm inyectando la imagen exacta que acabamos de crear
           helm upgrade --install survival-server itzg/minecraft \
             --version 4.19.0 \
@@ -90,6 +122,14 @@ jobs:
           # Inyectamos el secreto manualmente en el Deployment
           echo "Inyectando imagePullSecrets en el Deployment..."
           kubectl patch deployment survival-server-minecraft -n minecraft -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"regcred"}]}}}}'
+
+          # Aplicamos el CronJob de reinicio automático
+          echo "Aplicando CronJob de reinicio..."
+          kubectl apply -f docker/scripts/minecraft-restart.yaml
+
+          # Aplicamos el CronJob de Manenimiento (Limpieza de Backups)
+          echo "Aplicando CronJob de limpieza..."
+          kubectl apply -f docker/scripts/maintenance-cronjob.yaml
 
           # Forzamos el reinicio para asegurar que baje la nueva imagen
           kubectl rollout restart deployment/survival-server-minecraft -n minecraft
