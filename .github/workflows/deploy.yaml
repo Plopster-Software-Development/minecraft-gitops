@@ -59,24 +59,47 @@ jobs:
 
       - name: 🚀 Desplegar en Kubernetes
         run: |
+          # Función de Reintento (Exponential Backoff)
+          function retry {
+            local retries=$1
+            shift
+            local count=0
+            until "$@"; do
+              exit=$?
+              wait=$((2 ** count))
+              count=$((count + 1))
+              if [ $count -lt $retries ]; then
+                echo "⚠️ Fallo en intento $count/$retries. Reintentando en $wait segundos..."
+                sleep $wait
+              else
+                echo "❌ Fallo definitivo después de $retries intentos."
+                return $exit
+              fi
+            done
+            return 0
+          }
+
           echo "Desplegando versión: ${{ env.VERSION }}"
           
           # Registramos el repo de itzg
           helm repo add itzg https://itzg.github.io/minecraft-server-charts/
-          helm repo update
+          retry 3 helm repo update
 
           # Creamos el secreto para bajar la imagen (si es privada)
-          # Usamos la URL v1 que es compatible con k3s y containerd
+          # Guardamos en archivo temporal para poder reintentar el 'kubectl apply'
           kubectl create secret docker-registry regcred \
             --docker-server=https://index.docker.io/v1/ \
             --docker-username="${{ secrets.DOCKER_USERNAME }}" \
             --docker-password="${{ secrets.DOCKER_PASSWORD }}" \
             --namespace minecraft \
-            --dry-run=client -o yaml | kubectl apply -f -
+            --dry-run=client -o yaml > regcred.yaml
+            
+          retry 5 kubectl apply -f regcred.yaml
+          rm regcred.yaml
 
-          # Verificación rápida del secreto (obfuscada)
+          # Verificación rápida del secreto
           echo "Verificando existencia del secreto regcred..."
-          kubectl get secret regcred -n minecraft
+          retry 3 kubectl get secret regcred -n minecraft
 
           # ==================================================================================
           # AVISO EN EL JUEGO + GUARDADO (Pre-Deploy)
@@ -101,7 +124,6 @@ jobs:
             echo "📦 Generando backup de emergencia (world)..."
             kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §7[System] Creando copia de seguridad..." || true
             # Usamos tar para empaquetar el mundo. Puede tardar unos segundos.
-            # Asumimos que el mundo se llama 'world'. Si usas otro nombre, ajustalo.
             kubectl exec -n minecraft "$POD_NAME" -- /bin/bash -c "mkdir -p /data/Backups && tar -czf /data/Backups/pre-deploy-$(date +%Y%m%d-%H%M%S).tar.gz /data/world" || echo "⚠ Aviso: El backup falló o tardó demasiado, pero continuamos."
 
             # Esperamos un poco para que lean el mensaje
@@ -111,7 +133,8 @@ jobs:
           fi
 
           # Actualizamos Helm inyectando la imagen exacta que acabamos de crear
-          helm upgrade --install survival-server itzg/minecraft \
+          # AÑADIDO: Reintento de 5 veces para evitar "dial tcp i/o timeout"
+          retry 5 helm upgrade --install survival-server itzg/minecraft \
             --version 4.19.0 \
             --namespace minecraft \
             -f helm/minecraft-values.yaml \
@@ -121,15 +144,15 @@ jobs:
           # WORKAROUND: El chart de itzg no usa imagePullSecrets del values.yaml
           # Inyectamos el secreto manualmente en el Deployment
           echo "Inyectando imagePullSecrets en el Deployment..."
-          kubectl patch deployment survival-server-minecraft -n minecraft -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"regcred"}]}}}}'
+          retry 3 kubectl patch deployment survival-server-minecraft -n minecraft -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"regcred"}]}}}}'
 
           # Aplicamos el CronJob de reinicio automático
           echo "Aplicando CronJob de reinicio..."
-          kubectl apply -f docker/scripts/minecraft-restart.yaml
+          retry 3 kubectl apply -f docker/scripts/minecraft-restart.yaml
 
           # Aplicamos el CronJob de Manenimiento (Limpieza de Backups)
           echo "Aplicando CronJob de limpieza..."
-          kubectl apply -f docker/scripts/maintenance-cronjob.yaml
+          retry 3 kubectl apply -f docker/scripts/maintenance-cronjob.yaml
 
           # Forzamos el reinicio para asegurar que baje la nueva imagen
           kubectl rollout restart deployment/survival-server-minecraft -n minecraft
