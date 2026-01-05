@@ -127,6 +127,10 @@ jobs:
           echo "Aplicando CronJob de reinicio..."
           kubectl apply -f docker/scripts/minecraft-restart.yaml
 
+          # Aplicamos el CronJob de Manenimiento (Limpieza de Backups)
+          echo "Aplicando CronJob de limpieza..."
+          kubectl apply -f docker/scripts/maintenance-cronjob.yaml
+
           # Forzamos el reinicio para asegurar que baje la nueva imagen
           kubectl rollout restart deployment/survival-server-minecraft -n minecraft
           

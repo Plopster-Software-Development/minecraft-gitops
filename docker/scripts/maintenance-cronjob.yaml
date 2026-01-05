@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: survival-server-maintenance
+  namespace: minecraft
+spec:
+  schedule: "0 4 * * *" # Ejecutar a las 4:00 AM todos los días
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: maintenace-cleaner
+            image: busybox:latest
+            command:
+            - /bin/sh
+            - -c
+            - |
+              echo "🧹 Iniciando Limpieza de Backups Antiguos..."
+              # Borrar archivos .tar.gz en /data/Backups que tengan más de 7 días de antigüedad
+              find /data/Backups -type f -name "*.tar.gz" -mtime +7 -exec rm {} \; -print
+              echo "✅ Limpieza completada."
+            volumeMounts:
+            - name: datadir
+              mountPath: /data
+          restartPolicy: OnFailure
+          volumes:
+          - name: datadir
+            persistentVolumeClaim:
+              claimName: survival-server-minecraft-datadir
