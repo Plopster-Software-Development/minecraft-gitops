@@ -8,7 +8,7 @@ mysql:
   base: ''
   prefix: betonquest_
   reconnect_interval: 1000
-language: en
+language: es
 update:
   enabled: true
   strategy: MINOR
@@ -21,10 +21,10 @@ acceptNPCLeftClick: false
 npcInteractionLimit: 500
 default_conversation_IO: menu,tellraw
 conversation_colors:
-  npc: dark_red
-  player: dark_green
-  text: green,italic
-  answer: gray
+  npc: gold
+  player: gray
+  text: white
+  answer: yellow
   number: yellow
   option: aqua
 conversation_IO_config:

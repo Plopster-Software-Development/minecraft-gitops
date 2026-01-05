@@ -460,7 +460,7 @@ debug: false
 # For example, to set the language to English, set locale to 'en'. It will then use the file 'messages_en.properties'.
 # Don't forget to remove the # in front of the line.
 # For more information, visit https://essentialsx.net/wiki/Locale.html
-#locale: en
+locale: es
 
 # Should Essentials use the player's language instead of the server's when sending messages?
 # This is useful if you want to use a different language for your server than for your players.
@@ -841,7 +841,7 @@ confirm-home-overwrite: false
 # You can control the values of items that are sold to the server by using the /setworth command and 'worth.yml'.
 
 # Defines the balance new players start with.
-starting-balance: 0
+starting-balance: 500
 
 # Defines the cost to use the given commands PER USE.
 # Some commands like /repair have sub-costs. Check the wiki for more information.
@@ -854,11 +854,11 @@ command-costs:
 # Set this to a currency symbol you want to use.
 # Remember, if you want to use special characters in this document, such as accented letters,
 # you MUST save the file as UTF-8, not ANSI.
-currency-symbol: '$'
+currency-symbol: ' Gemas'
 
 # Enable this to make the currency symbol appear at the end of the amount rather than at the start.
 # For example, the euro symbol typically appears after the current amount.
-currency-symbol-suffix: false
+currency-symbol-suffix: true
 
 # Set the maximum amount of money a player can have.
 # Note: Extremely large numbers may have unintended consequences.
@@ -1239,12 +1239,11 @@ protect:
 # You need to install the EssentialsX Spawn module for this section to work.
 # See https://essentialsx.net/wiki/Module-Breakdown.html for more information.
 
-newbies:
   # Should Essentials announce to the server when someone logs in for the first time?
   # {DISPLAYNAME} will be replaced with the player name.
   # Set to '' to disable.
   #announce-format: ''
-  announce-format: '&dWelcome {DISPLAYNAME}&d to the server!'
+  announce-format: '&d¡Bienvenido {DISPLAYNAME}&d a Mundo Astralis! &e(Jugador #{UNIQUE})'
 
   # When players spawn for the first time, which spawnpoint should be used?
   # Set to 'none' to use the spawnpoint of the world.
@@ -1255,7 +1254,21 @@ newbies:
   # This kit will be given regardless of cost and permissions and won't trigger any kit delay (cooldown).
   # Set to '' to disable.
   #kit: ''
-  kit: tools
+  kit: inicio
+
+# Kits de Essentials (Definidos aquí mismo)
+kits:
+  inicio:
+    delay: -1
+    items:
+      - stone_sword 1
+      - stone_pickaxe 1
+      - stone_axe 1
+      - stone_shovel 1
+      - bread 32
+      - cooked_beef 16
+      - coal 16
+      - golden_shovel 1 name:&ePala_de_Clain lore:&7Usa_esta_pala_para_proteger_tu_zona|&7Click_derecho_en_dos_esquinas
 
 # What priority should Essentials use for handling respawns?
 # Set this to 'none' if you want vanilla respawning behavior.
@@ -1263,13 +1276,13 @@ newbies:
 # Set this to 'high' if you want Essentials Spawn to handle the respawning.
 # Set this to 'highest' if you want to force Essentials Spawn to handle the respawning.
 # Note: Changes will not apply until after the server is restarted.
-respawn-listener-priority: high
+respawn-listener-priority: highest
 
 # What priority should Essentials use for handling spawning on joining the server?
 # See 'respawn-listener-priority' above for possible values.
 # Note: Changing this may impact or break 'spawn-on-join' functionality below.
 # Note: Changes will not apply until after the server is restarted.
-spawn-join-listener-priority: high
+spawn-join-listener-priority: highest
 
 # When players die, should they respawn at their first home or bed instead of the spawnpoint?
 respawn-at-home: true
@@ -1279,7 +1292,7 @@ respawn-at-home: true
 respawn-at-home-bed: true
 
 # When players die, should Essentials respect their respawn anchors?
-respawn-at-anchor: false
+respawn-at-anchor: true
 
 # If configured, players will spawn at a random location instead of their spawnpoint.
 # This will override the newbies spawnpoint set above.

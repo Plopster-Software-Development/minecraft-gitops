@@ -92,3 +92,13 @@ allow_home_teleport_for_members = true
 
     # Notify players of outstanding tax payments for the regions they own.
     tax_message_on_join = true
+
+# Límites de Protecciones por Grupo (Requiere LuckPerms)
+# Permiso: protectionstones.limit.alias (ej: protectionstones.limit.default)
+# -1 = Ilimitado
+[group_limits]
+    default = 2
+    elite = 4
+    realeza = 6
+    moderador = -1
+    administrador = -1

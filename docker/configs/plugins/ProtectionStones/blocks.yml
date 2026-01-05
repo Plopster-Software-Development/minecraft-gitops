@@ -1,0 +1,74 @@
+# ProtectionStones Configuration
+# Bloques de Protección para Mundo Astralis
+
+Blocks:
+  # Bloque Básico (Carbón) - 10x10 (Radio 5)
+  COAL_ORE:
+    alias: "ps-basico"
+    type: "COAL_ORE"
+    world_list: 
+      - "world"
+      - "world_nether"
+      - "world_the_end"
+    # Radio de protección (del centro al borde)
+    radius_x: 5
+    radius_y: 5
+    radius_z: 5
+    # Banderas por defecto (WorldGuard)
+    flags:
+      use: "MEMBERS"
+      chest-access: "MEMBERS"
+      pvp: "DENY"
+      wither-damage: "DENY"
+      creeper-explosion: "DENY"
+      tnt: "DENY"
+      greeting: "&aEntrando a la zona protegida de %player%"
+      farewell: "&Saliedo de la zona protegida de %player%"
+
+  # Bloque Medio (Hierro) - 20x20 (Radio 10)
+  IRON_ORE:
+    alias: "ps-medio"
+    type: "IRON_ORE"
+    world_list: 
+      - "world"
+      - "world_nether"
+      - "world_the_end"
+    radius_x: 10
+    radius_y: 20 # Arriba/Abajo cubre mas
+    radius_z: 10
+    flags:
+      use: "MEMBERS"
+      chest-access: "MEMBERS"
+      pvp: "DENY"
+      wither-damage: "DENY"
+      creeper-explosion: "DENY"
+      tnt: "DENY"
+      greeting: "&bEntrando a la casa de %player%"
+      farewell: "&bSaliendo de la casa de %player%"
+
+  # Bloque Avanzado (Diamante) - 50x50 (Radio 25)
+  DIAMOND_ORE:
+    alias: "ps-avanzado"
+    type: "DIAMOND_ORE"
+    world_list:
+      - "world"
+      - "world_nether"
+      - "world_the_end"
+    radius_x: 25
+    radius_y: 50
+    radius_z: 25
+    flags:
+      use: "MEMBERS"
+      chest-access: "MEMBERS"
+      pvp: "DENY"
+      mob-spawning: "DENY" # Zona segura de mobs
+      creeper-explosion: "DENY"
+      tnt: "DENY"
+      greeting: "&d&l¡Bienvenido a la Fortaleza de %player%!"
+      farewell: "&d&lAdios..."
+
+Config:
+  # Opciones generales
+  cooldown: 10
+  allow_placement_in_wild: true
+  allow_overlap_unowned_regions: false
