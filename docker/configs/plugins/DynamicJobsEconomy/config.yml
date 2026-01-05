@@ -15,20 +15,70 @@ database:
     connection_string: "mongodb://localhost:27017/dynamicjobs"
 
 # Jobs Settings
-# DESACTIVADO: Usamos 'Jobs Reborn' como plugin principal de trabajos.
+# ACTIVADO: Usamos DynamicJobsEconomy para trabajos con precios dinámicos
 jobs:
-  enabled: false
-  max_jobs_per_player: 3
+  enabled: true
+  
+  # Maximum jobs a player can have simultaneously
+  max_jobs_per_player: 2
+  
+  # Job configurations
   miner:
-    enabled: false
+    enabled: true
+    display_name: "&8Minero"
+    description: "Gana dinero picando minerales. ¡Cuidado con la inflación!"
+    base_income: 15
+    xp_per_action: 10
+    max_level: 50
+    perks:
+      level_5: "double_ores"
+      level_10: "fortune_boost"
+      level_25: "night_vision"
+    
   chef:
-    enabled: false
+    enabled: true
+    display_name: "&cChef"
+    description: "Cocina platos deliciosos para ganar dinero."
+    base_income: 12
+    xp_per_cooking: 8
+    max_level: 50
+    perks:
+      level_5: "saturation_boost"
+      level_15: "speed_cooking"
+      level_30: "golden_food"
+  
   farmer:
-    enabled: false
+    enabled: true
+    display_name: "&aGranjero"
+    description: "Cosecha cultivos y cría animales."
+    base_income: 10
+    xp_per_harvest: 12
+    max_level: 50
+    perks:
+      level_5: "crop_growth_boost"
+      level_20: "animal_breeding_bonus"
+  
   builder:
-    enabled: false
+    enabled: true
+    display_name: "&eConstructor"
+    description: "Construye estructuras magníficas."
+    base_income: 10
+    xp_per_block: 5
+    max_level: 50
+    perks:
+      level_10: "block_efficiency"
+      level_25: "structure_templates"
+  
   merchant:
-    enabled: false
+    enabled: true
+    display_name: "&bComerciante"
+    description: "Comercia bienes y gestiona el mercado."
+    base_income: 20
+    xp_per_trade: 15
+    max_level: 50
+    perks:
+      level_5: "discount_trades"
+      level_15: "bulk_trading"
 
 # Economy Settings
 economy:

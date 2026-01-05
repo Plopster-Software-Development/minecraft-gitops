@@ -2,8 +2,8 @@
 # Trabajos balanceados para economía inicial de 500 gemas
 
 Jobs:
-  # --- TRABAJO: LEÑADOR ---
-  Lenador:
+  # --- TRABAJO: LEÑADOR (Woodcutter) ---
+  Woodcutter:
     fullname: "&2Leñador"
     shortname: "L"
     description: 
@@ -11,15 +11,11 @@ Jobs:
       - "&a¡Cuidado con los defensores del bosque!"
     ChatColour: GREEN
     chat-display: full
-    # Nivel máximo
     max-level: 100
-    # Ecuación de experiencia: base + (nivel * factor)
     leveling-progression-equation: 100 + ((level - 1) * 100 * 1.05)
-    # Ganancia base incrementa 0.5% por nivel
     income-progression-equation: baseIncome * ((level - 1) * 0.005 + 1)
     points-progression-equation: basePoints * ((level - 1) * 0.005 + 1)
     
-    # Acciones que pagan
     Break:
       # Maderas comunes
       OAK_LOG:
@@ -60,8 +56,8 @@ Jobs:
         points: 0.5
         experience: 1.0
 
-  # --- TRABAJO: MINERO ---
-  Minero:
+  # --- TRABAJO: MINERO (Miner) ---
+  Miner:
     fullname: "&8Minero"
     shortname: "M"
     description: 
@@ -103,7 +99,7 @@ Jobs:
         income: 20.0
         points: 20.0
         experience: 50.0
-        from-spawner: false # No pagar si es generado mágicamente
+        from-spawner: false
       EMERALD_ORE:
         income: 25.0
         points: 25.0
@@ -113,8 +109,8 @@ Jobs:
         points: 50.0
         experience: 100.0
   
-  # --- TRABAJO: EXCAVADOR ---
-  Excavador:
+  # --- TRABAJO: EXCAVADOR (Digger) ---
+  Digger:
     fullname: "&eExcavador"
     shortname: "E"
     description: 
