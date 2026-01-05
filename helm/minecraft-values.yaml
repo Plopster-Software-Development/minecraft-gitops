@@ -109,7 +109,6 @@ minecraftServer:
     - "https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXSpawn-2.22.0-dev+53-9ad754b.jar"
     - "https://download.luckperms.net/1611/bukkit/loader/LuckPerms-Bukkit-5.5.22.jar"
     - "https://github.com/NEZNAMY/TAB/releases/download/5.4.0/TAB.v5.4.0.jar"
-    - "https://cdn.modrinth.com/data/LJNGWSvH/versions/aJjVABK3/grimac-bukkit-2.3.73-14573da.jar"
 
 # Ejecutamos el script de GitOps ANTES de que Minecraft arranque
 initContainers:
