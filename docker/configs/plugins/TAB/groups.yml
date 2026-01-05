@@ -1,11 +1,7 @@
-#Owner:
-#  tabprefix: "&0&l[&a&lOwner&0&l] &a"
-#  tagprefix: "&2&lOwner &a"
-Player:
-  tabprefix: "&0&l[&7&lPlayer&0&l] &3"
-  tagprefix: "&2&lPlayer &3"
+# Configuración Espectacular de TAB (By AntiGravity)
+# Prioridad: Cuanto mayor, más arriba en el TAB.
+# Formato: RGB Gradients (<#HexStart>Text<#HexEnd>)
 
- # default settings for all groups, all groups will take properties from this section unless player's primary group overrides a specific setting
 _DEFAULT_:
   tabprefix: "%luckperms-prefix%"
   tagprefix: "%luckperms-prefix%"
@@ -13,32 +9,32 @@ _DEFAULT_:
   tabsuffix: "%luckperms-suffix%"
   tagsuffix: "%luckperms-suffix%"
 
-per-world:
-  world1:
-    Owner:
-      tabprefix: "&0&l[&a&lOwner&0&l] &a"
-      tagprefix: "&2&lOwner &a"
-
 administrador:
-  priority: 40
+  priority: 100
   tabprefix: "%animation:admin_prefix% "
   tagprefix: "%animation:admin_prefix% "
 
 moderador:
-  priority: 30
+  priority: 90
   tabprefix: "%animation:mod_prefix% "
   tagprefix: "%animation:mod_prefix% "
+
+reylegendario:
+  priority: 80
+  tabprefix: "%animation:reylegendario_prefix% "
+  tagprefix: "%animation:reylegendario_prefix% "
+
 realeza:
-  priority: 20
+  priority: 70
   tabprefix: "%animation:realeza_prefix% "
   tagprefix: "%animation:realeza_prefix% "
 
 elite:
-  priority: 10
+  priority: 60
   tabprefix: "%animation:elite_prefix% "
   tagprefix: "%animation:elite_prefix% "
 
-default:
-  priority: 1
+default: # Viajero
+  priority: 10
   tabprefix: "%animation:default_prefix% "
   tagprefix: "%animation:default_prefix% "

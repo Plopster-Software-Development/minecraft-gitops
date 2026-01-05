@@ -115,45 +115,49 @@ barcolors:
 admin_prefix:
   change-interval: 100
   texts:
-    - "<#FF0000>⚡ ADMIN ⚡"
-    - "<#FF2020>⚡ ADMIN ⚡"
-    - "<#FF4040>⚡ ADMIN ⚡"
-    - "<#FF2020>⚡ ADMIN ⚡"
-    - "<#FF0000>⚡ ADMIN ⚡"
-    - "<#CC0000>⚡ ADMIN ⚡"
-    - "<#990000>⚡ ADMIN ⚡"
-    - "<#CC0000>⚡ ADMIN ⚡"
+    - "&f&l👑 <#ED213A>&k|&r <#ED213A>ADMIN <#93291E>&k|&r&l"
+    - "&f&l👑 <#F04050>&k|&r <#F04050>ADMIN <#A03525>&k|&r&l"
+    - "&f&l👑 <#F36065>&k|&r <#F36065>ADMIN <#B04530>&k|&r&l"
+    - "&f&l👑 <#F04050>&k|&r <#F04050>ADMIN <#A03525>&k|&r&l"
+    - "&f&l👑 <#ED213A>&k|&r <#ED213A>ADMIN <#93291E>&k|&r&l"
 
 mod_prefix:
+  change-interval: 150
+  texts:
+    - "&f&l🛡️ <#11998e>&k:&r <#11998e>MOD <#38ef7d>&k:&r&l"
+    - "&f&l🛡️ <#22AA9f>&k:&r <#22AA9f>MOD <#48ff8d>&k:&r&l"
+    - "&f&l🛡️ <#11998e>&k:&r <#11998e>MOD <#38ef7d>&k:&r&l"
+
+reylegendario_prefix:
   change-interval: 100
   texts:
-    - "<#00FF00>✦ MOD ✦"
-    - "<#00CC00>✦ MOD ✦"
-    - "<#009900>✦ MOD ✦"
-    - "<#00CC00>✦ MOD ✦"
+    - "&f&l⚔️ <#FDC830>&k!&r <#FDC830>REY LEGENDARIO <#F37335>&k!&r&l"
+    - "&f&l⚔️ <#FDD040>&k!&r <#FDD040>REY LEGENDARIO <#F38045>&k!&r&l"
+    - "&f&l⚔️ <#FDE050>&k!&r <#FDE050>REY LEGENDARIO <#F39055>&k!&r&l"
+    - "&f&l⚔️ <#FDD040>&k!&r <#FDD040>REY LEGENDARIO <#F38045>&k!&r&l"
+    - "&f&l⚔️ <#FDC830>&k!&r <#FDC830>REY LEGENDARIO <#F37335>&k!&r&l"
 
 realeza_prefix:
-  change-interval: 100
+  change-interval: 200
   texts:
-    - "<#FFD700>♛ REALEZA ♛"
-    - "<#FFA500>♛ REALEZA ♛"
-    - "<#FFD700>♛ REALEZA ♛"
-    - "<#FFFF00>♛ REALEZA ♛"
+    - "&f&l⚜️ <#8A2387>&k;&r <#8A2387>Realeza <#E94057>&k;&r&l"
+    - "&f&l⚜️ <#9A3397>&k;&r <#9A3397>Realeza <#F95067>&k;&r&l"
+    - "&f&l⚜️ <#AA43A7>&k;&r <#AA43A7>Realeza <#ff6077>&k;&r&l"
+    - "&f&l⚜️ <#9A3397>&k;&r <#9A3397>Realeza <#F95067>&k;&r&l"
+    - "&f&l⚜️ <#8A2387>&k;&r <#8A2387>Realeza <#E94057>&k;&r&l"
 
 elite_prefix:
   change-interval: 150
   texts:
-    - "<#00FFFF>✧ ELITE ✧"
-    - "<#00AAAA>✧ ELITE ✧"
-    - "<#00FFFF>✧ ELITE ✧"
-    - "<#E0FFFF>✧ ELITE ✧"
+    - "&f&l⚡ <#43C6AC>&k*&r <#43C6AC>Elite <#191654>&k*&r&l"
+    - "&f&l⚡ <#53D6BC>&k*&r <#53D6BC>Elite <#292664>&k*&r&l"
+    - "&f&l⚡ <#63E6CC>&k*&r <#63E6CC>Elite <#393674>&k*&r&l"
+    - "&f&l⚡ <#53D6BC>&k*&r <#53D6BC>Elite <#292664>&k*&r&l"
+    - "&f&l⚡ <#43C6AC>&k*&r <#43C6AC>Elite <#191654>&k*&r&l"
 
 default_prefix:
   change-interval: 200
   texts:
-    - "<#AAAAAA>Viajero"
-    - "<#CCCCCC>Viajero"
-    - "<#FFFFFF>Viajero"
-    - "<#CCCCCC>Viajero"
-    - "<#AAAAAA>Viajero"
+    - "&7Viajero &f"
+
 
