@@ -70,13 +70,13 @@ Simulation:
     # Measured in blocks from the possible movement
     # We account for Optifine by switching trig tables but dropping this to 0.001 will reduce FastMath
     # flagging the anticheat if this compensation doesn't work...
-    threshold: 0.001
+    threshold: 0.05
     # How large of a violation in a tick before the player gets immediately setback?
     # -1 to disable
-    immediate-setback-threshold: 0.1
+    immediate-setback-threshold: 0.5
     # How large of an advantage over all ticks before we start to setback?
     # -1 to disable
-    max-advantage: 1
+    max-advantage: 5
     # After 50 seconds with default config, the player will go from 4 blocks -> 1 block of advantage
     # This is to stop the player from gathering too many violations and never being able to clear them all
     # Default advantage ceiling (x axis = seconds, y axis = 1/1000 block): https://www.desmos.com/calculator/4lovswdarj
@@ -123,7 +123,7 @@ Knockback:
     setback-decay-multiplier: 0.999
     # How large of an offset from the player's velocity should we create a violation for?
     # Measured in blocks from the possible velocity
-    threshold: 0.001
+    threshold: 0.05
     # How large of a violation in a tick before the player gets immediately setback?
     # -1 to disable
     immediate-setback-threshold: 0.1

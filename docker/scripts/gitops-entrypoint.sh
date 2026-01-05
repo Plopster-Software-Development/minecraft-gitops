@@ -29,6 +29,16 @@ echo "🔄 [CONFIGS] Forzando estado desde Git..."
 mkdir -p $DATA_DIR/config
 rsync -av $SOURCE_DIR/config/ $DATA_DIR/config/
 
+# 2.5 Sincronizar Server Configs (Para mundos existentes)
+# Minecraft ignora cambios en config/*-server.toml si ya existe una copia en world/serverconfig.
+# Forzamos la actualización si la carpeta del mundo existe.
+if [ -d "$DATA_DIR/world/serverconfig" ]; then
+    echo "🌍 [WORLD] Actualizando configs de servidor en world/serverconfig..."
+    # Copiamos cualquier archivo -server.toml desde configs
+    # Copiamos solo los archivos que terminan en -server.toml
+    cp -v $DATA_DIR/config/*-server.toml $DATA_DIR/world/serverconfig/ 2>/dev/null || true
+fi
+
 # Plugins y sus Configs
 # Excluimos JARs aquí porque ya se manejan arriba (o se copiarán ahora si faltan)
 # IMPORTANTE: Excluimos carpetas de DATOS dinámicos (userdata, warps) para no sobrescribir el progreso.
