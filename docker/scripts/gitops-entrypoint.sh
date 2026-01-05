@@ -7,13 +7,8 @@ echo "🟢 [GITOPS] Iniciando sincronización de configuración..."
 SOURCE_DIR="/opt/gitops"
 DATA_DIR="/data"
 
-# 1. Sincronizar PLUGINS (Jars y Configs)
-# Primero copiamos todo lo nuevo sin borrar nada (Seguridad)
-echo "   --> Sincronizando Plugins y Configs..."
-rsync -av --update $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
-
-# Borrado Selectivo: Solo eliminamos .jar que ya no están en el repo
-# Esto evita borrar carpetas de datos (ej: plugins/Essentials/)
+# 1. Sincronizar JARs de PLUGINS (Prioridad: Versión del Repo)
+# Borrado de JARs obsoletos
 echo "   --> Limpiando plugins antiguos..."
 find $DATA_DIR/plugins/ -maxdepth 1 -name "*.jar" -type f | while read jar; do
     filename=$(basename "$jar")
@@ -23,20 +18,21 @@ find $DATA_DIR/plugins/ -maxdepth 1 -name "*.jar" -type f | while read jar; do
     fi
 done
 
-# 2. Sincronizar Configs de MODS
-echo "🔄 Sincronizando configuraciones y plugins desde GitOps..."
+# 2. Sincronizar CONFIGURACIONES (Modo: GitOps Estricto)
+# Sobrescribimos SIEMPRE los archivos que existen en el repo.
+# No usamos --update porque el server puede haber tocado el timestamp al apagarse.
+# No usamos --delete para no borrar datos de usuario (userdata, logs, etc).
 
-# Sincronizamos CONFIGS con --update (protege cambios en runtime)
+echo "🔄 [CONFIGS] Forzando estado desde Git..."
+
+# Configs de Mods
 mkdir -p $DATA_DIR/config
-rsync -av --update $SOURCE_DIR/config/ $DATA_DIR/config/
+rsync -av $SOURCE_DIR/config/ $DATA_DIR/config/
 
-# Sincronizamos JARs SIN --update (siempre copia los del repo)
-echo "📦 Copiando plugin JARs..."
-rsync -av --include='*.jar' --exclude='*/' $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
-
-# Sincronizamos carpetas de configuración de plugins CON --update
-echo "⚙️ Sincronizando configuraciones de plugins..."
-rsync -av --update --exclude='*.jar' $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
+# Plugins y sus Configs
+# Excluimos JARs aquí porque ya se manejan arriba (o se copiarán ahora si faltan)
+echo "⚙️ [PLUGINS] Sincronizando JARs y Configs..."
+rsync -av $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
 
 # 3. Sincronizar Propiedades del Server (Si existen)
 if [ -f "$SOURCE_DIR/server-config/server.properties" ]; then
