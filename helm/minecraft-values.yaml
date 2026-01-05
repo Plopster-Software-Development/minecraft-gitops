@@ -124,7 +124,7 @@ resources:
     cpu: 2000m
   limits:
     memory: 8Gi
-    cpu: 4000m
+    cpu: 3000m
 
 # Persistencia (Línea 329 del original)
 persistence:

@@ -108,9 +108,11 @@ settings:
         # After how many minutes should a session expire?
         # A player's session ends after the timeout or if his IP has changed
         timeout: 10
+        teleportToPreLoginLocation: true
     # Message language, available languages:
     # https://github.com/AuthMe/AuthMeReloaded/blob/master/docs/translations.md
     messagesLanguage: en
+    isGhostModeEnabled: true
     # Forces authme to hook into Vault instead of a specific permission handler system.
     forceVaultHook: false
     # Log level: INFO, FINE, DEBUG. Use INFO for general messages,
@@ -166,6 +168,7 @@ settings:
             - world_the_end
         # This option will save the quit location of the players.
         SaveQuitLocation: false
+        applyBlindness: true
         # To activate the restricted user feature you need
         # to enable this option and configure the AllowedRestrictedUser field.
         AllowRestrictedUser: false
@@ -186,7 +189,7 @@ settings:
         # Should not logged in players be teleported to the spawn?
         # After the authentication they will be teleported back to
         # their normal position.
-        teleportUnAuthedToSpawn: false
+        teleportUnAuthedToSpawn: true
         # Can unregistered players walk around?
         allowMovement: false
         # After how many seconds should players who fail to login or register
@@ -203,7 +206,7 @@ settings:
         DenyTabCompleteBeforeLogin: false
         # Should we display all other accounts from a player when he joins?
         # permission: /authme.admin.accounts
-        displayOtherAccounts: true
+        displayOtherAccounts: false
         # Spawn priority; values: authme, essentials, cmi, multiverse, default
         spawnPriority: authme,essentials,cmi,multiverse,default
         # Maximum Login authorized by IP
