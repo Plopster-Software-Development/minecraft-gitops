@@ -109,7 +109,7 @@ teleport-cooldown: 0
 
 # The delay, in seconds, before a player actually teleports.
 # If the player moves or gets attacked in this timeframe, the teleport is cancelled.
-teleport-delay: 0
+teleport-delay: 3
 
 # The delay, in seconds, during which a player can't be attacked by other players after being teleported by a command.
 # This also prevents the player from attacking others.
@@ -375,30 +375,30 @@ use-nbt-serialization-in-createkit: false
 # Note: 'color' is not an actual sign type; it enables using color codes on signs when the correct permissions are given.
 enabledSigns:
   #- color
-  #- balance
-  #- buy
+  - balance
+  - buy
   #- free
-  #- sell
-  #- trade
+  - sell
+  - trade
   #- enchant
-  #- repair
+  - repair
   #- gamemode
-  #- heal
+  - heal
   #- info
-  #- kit
+  - kit
   #- mail
   #- randomteleport
-  #- warp
+  - warp
   #- anvil
   #- cartography
-  #- disposal
+  - disposal
   #- grindstone
   #- loom
   #- smithing
   #- workbench
   #- spawnmob
   #- time
-  #- weather
+  - weather
 
 # This defines how many times per second Essentials signs can be interacted with per player.
 # Values should be between 1-20, with 20 being virtually no lag protection.
@@ -638,7 +638,7 @@ repair-enchanted: true
 
 # Allow "unsafe" enchantments in kits and item spawning.
 # WARNING: Mixing and over-leveling some enchantments can cause issues with clients, servers, and plugins.
-unsafe-enchantments: false
+unsafe-enchantments: true
 
 # The maximum distance in blocks from the player that the /tree and /bigtree commands can spawn trees.
 tree-command-range-limit: 300
