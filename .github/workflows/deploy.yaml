@@ -97,8 +97,15 @@ jobs:
             # Forzamos guardado
             kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "save-all" || true
             
+            # BACKUP DE EMERGENCIA
+            echo "📦 Generando backup de emergencia (world)..."
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §7[System] Creando copia de seguridad..." || true
+            # Usamos tar para empaquetar el mundo. Puede tardar unos segundos.
+            # Asumimos que el mundo se llama 'world'. Si usas otro nombre, ajustalo.
+            kubectl exec -n minecraft "$POD_NAME" -- /bin/bash -c "mkdir -p /data/Backups && tar -czf /data/Backups/pre-deploy-$(date +%Y%m%d-%H%M%S).tar.gz /data/world" || echo "⚠ Aviso: El backup falló o tardó demasiado, pero continuamos."
+
             # Esperamos un poco para que lean el mensaje
-            sleep 10
+            sleep 5
           else
             echo "No se encontró un pod activo. Saltando notificación ingame."
           fi
