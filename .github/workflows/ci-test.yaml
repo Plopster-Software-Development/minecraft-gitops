@@ -16,19 +16,28 @@ jobs:
       - name: 🐳 Construir imagen Docker (Test Build)
         run: docker build -t minecraft-test:pr-${{ github.event.number }} .
 
+      - name: ⚙️ Extraer Mods y Plugins de Helm
+        id: config
+        uses: mikefarah/yq@master
+        with:
+          cmd: |
+            MODS=$(yq '.minecraftServer.modUrls | join(",")' helm/minecraft-values.yaml)
+            PLUGINS=$(yq '.minecraftServer.pluginUrls | join(",")' helm/minecraft-values.yaml)
+            echo "mods=$MODS" >> $GITHUB_OUTPUT
+            echo "plugins=$PLUGINS" >> $GITHUB_OUTPUT
+
       - name: 🧪 Ejecutar "Smoke Test" (Arrancar servidor)
-        timeout-minutes: 10 # Si tarda más de 10 min, falla
+        timeout-minutes: 10
         run: |
-          echo "Iniciando servidor de prueba..."
+          echo "Iniciando servidor de prueba con MODS y PLUGINS..."
           
-          # Arrancamos el contenedor en segundo plano (-d)
-          # Le damos 6GB de RAM al runner (tienen 7GB total)
-          # Aceptamos EULA automáticamente para que arranque
           docker run -d --name mc-test \
             -e EULA=TRUE \
             -e TYPE=FORGE \
             -e VERSION=1.20.1 \
             -e MEMORY=6G \
+            -e MODS="${{ steps.config.outputs.mods }}" \
+            -e PLUGINS="${{ steps.config.outputs.plugins }}" \
             minecraft-test:pr-${{ github.event.number }}
 
           # Esperamos a ver señales de vida en los logs
