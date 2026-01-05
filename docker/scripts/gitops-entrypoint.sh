@@ -29,6 +29,26 @@ echo "🔄 [CONFIGS] Forzando estado desde Git..."
 mkdir -p $DATA_DIR/config
 rsync -av $SOURCE_DIR/config/ $DATA_DIR/config/
 
+# 2.5 Sincronizar Server Configs (Para mundos existentes)
+# Minecraft ignora cambios en config/*-server.toml si ya existe una copia en world/serverconfig.
+# Forzamos la actualización si la carpeta del mundo existe.
+if [ -d "$DATA_DIR/world/serverconfig" ]; then
+    echo "🌍 [WORLD] Actualizando configs de servidor en world/serverconfig..."
+    # Copiamos cualquier archivo -server.toml desde configs
+    # Copiamos solo los archivos que terminan en -server.toml
+    cp -v $DATA_DIR/config/*-server.toml $DATA_DIR/world/serverconfig/ 2>/dev/null || true
+fi
+
+# 2.6 Ajustar Permisos (Crucial para imagenes de itzg)
+# Aseguramos que el usuario minecraft (1000) sea dueño de todo lo que tocamos.
+echo "👮 [PERMISSIONS] Ajustando propietario a 1000:1000..."
+chown -R 1000:1000 $DATA_DIR/config
+chown -R 1000:1000 $DATA_DIR/plugins
+# Si tocamos world/serverconfig, ajustamos permisos ahi tambien
+if [ -d "$DATA_DIR/world/serverconfig" ]; then
+    chown -R 1000:1000 $DATA_DIR/world/serverconfig
+fi
+
 # Plugins y sus Configs
 # Excluimos JARs aquí porque ya se manejan arriba (o se copiarán ahora si faltan)
 # IMPORTANTE: Excluimos carpetas de DATOS dinámicos (userdata, warps) para no sobrescribir el progreso.

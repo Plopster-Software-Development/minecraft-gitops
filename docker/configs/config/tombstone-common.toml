@@ -19,7 +19,7 @@
 	nerf_ghostly_shape_teleport_with_key = true
 	#The radius in which items should be collected when a grave is spawned [1..10|default:5]
 	#Range: 1 ~ 10
-	sniffer_range = 5
+	sniffer_range = 10
 	#The chance that creatures appear after the contents of a grave are retrieved [0..100|default:0]
 	#Range: 0 ~ 100
 	chance_mob_on_grave_recovery = 0
@@ -79,10 +79,10 @@
 	time_for_phantom_spawn = 72000
 	#Cooldown in minutes to use the command tbrequestteleport [-1..1440|default:-1]
 	#Range: -1 ~ 1440
-	cooldown_request_teleport = -1
+	cooldown_request_teleport = 60
 	#Cooldown in minutes to use the command tbteleportdeath [-1..1440|default:-1]
 	#Range: -1 ~ 1440
-	cooldown_teleport_death = -1
+	cooldown_teleport_death = 60
 	#Beneficial effects that can't used by certain features such as ankh of prayer, lollipop, scroll of preservation, alchemy perk and magic siphon enchantment
 	unhandled_beneficial_effects = ["astralsorcery:potiontimefreeze"]
 	#Harmful effects that can't used by certain features such as tablet of cupidity and the enchantment plague bringer

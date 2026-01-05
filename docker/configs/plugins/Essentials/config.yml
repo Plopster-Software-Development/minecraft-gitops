@@ -813,8 +813,10 @@ world-home-permissions: false
 # For more information, visit https://wiki.ess3.net/wiki/Multihome
 sethome-multiple:
   default: 3
-  vip: 5
-  staff: 10
+  elite: 5
+  realeza: 10
+  reylegendario: 20
+  unlimited: 100
 
 # Controls whether players need the permission 'essentials.home.compass' in order to point
 # the player's compass toward their first home.

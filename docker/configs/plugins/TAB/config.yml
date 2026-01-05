@@ -221,6 +221,7 @@ use-primary-group: true
 primary-group-finding-list:
   - administrador
   - moderador
+  - reylegendario
   - realeza
   - elite
   - default
