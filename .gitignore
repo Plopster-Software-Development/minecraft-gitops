@@ -1,0 +1,50 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+crash-reports/
+debug/
+
+# Data & Databases (CRITICAL)
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+*.bin
+*.dat
+*.lock
+
+# User Data & Dynamics
+userdata/
+users/
+players/
+playerdata/
+stats/
+advancements/
+
+# Backups
+backup/
+backups/
+*.tar.gz
+*.zip
+
+# Plugin Specific runtime data
+authme.db
+items.json
+usermap.bin
+uuids.bin
+luckperms-h2*
+json-storage/
+yaml-storage/
+database/
+cache/
+temp/
+
+# IDE
+.idea/
+.vscode/
+*.swp

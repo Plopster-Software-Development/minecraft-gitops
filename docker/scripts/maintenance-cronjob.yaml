@@ -19,7 +19,7 @@ spec:
             - |
               echo "🧹 Iniciando Limpieza de Backups Antiguos..."
               # Borrar archivos .tar.gz en /data/Backups que tengan más de 7 días de antigüedad
-              find /data/Backups -type f -name "*.tar.gz" -mtime +7 -exec rm {} \; -print
+              find /data/Backups -type f -name "*.tar.gz" -mtime +3 -exec rm {} \; -print
               echo "✅ Limpieza completada."
             volumeMounts:
             - name: datadir
