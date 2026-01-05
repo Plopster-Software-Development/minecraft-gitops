@@ -78,6 +78,31 @@ jobs:
           echo "Verificando existencia del secreto regcred..."
           kubectl get secret regcred -n minecraft
 
+          # ==================================================================================
+          # AVISO EN EL JUEGO + GUARDADO (Pre-Deploy)
+          # Intentamos mandar un mensaje al server actual si está vivo
+          # ==================================================================================
+          echo "📢 Notificando a los jugadores y guardando..."
+          # Buscamos el pod actual (si existe)
+          POD_NAME=$(kubectl get pods -n minecraft -l app=survival-server-minecraft -o jsonpath="{.items[0].metadata.name}" || echo "")
+          
+          if [ ! -z "$POD_NAME" ]; then
+            echo "Pod encontrado: $POD_NAME"
+            # Mandamos alerta RCON
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "title @a title {\"text\":\"⚠ ACTUALIZACIÓN ⚠\",\"color\":\"red\"}" || true
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "title @a subtitle {\"text\":\"Reinicio en 30s - Guardando datos...\",\"color\":\"yellow\"}" || true
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §c⚠ SERVIDOR REINICIANDO PARA ACTUALIZACIÓN ⚠" || true
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §eGuardando mundo..." || true
+            
+            # Forzamos guardado
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "save-all" || true
+            
+            # Esperamos un poco para que lean el mensaje
+            sleep 10
+          else
+            echo "No se encontró un pod activo. Saltando notificación ingame."
+          fi
+
           # Actualizamos Helm inyectando la imagen exacta que acabamos de crear
           helm upgrade --install survival-server itzg/minecraft \
             --version 4.19.0 \
