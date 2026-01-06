@@ -60,10 +60,30 @@ spec:
               # 6. REINICIO FINAL
               kubectl exec -n minecraft $POD_NAME -- rcon-cli "save-all"
               if kubectl delete pod $POD_NAME -n minecraft --now; then
-                # Si el borrado fue exitoso, enviamos el aviso a Discord
-                # Usamos wget porque suele venir preinstalado en imágenes ligeras
-                wget --post-data="{\"content\": \"🚀 **El servidor se está reiniciando para optimizar RAM.** \n⌛ Estará en línea en breve (aprox 1-2 min).\"}" --header="Content-Type: application/json" $WEBHOOK_URL -O /dev/null
+                wget --post-data="{\"content\": \"🚀 **El servidor se está reiniciando.**\n⌛ Estará en línea en breve (aprox 1-2 min).\"}" \
+                  --header="Content-Type: application/json" \
+                  "$DISCORD_WEBHOOK_URL" -O /dev/null
               else
-                wget --post-data="{\"content\": \"❌ **Error al intentar reiniciar el pod.** \"}" --header="Content-Type: application/json" $WEBHOOK_URL -O /dev/null
+                wget --post-data="{\"content\": \"❌ **Error al reiniciar.**\"}" \
+                  --header="Content-Type: application/json" \
+                  "$DISCORD_WEBHOOK_URL" -O /dev/null
+              fi
+
+
+              echo "⌛ Esperando a que el servidor esté listo..."
+
+              # 7. ESPERAR A QUE EL NUEVO POD ESTÉ 'READY'
+              # Esperamos hasta 300 segundos (5 min) a que el pod con label 'app=minecraft' esté listo
+              if kubectl wait --for=condition=ready pod -l app=minecraft -n minecraft --timeout=300s; then
+                # Mensaje de Servidor Online
+                wget --post-data="{\"content\": \"✅ **¡EL SERVIDOR YA ESTÁ ONLINE!** \n🎮 Ya pueden entrar a jugar. \n📌 Versión: Survival 1.20.1\"}" \
+                  --header="Content-Type: application/json" \
+                  "$DISCORD_WEBHOOK_URL" -O /dev/null
+                  
+              else
+                # Mensaje de Error si tarda demasiado
+                wget --post-data="{\"content\": \"⚠️ **El servidor tarda demasiado en arrancar.** \nRevisen los logs si no pueden entrar en unos minutos.\"}" \
+                  --header="Content-Type: application/json" \
+                  "$DISCORD_WEBHOOK_URL" -O /dev/null
               fi
           restartPolicy: OnFailure
