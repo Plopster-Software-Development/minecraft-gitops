@@ -19,9 +19,10 @@ spec:
             - /bin/sh
             - -c
             - |
-              echo "🧹 Ejecutando: crictl rmi --prune"
-              # Especificamos el socket de containerd usado por K3s
-              export CONTAINER_RUNTIME_ENDPOINT=unix:///run/k3s/containerd/containerd.sock
+              echo "🧹 Forzando limpieza de imágenes..."
+              # Definimos los endpoints para que no busque el archivo .yaml
+              export IMAGE_SERVICE_ENDPOINT="unix:///run/k3s/containerd/containerd.sock"
+              export CONTAINER_RUNTIME_ENDPOINT="unix:///run/k3s/containerd/containerd.sock"
               crictl rmi --prune
             volumeMounts:
             - name: containerd-socket

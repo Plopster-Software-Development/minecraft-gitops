@@ -64,8 +64,17 @@ fi
 echo ""
 echo "🚀 Restaurando..."
 # Forzamos overwrite (-overwrite) y verbose (-v)
-# Descomprimimos en la raíz (/) porque los backups se guardan con rutas absolutas (/data/...)
-tar -xzvf "$file" -C /
+# Detector inteligente de tipo de backup (Relativo vs Absoluto)
+FIRST_FILE=$(tar -tf "$file" | head -n 1)
+if [[ "$FIRST_FILE" == data/* ]]; then
+    echo "detectado backup LEGACY (rutas absolutas). Restaurando en / ..."
+    DEST_DIR="/"
+else
+    echo "detectado backup NUEVO (rutas relativas). Restaurando en /data ..."
+    DEST_DIR="/data"
+fi
+
+tar -xzvf "$file" -C "$DEST_DIR"
 
 echo ""
 echo "✅ Restauración completada."
