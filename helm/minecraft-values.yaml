@@ -150,7 +150,7 @@ startupProbe:
 
 # Copias de Seguridad Automáticas
 mcBackup:
-  enabled: true
+  enabled: false
   # Hacemos backup cada 24h
   interval: 24h
   # Guardamos los últimos 7 días

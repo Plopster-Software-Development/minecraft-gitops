@@ -22,5 +22,5 @@ RUN chmod +x /usr/local/bin/*.sh
 
 # 5. Permisos: Aseguramos que el usuario 'minecraft' (UID 1000) sea dueño de esto
 USER root
-RUN chown -R 1000:1000 $GITOPS_DIR /usr/local/bin/gitops-entrypoint.sh
+RUN chown -R 1000:1000 $GITOPS_DIR /usr/local/bin/*.sh
 USER 1000

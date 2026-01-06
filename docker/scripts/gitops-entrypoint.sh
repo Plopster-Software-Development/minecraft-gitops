@@ -27,7 +27,7 @@ echo "🔄 [CONFIGS] Forzando estado desde Git..."
 
 # Configs de Mods
 mkdir -p $DATA_DIR/config
-rsync -av $SOURCE_DIR/config/ $DATA_DIR/config/
+rsync -avc $SOURCE_DIR/config/ $DATA_DIR/config/
 
 # 2.5 Sincronizar Server Configs (Para mundos existentes)
 # Minecraft ignora cambios en config/*-server.toml si ya existe una copia en world/serverconfig.
@@ -53,7 +53,7 @@ fi
 # Excluimos JARs aquí porque ya se manejan arriba (o se copiarán ahora si faltan)
 # IMPORTANTE: Excluimos carpetas de DATOS dinámicos (userdata, warps) para no sobrescribir el progreso.
 echo "⚙️ [PLUGINS] Sincronizando JARs y Configs..."
-rsync -av \
+rsync -avc \
     --exclude='userdata/' \
     --exclude='playerdata/' \
     --exclude='warps/' \
