@@ -119,7 +119,7 @@ initContainers:
   - name: gitops-sync
     image: nicolasestevez/minecraft-survival:latest
     securityContext:
-      runAsUser: 0
+      runAsUser: 1000
     command: ["/bin/bash", "-c"]
     args:
       - |
