@@ -123,8 +123,8 @@ jobs:
             # BACKUP DE EMERGENCIA
             echo "📦 Generando backup de emergencia (world)..."
             kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §7[System] Creando copia de seguridad..." || true
-            # Usamos tar para empaquetar el mundo. Puede tardar unos segundos.
-            kubectl exec -n minecraft "$POD_NAME" -- /bin/bash -c "mkdir -p /data/Backups && tar -czf /data/Backups/pre-deploy-$(date +%Y%m%d-%H%M%S).tar.gz /data/world /data/plugins" || echo "⚠ Aviso: El backup falló o tardó demasiado, pero continuamos."
+            # Usamos el script unificado de backup (con save-off/trap)
+            kubectl exec -n minecraft "$POD_NAME" -- /usr/local/bin/essentials-backup.sh || echo "⚠ Aviso: El backup falló, pero continuamos."
 
             # Esperamos un poco para que lean el mensaje
             sleep 5
