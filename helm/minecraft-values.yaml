@@ -155,6 +155,9 @@ mcBackup:
   interval: 24h
   # Guardamos los últimos 7 días
   args: ["-k", "7"]
+  # Evitamos la recursividad excluyendo la carpeta de backups
+  env:
+    EXCLUDES: "/data/Backups"
   # (Opcional) Si quieres subir a S3/Google Drive, aquí irían las configs
   # Por defecto guarda en /data/Backups
 

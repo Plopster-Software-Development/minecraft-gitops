@@ -147,12 +147,17 @@ jobs:
           retry 3 kubectl patch deployment survival-server-minecraft -n minecraft -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"regcred"}]}}}}'
 
           # Aplicamos el CronJob de reinicio automático
-          echo "Aplicando CronJob de reinicio..."
+          echo "Aplicando Permisos RBAC y CronJob de reinicio..."
+          retry 3 kubectl apply -f docker/scripts/restart-rbac.yaml
           retry 3 kubectl apply -f docker/scripts/minecraft-restart.yaml
 
-          # Aplicamos el CronJob de Manenimiento (Limpieza de Backups)
+          # Aplicamos el CronJob de Manenimiento (Limpieza de Backups y Logs)
           echo "Aplicando CronJob de limpieza..."
           retry 3 kubectl apply -f docker/scripts/maintenance-cronjob.yaml
+          
+          # Aplicamos Limpieza de Sistema (Imagenes y Pods)
+          echo "Aplicando Limpieza de Sistema (K3s)..."
+          retry 3 kubectl apply -f docker/scripts/k8s-cleaner.yaml
 
           # Forzamos el reinicio para asegurar que baje la nueva imagen
           kubectl rollout restart deployment/survival-server-minecraft -n minecraft

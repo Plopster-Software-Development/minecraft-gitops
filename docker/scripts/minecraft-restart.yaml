@@ -9,7 +9,7 @@ spec:
     spec:
       template:
         spec:
-          serviceAccountName: default 
+          serviceAccountName: minecraft-restarter 
           containers:
           - name: script-reinicio
             image: bitnami/kubectl:latest
