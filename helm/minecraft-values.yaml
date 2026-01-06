@@ -15,6 +15,9 @@ deploymentStrategy:
     maxUnavailable: 0
     maxSurge: 1
 
+securityContext:
+  fsGroup: 1000
+
 minecraftServer:
   eula: "TRUE"
   version: "1.20.1"

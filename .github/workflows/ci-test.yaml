@@ -129,6 +129,9 @@ jobs:
           # 2. Ejecutar Script de Sincronización como si fuera el initContainer
           # Montamos fake-data en /data y corremos el script
           printf "\n🔄 Ejecutando sincronización...\n"
+          # Permisos para que el usuario 1000 (container) pueda escribir en el volumen host
+          chmod -R 777 fake-data
+
           docker run --rm \
             -v $(pwd)/fake-data:/data \
             --user 1000 \
