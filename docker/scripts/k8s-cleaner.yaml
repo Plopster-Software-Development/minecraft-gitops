@@ -1,0 +1,58 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: k3s-image-pruner
+  namespace: minecraft
+spec:
+  schedule: "0 */6 * * *" # Cada 6 horas
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: pruner
+            image: rancher/k3s:v1.26.5-k3s1 # Usamos una imagen de K3s que tiene crictl
+            imagePullPolicy: IfNotPresent
+            securityContext:
+              privileged: true
+            command:
+            - /bin/sh
+            - -c
+            - |
+              echo "🧹 Ejecutando: crictl rmi --prune"
+              # Especificamos el socket de containerd usado por K3s
+              export CONTAINER_RUNTIME_ENDPOINT=unix:///run/k3s/containerd/containerd.sock
+              crictl rmi --prune
+            volumeMounts:
+            - name: containerd-socket
+              mountPath: /run/k3s/containerd/containerd.sock
+          volumes:
+          - name: containerd-socket
+            hostPath:
+              path: /run/k3s/containerd/containerd.sock
+              type: Socket
+          restartPolicy: OnFailure
+          hostNetwork: true # A veces necesario para acceder a recursos del nodo
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: pod-cleaner
+  namespace: minecraft
+spec:
+  schedule: "0 */12 * * *" # Cada 12 horas
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: minecraft-restarter
+          containers:
+          - name: cleaner
+            image: bitnami/kubectl:latest
+            command:
+            - /bin/sh
+            - -c
+            - |
+              echo "🗑️ Borrando pods completados (Succeeded)..."
+              kubectl delete pods --field-selector=status.phase==Succeeded -n minecraft
+          restartPolicy: OnFailure

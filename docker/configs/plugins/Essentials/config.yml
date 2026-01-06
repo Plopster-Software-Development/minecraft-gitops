@@ -425,11 +425,11 @@ unprotected-sign-names:
 # Backups can also be triggered manually with /backup.
 backup:
   # The interval in minutes.
-  interval: 30
+  # interval: 30
   # If true, the backup task will run even if there are no players online.
-  always-run: true
+  # always-run: true
   # Script personalizado de backup (World + Plugins)
-  command: '/usr/local/bin/essentials-backup.sh'
+  # command: '/usr/local/bin/essentials-backup.sh'
 
 # Set this to true to enable permissions per warp.
 per-warp-permission: false

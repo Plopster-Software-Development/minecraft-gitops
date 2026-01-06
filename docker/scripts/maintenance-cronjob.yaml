@@ -18,9 +18,20 @@ spec:
             - -c
             - |
               echo "🧹 Iniciando Limpieza de Backups Antiguos..."
-              # Borrar archivos .tar.gz en /data/Backups que tengan más de 7 días de antigüedad
-              find /data/Backups -type f -name "*.tar.gz" -mtime +3 -exec rm {} \; -print
-              echo "✅ Limpieza completada."
+              if [ -d "/data/Backups" ]; then
+                # Borrar archivos .tar.gz y .zip en /data/Backups que tengan más de 3 días
+                find /data/Backups -type f \( -name "*.tar.gz" -o -name "*.zip" \) -mtime +3 -exec rm {} \; -print
+                echo "✅ Limpieza completada."
+              else
+                echo "⚠️ No se encontró la carpeta /data/Backups. Saltando limpieza."
+              fi
+              
+              echo "📜 Limpiando Logs antiguos..."
+              if [ -d "/data/logs" ]; then
+                # Borrar logs comprimidos o antiguos (>1 días)
+                find /data/logs -type f \( -name "*.log" -o -name "*.gz" \) -mtime +1 -exec rm {} \; -print
+                echo "✅ Logs limpiados."
+              fi
             volumeMounts:
             - name: datadir
               mountPath: /data
