@@ -41,13 +41,13 @@ fi
 
 # 2.6 Ajustar Permisos (Crucial para imagenes de itzg)
 # Aseguramos que el usuario minecraft (1000) sea dueño de todo lo que tocamos.
-echo "👮 [PERMISSIONS] Ajustando propietario a 1000:1000..."
+# echo "👮 [PERMISSIONS] Ajustando propietario a 1000:1000..."
 # chown -R 1000:1000 $DATA_DIR/config
 # chown -R 1000:1000 $DATA_DIR/plugins
 # Si tocamos world/serverconfig, ajustamos permisos ahi tambien
-if [ -d "$DATA_DIR/world/serverconfig" ]; then
-    # chown -R 1000:1000 $DATA_DIR/world/serverconfig
-fi
+# if [ -d "$DATA_DIR/world/serverconfig" ]; then
+#     # chown -R 1000:1000 $DATA_DIR/world/serverconfig
+# fi
 
 # Plugins y sus Configs
 # Excluimos JARs aquí porque ya se manejan arriba (o se copiarán ahora si faltan)
