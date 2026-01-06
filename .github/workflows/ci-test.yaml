@@ -103,3 +103,46 @@ jobs:
             🔸 **Autor**: ${{ github.actor }}
             🔸 **Job**: [Ver Logs y Errores](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL_PRIVATE }}
+
+  test-gitops-sync:
+    runs-on: ubuntu-latest
+    needs: test-server-startup
+    steps:
+      - name: 📥 Bajar código
+        uses: actions/checkout@v4
+
+      - name: 🐳 Construir imagen Docker (Reutilizar Layer Cache)
+        run: docker build -t minecraft-test:pr-${{ github.event.number }} .
+
+      - name: 🧪 Test de Sincronización GitOps (InitContainer Simulation)
+        run: |
+          echo "Simulando entorno de persistencia..."
+          mkdir -p fake-data/plugins/Essentials
+          
+          # 1. Crear config OBSOLETA (interval: 30)
+          echo "backup:" > fake-data/plugins/Essentials/config.yml
+          echo "  interval: 30" >> fake-data/plugins/Essentials/config.yml
+          
+          echo "📝 Configuración inicial (OBSOLETA):"
+          cat fake-data/plugins/Essentials/config.yml
+          
+          # 2. Ejecutar Script de Sincronización como si fuera el initContainer
+          # Montamos fake-data en /data y corremos el script
+          printf "\n🔄 Ejecutando sincronización...\n"
+          docker run --rm \
+            -v $(pwd)/fake-data:/data \
+            --user 0 \
+            --entrypoint /usr/local/bin/gitops-entrypoint.sh \
+            minecraft-test:pr-${{ github.event.number }}
+            
+          # 3. Validación
+          echo "📝 Configuración post-sync:"
+          cat fake-data/plugins/Essentials/config.yml
+          
+          if grep -q "interval: 1440" fake-data/plugins/Essentials/config.yml; then
+            echo "✅ ¡ÉXITO! El config.yml fue actualizado correctamente."
+            exit 0
+          else
+            echo "❌ FALLO: El config.yml NO fue actualizado. Sigue teniendo el valor antiguo."
+            exit 1
+          fi
