@@ -120,7 +120,8 @@ minecraftServer:
 # Ejecutamos el script de GitOps ANTES de que Minecraft arranque
 initContainers:
   - name: gitops-sync
-    image: nicolasestevez/minecraft-survival:latest
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    imagePullPolicy: {{ .Values.image.pullPolicy }}
     securityContext:
       runAsUser: 1000
     command: ["/bin/bash", "-c"]
