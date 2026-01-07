@@ -5,6 +5,13 @@ image:
   #tag: java21
   pullPolicy: Always
 
+# Define permisos a nivel de POD (Aplica a todos los contenedores)
+# fsGroup: 1000 hace que Kubernetes cambie el dueño del volumen /data a 1000 automáticamente
+securityContext:
+  fsGroup: 1000
+  runAsUser: 1000
+  runAsGroup: 1000
+
 imagePullSecrets:
   - name: regcred
 
@@ -123,10 +130,7 @@ initContainers:
     # La etiqueta 'latest' es un placeholder. El CI/CD la sobrescribe con la versión correcta usando --set
     image: nicolasestevez/minecraft-survival:latest
     securityContext:
-      runAsUser: 0
-      runAsGroup: 0
-      privileged: true   # Añade esto para dar permisos totales de sistema
-      allowPrivilegeEscalation: true # Permite que el proceso suba a root
+      runAsUser: 1000
     command: ["/bin/bash", "-c"]
     args:
       - |
