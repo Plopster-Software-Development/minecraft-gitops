@@ -139,7 +139,8 @@ jobs:
             --namespace minecraft \
             -f helm/minecraft-values.yaml \
             --set image.repository=${{ env.IMAGE_NAME }} \
-            --set image.tag=${{ env.VERSION }}
+            --set image.tag=${{ env.VERSION }} \
+            --set initContainers[0].image=${{ env.IMAGE_NAME }}:${{ env.VERSION }}
 
           # WORKAROUND: El chart de itzg no usa imagePullSecrets del values.yaml
           # Inyectamos el secreto manualmente en el Deployment
