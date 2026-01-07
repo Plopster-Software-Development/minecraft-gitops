@@ -39,16 +39,6 @@ if [ -d "$DATA_DIR/world/serverconfig" ]; then
     cp -v $DATA_DIR/config/*-server.toml $DATA_DIR/world/serverconfig/ 2>/dev/null || true
 fi
 
-# 2.6 Ajustar Permisos (Crucial para imagenes de itzg)
-# Aseguramos que el usuario minecraft (1000) sea dueño de todo lo que tocamos.
-echo "👮 [PERMISSIONS] Ajustando propietario a 1000:1000..."
-chown -R 1000:1000 $DATA_DIR/config
-chown -R 1000:1000 $DATA_DIR/plugins
-# Si tocamos world/serverconfig, ajustamos permisos ahi tambien
-if [ -d "$DATA_DIR/world/serverconfig" ]; then
-    chown -R 1000:1000 $DATA_DIR/world/serverconfig
-fi
-
 # Plugins y sus Configs
 # Excluimos JARs aquí porque ya se manejan arriba (o se copiarán ahora si faltan)
 # IMPORTANTE: Excluimos carpetas de DATOS dinámicos (userdata, warps) para no sobrescribir el progreso.
@@ -79,6 +69,23 @@ rsync -avci \
 if [ -f "$SOURCE_DIR/server-config/server.properties" ]; then
     echo "   --> Forzando server.properties desde el repo..."
     cp $SOURCE_DIR/server-config/server.properties $DATA_DIR/server.properties
+fi
+
+# 4. Ajustar Permisos FINAL (Crucial para imagenes de itzg)
+# MOVIDO AL FINAL: Ejecutamos esto AL FINAL para asegurar que todo lo copiado 
+# (incluso si rsync corrió como root) pertenezca al usuario minecraft (1000).
+if [ "$(id -u)" -eq 0 ]; then
+    echo "👮 [PERMISSIONS] Ajustando propietario a 1000:1000..."
+    chown -R 1000:1000 $DATA_DIR/config
+    chown -R 1000:1000 $DATA_DIR/plugins
+    if [ -d "$DATA_DIR/world/serverconfig" ]; then
+        chown -R 1000:1000 $DATA_DIR/world/serverconfig
+    fi
+    if [ -f "$DATA_DIR/server.properties" ]; then
+        chown 1000:1000 "$DATA_DIR/server.properties"
+    fi
+else
+    echo "⚠️ [PERMISSIONS] Saltando ajuste de permisos (No soy root, UID=$(id -u))"
 fi
 
 echo "✅ [GITOPS] Sincronización completada. Arrancando servidor..."
