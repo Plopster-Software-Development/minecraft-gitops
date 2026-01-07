@@ -74,14 +74,18 @@ fi
 # 4. Ajustar Permisos FINAL (Crucial para imagenes de itzg)
 # MOVIDO AL FINAL: Ejecutamos esto AL FINAL para asegurar que todo lo copiado 
 # (incluso si rsync corrió como root) pertenezca al usuario minecraft (1000).
-echo "👮 [PERMISSIONS] Ajustando propietario a 1000:1000..."
-chown -R 1000:1000 $DATA_DIR/config
-chown -R 1000:1000 $DATA_DIR/plugins
-if [ -d "$DATA_DIR/world/serverconfig" ]; then
-    chown -R 1000:1000 $DATA_DIR/world/serverconfig
-fi
-if [ -f "$DATA_DIR/server.properties" ]; then
-    chown 1000:1000 "$DATA_DIR/server.properties"
+if [ "$(id -u)" -eq 0 ]; then
+    echo "👮 [PERMISSIONS] Ajustando propietario a 1000:1000..."
+    chown -R 1000:1000 $DATA_DIR/config
+    chown -R 1000:1000 $DATA_DIR/plugins
+    if [ -d "$DATA_DIR/world/serverconfig" ]; then
+        chown -R 1000:1000 $DATA_DIR/world/serverconfig
+    fi
+    if [ -f "$DATA_DIR/server.properties" ]; then
+        chown 1000:1000 "$DATA_DIR/server.properties"
+    fi
+else
+    echo "⚠️ [PERMISSIONS] Saltando ajuste de permisos (No soy root, UID=$(id -u))"
 fi
 
 echo "✅ [GITOPS] Sincronización completada. Arrancando servidor..."
