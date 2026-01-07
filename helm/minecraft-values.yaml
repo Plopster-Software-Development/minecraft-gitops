@@ -124,6 +124,9 @@ initContainers:
     image: nicolasestevez/minecraft-survival:latest
     securityContext:
       runAsUser: 0
+      runAsGroup: 0
+      privileged: true   # Añade esto para dar permisos totales de sistema
+      allowPrivilegeEscalation: true # Permite que el proceso suba a root
     command: ["/bin/bash", "-c"]
     args:
       - |
