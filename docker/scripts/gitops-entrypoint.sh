@@ -42,18 +42,18 @@ fi
 # 2.6 Ajustar Permisos (Crucial para imagenes de itzg)
 # Aseguramos que el usuario minecraft (1000) sea dueño de todo lo que tocamos.
 echo "👮 [PERMISSIONS] Ajustando propietario a 1000:1000..."
-# chown -R 1000:1000 $DATA_DIR/config
-# chown -R 1000:1000 $DATA_DIR/plugins
+chown -R 1000:1000 $DATA_DIR/config
+chown -R 1000:1000 $DATA_DIR/plugins
 # Si tocamos world/serverconfig, ajustamos permisos ahi tambien
 if [ -d "$DATA_DIR/world/serverconfig" ]; then
-    # chown -R 1000:1000 $DATA_DIR/world/serverconfig
+    chown -R 1000:1000 $DATA_DIR/world/serverconfig
 fi
 
 # Plugins y sus Configs
 # Excluimos JARs aquí porque ya se manejan arriba (o se copiarán ahora si faltan)
 # IMPORTANTE: Excluimos carpetas de DATOS dinámicos (userdata, warps) para no sobrescribir el progreso.
 echo "⚙️ [PLUGINS] Sincronizando JARs y Configs..."
-rsync -avc \
+rsync -avci \
     --exclude='userdata/' \
     --exclude='playerdata/' \
     --exclude='warps/' \
@@ -69,10 +69,10 @@ rsync -avc \
     --exclude='luckperms-h2*' \
     --exclude='json-storage/' \
     --exclude='yaml-storage/' \
-    --exclude='plugins/WorldGuard/worlds/' \
-    --exclude='plugins/VotingPlugin/Data/' \
-    --exclude='plugins/GrimAC/database/' \
-    --exclude='plugins/ProtectionStones/blocks/' \
+    --exclude='WorldGuard/worlds/' \
+    --exclude='VotingPlugin/Data/' \
+    --exclude='GrimAC/database/' \
+    --exclude='ProtectionStones/blocks/' \
     $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
 
 # 3. Sincronizar Propiedades del Server (Si existen)
