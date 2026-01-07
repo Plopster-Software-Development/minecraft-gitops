@@ -134,7 +134,7 @@ jobs:
 
           docker run --rm \
             -v $(pwd)/fake-data:/data \
-            --user 0 \
+            --user 1000 \
             --entrypoint /usr/local/bin/gitops-entrypoint.sh \
             minecraft-test:pr-${{ github.event.number }}
             
