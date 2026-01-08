@@ -27,8 +27,9 @@ echo "🔄 [CONFIGS] Forzando estado desde Git..."
 
 # Configs de Mods
 mkdir -p $DATA_DIR/config
-# Usamos --no-o --no-g porque si corremos como non-root, rsync falla al intentar setear owner/group
-rsync -avc --no-o --no-g $SOURCE_DIR/config/ $DATA_DIR/config/
+# Usamos -rlDtvc (sin -p, -o, -g) para que rsync no intente cambiar permisos ni dueños, 
+# solo copie contenido y tiempos. Esto evita errores code 23 en volúmenes compartidos.
+rsync -rlDtvci $SOURCE_DIR/config/ $DATA_DIR/config/
 
 # 2.5 Sincronizar Server Configs (Para mundos existentes)
 # Minecraft ignora cambios en config/*-server.toml si ya existe una copia en world/serverconfig.
@@ -44,7 +45,7 @@ fi
 # Excluimos JARs aquí porque ya se manejan arriba (o se copiarán ahora si faltan)
 # IMPORTANTE: Excluimos carpetas de DATOS dinámicos (userdata, warps) para no sobrescribir el progreso.
 echo "⚙️ [PLUGINS] Sincronizando JARs y Configs..."
-rsync -avci --no-o --no-g \
+rsync -rlDtvci \
     --exclude='userdata/' \
     --exclude='playerdata/' \
     --exclude='warps/' \
