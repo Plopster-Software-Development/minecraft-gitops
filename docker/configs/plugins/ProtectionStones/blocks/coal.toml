@@ -24,9 +24,10 @@ placing_bypasses_wg_passthrough = true
 
     flags = [
         "pvp deny",
-        "tnt deny",
         "creeper-explosion deny",
         "wither-damage deny",
+        "ghast-fireball deny",
+        "interact allow",
         "greeting &aEntrando a la zona protegida de &f%player%",
         "farewell &aSaliendo de la zona protegida de &f%player%"
     ]
@@ -55,7 +56,11 @@ placing_bypasses_wg_passthrough = true
         "&e(Requiere Carbón)"
     ]
     enchanted_effect = false
-    price = 0.0
+    # Add price when using /ps get
+    # Must have compatible economy plugin (requires Vault, ie. Essentials)
+    # Must be a decimal (ex. not 10, but 10.0)
+    # Precio aumentado por inflación
+    price = 10000.0
     allow_craft_with_custom_recipe = false
     recipe_amount = 1
     custom_model_data = -1
