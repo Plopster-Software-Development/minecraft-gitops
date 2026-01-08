@@ -60,7 +60,8 @@ minecraftServer:
   viewDistance: 6   # Ayuda con el timeout al cargar menos mapa
   maxTickTime: -1   # Evita que el servidor se cierre por lag procesando mods
   
-  # SOLUCIÓN AL ERROR: Eliminamos la lista y lo dejamos como 'default'
+  # SOLUCIÓN AL ERROR:- [x] Limitar trabajos simultáneos a 1 (DynamicJobsEconomy) <!-- id: 10 -->
+  # - [x] Proponer mejoras de experiencia (Menús, Chat, Tab) <!-- id: 11 -->
   # o lo quitamos, ya que viewDistance hace el trabajo pesado.
   overrideServerProperties: default
 
@@ -129,6 +130,7 @@ minecraftServer:
     - "https://mediafilez.forgecdn.net/files/4587/214/player-animation-lib-forge-1.0.2-rc1%2B1.20.jar"
     - "https://mediafilez.forgecdn.net/files/5423/987/Bookshelf-Forge-1.20.1-20.2.13.jar"
     - "https://mediafilez.forgecdn.net/files/5096/38/coroutil-forge-1.20.1-1.3.7.jar"
+    #- "https://cdn.modrinth.com/data/IAvnm8Mq/versions/IbBS4IKW/villagerinabucket-1.20.1-1.4.2.jar"
   
   pluginUrls:
     - "https://github.com/espidev/ProtectionStones/releases/download/2.10.4/ProtectionStones-2.10.4.jar"
