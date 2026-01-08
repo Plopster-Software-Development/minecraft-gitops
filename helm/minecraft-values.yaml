@@ -126,7 +126,11 @@ minecraftServer:
     - "https://mediafilez.forgecdn.net/files/7221/710/the_masked-5.2.0-1.20.1.jar"
     - "https://mediafilez.forgecdn.net/files/7418/952/InvMove-0.9.3%2B1.20.1-Forge.jar"
     - "https://mediafilez.forgecdn.net/files/5714/556/viner-2.2.2.jar"
-    
+    - "https://mediafilez.forgecdn.net/files/6668/653/kurolib-0.1-forge-1.20.1.jar"
+    - "https://mediafilez.forgecdn.net/files/4587/214/player-animation-lib-forge-1.0.2-rc1%2B1.20.jar"
+    - "https://mediafilez.forgecdn.net/files/5423/987/Bookshelf-Forge-1.20.1-20.2.13.jar"
+    - "https://mediafilez.forgecdn.net/files/5096/38/coroutil-forge-1.20.1-1.3.7.jar"
+  
   pluginUrls:
     - "https://github.com/espidev/ProtectionStones/releases/download/2.10.4/ProtectionStones-2.10.4.jar"
     - "https://mediafilez.forgecdn.net/files/4675/318/worldguard-bukkit-7.0.9-dist.jar"
