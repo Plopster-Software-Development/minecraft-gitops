@@ -28,6 +28,8 @@ placing_bypasses_wg_passthrough = true
         "wither-damage deny",
         "ghast-fireball deny",
         "interact allow",
+        "chest-access allow",
+        "use allow",
         "greeting &aEntrando a la zona protegida de &f%player%",
         "farewell &aSaliendo de la zona protegida de &f%player%"
     ]
