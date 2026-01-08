@@ -49,7 +49,7 @@ jobs:
           for i in {1..30}; do
             sleep 20
             echo "--- Revisando logs (Intento $i/30) ---"
-            docker logs --tail 10 mc-test
+            docker logs --tail 30 mc-test
             
             # Si encuentra "Done" o "Helpo", el server arrancó bien
             if docker logs mc-test 2>&1 | grep -q -E "Done \(|For help, type"; then
