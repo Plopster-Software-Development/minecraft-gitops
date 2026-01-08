@@ -1,9 +1,9 @@
 name: CI - Test Minecraft Build
 
-# Se activa SOLO en Pull Requests
+# Se activa SOLO en Push a dev
 on:
-  pull_request:
-    branches: [ "main" ]
+  push:
+    branches: [ "dev" ]
 
 jobs:
   test-server-startup:
