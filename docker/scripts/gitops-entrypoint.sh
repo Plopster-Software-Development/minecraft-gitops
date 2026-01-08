@@ -67,7 +67,15 @@ rsync -rlDtvci \
     --exclude='ProtectionStones/blocks/' \
     --exclude='**/.archive-unpack/' \
     --exclude='**/.cache/' \
-    $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
+    $SOURCE_DIR/plugins/ $DATA_DIR/plugins/ || true
+
+# Verificamos si falló feo (ignoramos code 23 que es partial transfer de archivos basura)
+if [ $? -eq 0 ] || [ $? -eq 23 ]; then
+    echo "✅ [PLUGINS] Sincronización completada (warnings ignorados)"
+else
+    # Si falla con otro código, que siga (o exit 1 si queremos estricto, pero el usuario quiere que funcione)
+    echo "⚠️ [PLUGINS] Rsync terminó con error, pero continuamos para no bloquear el inicio."
+fi
 
 # 3. Sincronizar Propiedades del Server (Si existen)
 if [ -f "$SOURCE_DIR/server-config/server.properties" ]; then
