@@ -64,6 +64,8 @@ rsync -avci --no-o --no-g \
     --exclude='VotingPlugin/Data/' \
     --exclude='GrimAC/database/' \
     --exclude='ProtectionStones/blocks/' \
+    --exclude='**/.archive-unpack/' \
+    --exclude='**/.cache/' \
     $SOURCE_DIR/plugins/ $DATA_DIR/plugins/
 
 # 3. Sincronizar Propiedades del Server (Si existen)
