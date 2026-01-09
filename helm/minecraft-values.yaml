@@ -73,7 +73,7 @@ minecraftServer:
     - "https://mediafilez.forgecdn.net/files/4810/975/ferritecore-6.0.1-forge.jar"
     - "https://mediafilez.forgecdn.net/files/4631/193/starlight-1.1.2%2Bforge.1cda73c.jar"
     - "https://mediafilez.forgecdn.net/files/6856/603/waystones-forge-1.20.1-14.1.17.jar"
-    # - "https://mediafilez.forgecdn.net/files/6431/735/ftb-chunks-forge-2001.3.6.jar"
+    - "https://mediafilez.forgecdn.net/files/6431/735/ftb-chunks-forge-2001.3.6.jar"
     - "https://mediafilez.forgecdn.net/files/6956/885/tombstone-1.20.1-9.0.9.jar"
     - "https://mediafilez.forgecdn.net/files/6047/153/Dungeon%20Crawl-1.20.1-2.3.15.jar"
     - "https://mediafilez.forgecdn.net/files/4983/862/DungeonsArise-1.20.x-2.1.58-release.jar"
