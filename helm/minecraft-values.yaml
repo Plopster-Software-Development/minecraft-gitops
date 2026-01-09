@@ -179,6 +179,19 @@ initContainers:
       - |
         echo "🔄 GitOps: Sincronizando configuraciones..."
         /usr/local/bin/gitops-entrypoint.sh
+
+        echo "🌾 [SEED] Forzando semilla correcta..."
+        sed -i "s/^level-seed=.*/level-seed=-7871749140102981904/" /data/server.properties
+        
+        echo "📦 [DATAPACK] Instalando BetterVillage..."
+        # Detectar nombre del mundo dinámicamente
+        WORLD_NAME=$(grep "level-name" /data/server.properties | cut -d'=' -f2)
+        # Asegurar que existe directorio (si el mundo es nuevo, se creará al arrancar, pre-creamoscarpeta)
+        mkdir -p "/data/${WORLD_NAME}/datapacks"
+        # Descargar (Usamos -O para sobreescribir si existe)
+        wget -q -O "/data/${WORLD_NAME}/datapacks/BetterVillage_IceAndFire.zip" \
+          "https://mediafilez.forgecdn.net/files/6315/244/BetterVillage_IceAndFire_1.20.1.zip"
+        
         echo "✅ GitOps: Sincronización completada"
     volumeMounts:
       - name: datadir
