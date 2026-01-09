@@ -86,6 +86,8 @@ placing_bypasses_wg_passthrough = true
         "wither-damage deny",
         "ghast-fireball deny",
         "interact allow",
+        "chest-access allow",
+        "use allow",
     ]
 
     # List all the flags that can be set by region owners.

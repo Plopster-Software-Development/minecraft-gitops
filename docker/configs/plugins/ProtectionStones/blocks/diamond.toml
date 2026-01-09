@@ -28,6 +28,8 @@ placing_bypasses_wg_passthrough = true
         "wither-damage deny",
         "ghast-fireball deny",
         "interact allow",
+        "chest-access allow",
+        "use allow",
         "mob-spawning deny",
         "greeting &dEntrando a la fortaleza de &f%player%",
         "farewell &dSaliendo de la fortaleza de &f%player%"
