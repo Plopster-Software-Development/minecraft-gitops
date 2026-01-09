@@ -142,7 +142,10 @@ minecraftServer:
     - "https://mediafilez.forgecdn.net/files/6563/409/bettervillage-forge-1.20.1-3.3.1-all.jar"
     - "https://mediafilez.forgecdn.net/files/7193/486/dungeons_and_combat-1.2.4-forge-1.20.1.jar"
     - "https://mediafilez.forgecdn.net/files/5280/243/mcdw-9.0.4.jar"
-
+    - "https://mediafilez.forgecdn.net/files/7148/563/%5B1.20.1%5D%20SecurityCraft%20v1.10.1.jar"
+    - "https://mediafilez.forgecdn.net/files/4601/234/libraryferret-forge-1.20.1-4.0.0.jar"
+    - "https://mediafilez.forgecdn.net/files/6418/456/curios-forge-5.14.1%2B1.20.1.jar"
+    
   pluginUrls:
     - "https://github.com/espidev/ProtectionStones/releases/download/2.10.4/ProtectionStones-2.10.4.jar"
     - "https://mediafilez.forgecdn.net/files/4675/318/worldguard-bukkit-7.0.9-dist.jar"
