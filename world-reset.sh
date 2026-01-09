@@ -3,49 +3,70 @@
 # --- CONFIGURACIÓN ---
 NAMESPACE="minecraft"
 DEPLOYMENT="survival-server-minecraft"
-BACKUP_PATH="/data/Backups/Essentials"
 DATE=$(date +%Y%m%d_%H%M%S)
 
-echo "🚀 Iniciando proceso de reseteo del mundo 'Astralis'..."
+echo "====================================================="
+echo "🚀 INICIANDO RESETEO TOTAL: TEMPORADA ASTRALIS 🚀"
+echo "====================================================="
 
 # 1. Obtener el nombre del Pod
-POD_NAME=$(kubectl get pods -n $NAMESPACE -l app.kubernetes.io/instance=survival-server-minecraft -o jsonpath="{.items[0].metadata.name}")
+POD_NAME=$(kubectl get pods -n $NAMESPACE -l app.kubernetes.io/instance=$DEPLOYMENT -o jsonpath="{.items[0].metadata.name}")
 
 if [ -z "$POD_NAME" ]; then
-    echo "❌ ERROR: No se encontró el Pod de Minecraft. ¿Está el servidor encendido?"
+    echo "❌ ERROR: No se encontró el Pod. ¿Está el servidor encendido?"
     exit 1
 fi
 
-echo "📦 Trabajando sobre el Pod: $POD_NAME"
+# 2. Detectar dinámicamente el nombre del mundo actual
+WORLD_NAME=$(kubectl exec -n $NAMESPACE $POD_NAME -- grep "level-name" /data/server.properties | cut -d'=' -f2 | tr -d '\r')
+echo "📦 Pod detectado: $POD_NAME"
+echo "🌍 Mundo activo detectado: '$WORLD_NAME'"
 
-# 2. Backup de seguridad (Pre-wipe)
-echo "📂 Creando backup total del mundo antiguo..."
-kubectl exec -n $NAMESPACE $POD_NAME -- tar -czf /data/Backups/FULL_SERVER_$DATE.tar.gz --exclude=/data/Backups /data
-echo "✅ Backup guardado en: /data/Backups/FULL_SERVER_$DATE.tar.gz"
+# 3. Backup de seguridad (Pre-wipe)
+echo "📂 Creando backup total antes del borrado..."
+kubectl exec -n $NAMESPACE $POD_NAME -- tar -czf /data/Backups/PRE_RESET_$DATE.tar.gz --exclude=/data/Backups /data
+echo "✅ Backup guardado en: /data/Backups/PRE_RESET_$DATE.tar.gz"
 
-# 3. Limpieza de datos
-echo "💰 Reseteando datos de jugadores (Economía y Homes de Essentials)..."
+# 4. Limpieza Profunda de Datos
+echo "-----------------------------------------------------"
+echo "🧹 Iniciando limpieza de archivos..."
+
+# Reset de Plugins (Spawn y Datos de Jugador)
+echo "📍 Borrando puntos de spawn viejos (Essentials/AuthMe)..."
+kubectl exec -n $NAMESPACE $POD_NAME -- rm -f /data/plugins/Essentials/spawn.yml
+kubectl exec -n $NAMESPACE $POD_NAME -- rm -f /data/plugins/AuthMe/spawn.yml
+
+echo "💰 Limpiando bases de datos de jugadores (Economía/Homes)..."
 kubectl exec -n $NAMESPACE $POD_NAME -- rm -rf /data/plugins/Essentials/userdata
+kubectl exec -n $NAMESPACE $POD_NAME -- rm -rf /data/plugins/Essentials/userdata-npc-backup
 
-echo "🎒 Limpiando inventarios físicos y estadísticas..."
-kubectl exec -n $NAMESPACE $POD_NAME -- rm -rf /data/world/playerdata
-kubectl exec -n $NAMESPACE $POD_NAME -- rm -rf /data/world/stats
+# Reset de Mapa (Mundo y dimensiones extra)
+echo "🌍 Borrando carpetas del mapa y dimensiones ($WORLD_NAME)..."
+# Borramos la carpeta principal y posibles carpetas separadas de dimensiones (común en Mohist/Forge)
+kubectl exec -n $NAMESPACE $POD_NAME -- rm -rf /data/$WORLD_NAME
+kubectl exec -n $NAMESPACE $POD_NAME -- rm -rf /data/${WORLD_NAME}_nether
+kubectl exec -n $NAMESPACE $POD_NAME -- rm -rf /data/${WORLD_NAME}_the_end
 
-echo "🧹 Borrando carpeta 'world' (mapa, nether, end y serverconfig)..."
-kubectl exec -n $NAMESPACE $POD_NAME -- rm -rf /data/world
+# Limpieza de logs para empezar de cero
+echo "📝 Limpiando logs antiguos..."
+kubectl exec -n $NAMESPACE $POD_NAME -- rm -rf /data/logs/*
 
-# 4. Aviso de GitOps
-echo "⚠️  RECUERDA: Asegúrate de haber subido tu nuevo 'minecraft-values.yaml' con la nueva SEED y MODS a tu repositorio."
-read -p "¿Has actualizado ya tu YAML de GitOps? (s/n): " confirmacion
+echo "✅ Limpieza completada."
+echo "-----------------------------------------------------"
+
+# 5. Validación de GitOps
+echo "⚠️  CRÍTICO: El Pod se reiniciará con la configuración actual de tu repositorio."
+read -p "¿Confirmas que el YAML en Git tiene la SEED y MODS correctos? (s/n): " confirmacion
 
 if [ "$confirmacion" != "s" ]; then
-    echo "⏸️  Proceso pausado. Sube tus cambios a Git y luego reinicia el Pod manualmente."
+    echo "⏸️  Proceso pausado. Sube tus cambios a Git y luego ejecuta: 'kubectl rollout restart deployment $DEPLOYMENT -n $NAMESPACE'"
     exit 0
 fi
 
-# 5. Reinicio del servidor
-echo "🔄 Reiniciando el despliegue para aplicar cambios y generar nuevo mundo..."
+# 6. Reinicio y Aplicación
+echo "🔄 Reiniciando el despliegue para generar el nuevo universo..."
 kubectl rollout restart deployment $DEPLOYMENT -n $NAMESPACE
 
-echo "✨ ¡PROCESO COMPLETADO! ✨"
-echo "Monitoriza el arranque con: kubectl logs -f -n $NAMESPACE $POD_NAME"
+echo ""
+echo "✨ ¡TEMPORADA RESETEADA CON ÉXITO! ✨"
+echo "📡 Monitorea el arranque: kubectl logs -f -n $NAMESPACE -l app.kubernetes.io/instance=$DEPLOYMENT"
