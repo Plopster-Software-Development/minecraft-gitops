@@ -1,0 +1,1296 @@
+# The phrases support full color (hex) code, and some variables.
+# Keep in mind that some variables will not work for certain lines.
+# Just keep them where there are now and everything will be okay :)
+# Some lines can have global variables set. For the player who will be affected. For example /heal Zrips then Zrips data will be used as variable
+# [serverName] to show server name
+# [playerName] to show target player name
+# [playerDisplayName] to show target player display name
+# [lvl] to show target player level
+# [exp] to show target player total exp
+# [hp] to show target player health
+# [maxHp] to show target player max health
+# [hunger] to show target player hunger level
+# [gameMode] to show target player gamemode
+# [prefix] to show target player prefix if possible
+# [suffix] to show target player suffix if possible
+# Sender is console or player who performs the command. For example Zrips performs /heal Zhax then Zrips data will be used
+# [senderName] to show Sender player name
+# [senderDisplayName] to show Sender player display name
+# [senderLvl] to show Sender player level
+# [senderExp] to show Sender player total exp
+# [senderHp] to show Sender player health
+# [senderMaxHp] to show Sender player max health
+# [senderHunger] to show Sender player hunger level
+# [senderGameMode] to show Sender player gamemode
+# [senderPrefix] to show Sender player prefix if possible
+# [senderSuffix] to show Sender player suffix if possible
+# Source is player which is being used for extra info. For example Zrips performs /tp Zhax Zrips then Zhax data will be used as its location is being taken for new player location
+# [sourceName] to show source player name
+# [sourceDisplayName] to show source player display name
+# [sourceLvl] to show source player level
+# [sourceExp] to show source player total exp
+# [sourceHp] to show source player health
+# [sourceMaxHp] to show source player max health
+# [sourceHunger] to show source player hunger level
+# [sourceGameMode] to show source player gamemode
+# [sourcePrefix] to show source player prefix if possible
+# [sourceSuffix] to show source player suffix if possible
+# ***********************************************
+# Some lines support the option to send them to custom places, like action bar, title, sub-title, or even create JSON/clickable messages
+# If the line starts with !toast! then player will get toast message (advancement popup, only 1.12 and up). Some extra variables can be used to define type and icon. example: !toast! -t:goal -icon:paper Hello world!
+# If the line starts with !actionbar! then player will get action bar message defined after this variable
+# If the line starts with !actionbar:[seconds]! then player will get action bar message for a defined amount of time
+# If the line starts with !broadcast! then everyone will receive message. You can add extra !toast! !actionbar! or !title! to send message for everyone to specific place, in example !broadcast!!title!
+# If the line starts with !customtext:[cTextName]! then custom text will be taken by name provided and shown for player. In case it is used after !broadcast! then everyone who is online will get this custom text message
+# If the line starts with !title! then player will get title message defined after this variable, in addition it can contain !subtitle! which will add subtitle message
+# If the line starts with !bossbar:[name]-[timer]! then player will get bossbar message defined after this variable, in addition you can define how long this message will be visible. You need to define bossbar name which can be anything you want, but lines with same name will override each other to prevent stacking
+# To include clickable messages: <T>Text</T><H>Hover text</H><C>command</C><SC>Suggested text</SC>
+# <T> and </T> required, other is optional
+# Use /n to break line
+# To have more than one JSON message use <Next>
+# <C> performs command as a player who clicked
+# <CC> performs command from console once
+# <CCI> performs command from console every time player clicks text
+# <URL> includes url
+
+info:
+  # Use !prefix! in any locale line to automatically include this prefix
+  prefix: '{gcp}[{gcn}CMI{gcp}] '
+  NoPermission: '{gcw}You don''t have permission!'
+  CantHavePermission: '{gcw}You can''t have this permission!'
+  WrongGroup: '{gcw}You are in wrong group for this!'
+  NoPlayerPermission: '{gcw}[playerName] doesn''t have permission for: [permission]'
+  Ingame: '{gcw}You can only use this in game!'
+  NoInformation: '{gcw}No information found!'
+  Console: '{gcp}Server'
+  FromConsole: '{gcw}You can only use this in the console!'
+  NotOnline: '{gcw}The player is not online!'
+  NobodyOnline: '{gcw}There is no one online!'
+  NoPlayer: '{gcw}Can''t find player with this name! ({gcs}[name]{gcw})'
+  NoCommand: '{gcw}There is no command by this name!'
+  cantFindCommand: '{gcn}Couldn''t find {gcs}[%1] {gcn}command, did you mean {gcs}[%2]{gcn}?'
+  nolocation: '{gcp}Can''t find suitable location'
+  FeatureNotEnabled: '{gcw}This feature is not enabled!'
+  ModuleNotEnabled: '{gcw}This module is not enabled!'
+  versionNotSupported: '{gcw}Server version is not supported for this feature'
+  spigotNotSupported: '{gcw}You need PaperSpigot branch type server for this to work'
+  bungeeNoGo: '{gcw}This feature will not work on bungee network based servers'
+  clickToTeleport: '{gcp}Click to teleport'
+  UseMaterial: '{gcd}Please use material names!'
+  IncorrectMaterial: '{gcd}Incorrect material name!'
+  UseInteger: '{gcd}Please use numbers!'
+  UseBoolean: '{gcd}Please use True or False!'
+  NoLessThan: '{gcd}Number can''t be less than {gcs}[amount]{gcd}!'
+  NoMoreThan: '{gcd}Value can''t be more than {gcs}[amount]'
+  NoWorld: '{gcd}Can''t find world with this name!'
+  IncorrectLocation: '{gcd}Location defined incorrectly!'
+  Show: '{gcp}Show'
+  Remove: '{gcd}Remove'
+  Back: '{gcp}Back'
+  Forward: '{gcp}Forward'
+  Update: '{gcp}Update'
+  Save: '{gcp}Save'
+  Delete: '{gcd}Delete'
+  Click: '{gcp}Click'
+  Preview: '{gcp}Preview'
+  PasteOld: '{gcp}Paste old'
+  ClickToPaste: '{gcp}Click to paste into chat'
+  CantTeleportWorld: '{gcp}You can''t teleport to this world'
+  CantTeleportNoWorld: '{gcw}Target world doesn''t exist. Teleportation canceled'
+  ClickToConfirmDelete: '{gcp}Click to confirm removal of {gcs}[name]'
+  ClickToConfirm: '{gcp}Click to confirm'
+  teleported: '{gcp}You have been teleported.'
+  PlayerSpliter: '{gcp}----- {gcs}[playerDisplayName] {gcp}-----'
+  Spliter: '{gcp}--------------------------------------------------'
+  SpliterValue: '{gcp}------------------ {gcs}[value] {gcp}------------------'
+  singleSpliter: '{gcp}-'
+  SpliterMiddle: ' {gcs}[value] '
+  ListSpliter: ', '
+  ProgressBarFill: '{gcu}▏'
+  ProgressBarEmpty: '{gcn}▏'
+  nothingInHand: '!actionbar!{gcp}You need to hold item in hand'
+  nothingInHandLeather: '{gcp}You need to hold leather item in hand'
+  nothingToShow: '{gcp}Nothing to show'
+  noItem: '{gcw}Can''t find item'
+  dontHaveItem: '{gcw}You don''t have {gcs}[amount]x [itemName] {gcw}in your inventory'
+  wrongWorld: '{gcw}Can''t do this in this world'
+  differentWorld: '{gcw}Different worlds'
+  HaveItem: '{gcw}You have {gcs}[amount]x [itemName] {gcw}in your inventory'
+  cantDoInGamemode: '{gcp}You can''t do this in this game mode'
+  cantDoForPlayer: '{gcp}You can''t do this to {gcs}[playerDisplayName]'
+  cantDoForYourSelf: '{gcp}You can''t do this to yourself'
+  cantDetermineMobType: '{gcw}Can''t determine mob type from {gcs}[type] {gcw}variable'
+  cantRename: '!actionbar!{gcp}You can''t use this name'
+  confirmRedefine: '{gcp}Click to confirm redefining'
+  cantEdit: '{gcp}You can''t edit this'
+  wrongName: '{gcw}Wrong name'
+  unknown: unknown
+  invalidName: '{gcw}Invalid name'
+  alreadyexist: '{gcd}This name is taken'
+  dontexist: '{gcd}Nothing found by this name'
+  worldDontExist: '{gcw}Target world can''t be accessed anymore. Can''t teleport you
+    there!'
+  notSet: not set
+  lookAtSign: '{gcp}Look at sign'
+  lookAtBlock: '{gcp}Look at block'
+  lookAtEntity: '{gcp}Look at entity'
+  noSpace: '{gcp}Not enough free space'
+  notOnGround: '{gcp}You can''t perform this while flying'
+  bungee:
+    Online: '{gcu}Online'
+    Offline: '{gcn}Offline'
+    not: '{gcw}Server doesn''t belong to bungee network'
+    noserver: '{gcw}Can''t find server by this name!'
+    server: '{gcp}Server: {gcs}[name]'
+  variables:
+    am: AM
+    pm: PM
+    Online: '{gcu}Online'
+    Offline: '{gcd}Offline'
+    TrueColor: '{gcu}'
+    FalseColor: '{gcd}'
+    'True': '{gcu}True'
+    'False': '{gcd}False'
+    Enabled: '{gcu}Enabled'
+    Disabled: '{gcd}Disabled'
+    survival: Survival
+    creative: Creative
+    adventure: Adventure
+    spectator: Spectator
+    flying: Flying
+    notflying: Not flying
+  Inventory:
+    Full: '{gcd}Your inventory is full. Can''t add item'
+    FullDrop: '{gcd}Not all items fit in your inventory. They have been dropped on
+      ground'
+  TimeNotRecorded: '{gcp}-No record-'
+  months: '{gcs}[months] {gcp}months '
+  oneMonth: '{gcs}[months] {gcp}month '
+  weeks: '{gcs}[weeks] {gcp}weeks '
+  oneWeek: '{gcs}[weeks] {gcp}week '
+  years: '{gcs}[years] {gcp}years '
+  oneYear: '{gcs}[years] {gcp}year '
+  day: '{gcs}[days] {gcp}days '
+  oneDay: '{gcs}[days] {gcp}day '
+  hour: '{gcs}[hours] {gcp}hours '
+  oneHour: '{gcs}[hours] {gcp}hour '
+  min: '{gcs}[mins] {gcp}min '
+  sec: '{gcs}[secs] {gcp}sec '
+  nextPageConsole: '{gcn}For next page perform {gcs}[command]'
+  prevPage: '{gcn}----<< {gcp}Prev '
+  prevCustomPage: '{gcn}----<< {gcp}[value] '
+  prevPageGui: '{gcp}Previous page '
+  prevPageClean: '{gcp}Prev '
+  prevPageOff: '{gcn}----<< {gcp}Prev '
+  prevCustomPageOff: '{gcn}----<< {gcp}[value] '
+  prevPageHover: '{gcp}<<<'
+  firstPageHover: '{gcp}|<'
+  nextPage: '{gcp} Next {gcn}>>----'
+  nextCustomPage: '{gcp} [value] {gcn}>>----'
+  nextPageGui: '{gcp}Next Page'
+  nextPageClean: '{gcp} Next'
+  nextPageOff: '{gcp} Next {gcn}>>----'
+  nextCustomPageOff: '{gcs} [value] {gcn}>>----'
+  nextPageHover: '{gcp}>>>'
+  lastPageHover: '{gcp}>|'
+  pageCount: '{gcn}[current]{gcp}/{gcn}[total]'
+  pageCountHover: '{gcs}[totalEntries] entries'
+  skullOwner: '!actionbar!{gcp}Owner:&r [playerName]'
+  mobHeadName: '{gcp}Head of {gcs}[mobName]'
+  circle: '{gcp}Circle'
+  square: '{gcp}Square'
+  clear: '{gcp}Clear'
+  protectedArea: '{gcw}Protected area. Can''t do this here.'
+  valueToLong: '{gcp}Value is too high. Max: [max]'
+  valueToShort: '{gcp}Value is too low. Min: [min]'
+  pickIcon: '{gcp}Pick icon'
+  Spawner: '&r[type] Spawner'
+  DamageCause:
+    block_explosion: Explosion
+    contact: Block Damage
+    cramming: cramming
+    custom: Unknown
+    dragon_breath: Dragon breath
+    drowning: Drowning
+    dryout: dryout
+    entity_attack: Entity attack
+    entity_explosion: Explosion
+    entity_sweep_attack: entity sweep attack
+    fall: Fall
+    falling_block: Falling block
+    fire: Fire
+    fire_tick: Fire
+    fly_into_wall: Fly into wall
+    freeze: freeze
+    hot_floor: Magma block
+    kill: kill
+    lava: Lava
+    lightning: Lightning
+    magic: Magic
+    melting: Melting
+    poison: Poison
+    projectile: Projectile
+    sonic_boom: sonic boom
+    starvation: Starvation
+    suffocation: Suffocation
+    suicide: Suicide
+    thorns: Thorns
+    void: Void
+    wither: Wither
+    world_border: world border
+  EntityType:
+    alexsmobs_alligator_snapping_turtle: Alexsmobs alligator snapping turtle
+    alexsmobs_anaconda: Alexsmobs anaconda
+    alexsmobs_anaconda_part: Alexsmobs anaconda part
+    alexsmobs_anteater: Alexsmobs anteater
+    alexsmobs_bald_eagle: Alexsmobs bald eagle
+    alexsmobs_banana_slug: Alexsmobs banana slug
+    alexsmobs_bison: Alexsmobs bison
+    alexsmobs_blobfish: Alexsmobs blobfish
+    alexsmobs_blue_jay: Alexsmobs blue jay
+    alexsmobs_bone_serpent: Alexsmobs bone serpent
+    alexsmobs_bone_serpent_part: Alexsmobs bone serpent part
+    alexsmobs_bunfungus: Alexsmobs bunfungus
+    alexsmobs_cachalot_echo: Alexsmobs cachalot echo
+    alexsmobs_cachalot_whale: Alexsmobs cachalot whale
+    alexsmobs_caiman: Alexsmobs caiman
+    alexsmobs_capuchin_monkey: Alexsmobs capuchin monkey
+    alexsmobs_catfish: Alexsmobs catfish
+    alexsmobs_centipede_body: Alexsmobs centipede body
+    alexsmobs_centipede_head: Alexsmobs centipede head
+    alexsmobs_centipede_tail: Alexsmobs centipede tail
+    alexsmobs_cockroach: Alexsmobs cockroach
+    alexsmobs_cockroach_egg: Alexsmobs cockroach egg
+    alexsmobs_comb_jelly: Alexsmobs comb jelly
+    alexsmobs_cosmaw: Alexsmobs cosmaw
+    alexsmobs_cosmic_cod: Alexsmobs cosmic cod
+    alexsmobs_crimson_mosquito: Alexsmobs crimson mosquito
+    alexsmobs_crocodile: Alexsmobs crocodile
+    alexsmobs_crow: Alexsmobs crow
+    alexsmobs_devils_hole_pupfish: Alexsmobs devils hole pupfish
+    alexsmobs_dropbear: Alexsmobs dropbear
+    alexsmobs_elephant: Alexsmobs elephant
+    alexsmobs_emu: Alexsmobs emu
+    alexsmobs_emu_egg: Alexsmobs emu egg
+    alexsmobs_endergrade: Alexsmobs endergrade
+    alexsmobs_enderiophage: Alexsmobs enderiophage
+    alexsmobs_enderiophage_rocket: Alexsmobs enderiophage rocket
+    alexsmobs_farseer: Alexsmobs farseer
+    alexsmobs_fart: Alexsmobs fart
+    alexsmobs_flutter: Alexsmobs flutter
+    alexsmobs_fly: Alexsmobs fly
+    alexsmobs_flying_fish: Alexsmobs flying fish
+    alexsmobs_frilled_shark: Alexsmobs frilled shark
+    alexsmobs_froststalker: Alexsmobs froststalker
+    alexsmobs_gazelle: Alexsmobs gazelle
+    alexsmobs_gelada_monkey: Alexsmobs gelada monkey
+    alexsmobs_giant_squid: Alexsmobs giant squid
+    alexsmobs_gorilla: Alexsmobs gorilla
+    alexsmobs_grizzly_bear: Alexsmobs grizzly bear
+    alexsmobs_gust: Alexsmobs gust
+    alexsmobs_guster: Alexsmobs guster
+    alexsmobs_hammerhead_shark: Alexsmobs hammerhead shark
+    alexsmobs_hemolymph: Alexsmobs hemolymph
+    alexsmobs_hummingbird: Alexsmobs hummingbird
+    alexsmobs_ice_shard: Alexsmobs ice shard
+    alexsmobs_jerboa: Alexsmobs jerboa
+    alexsmobs_kangaroo: Alexsmobs kangaroo
+    alexsmobs_komodo_dragon: Alexsmobs komodo dragon
+    alexsmobs_laviathan: Alexsmobs laviathan
+    alexsmobs_leafcutter_ant: Alexsmobs leafcutter ant
+    alexsmobs_lobster: Alexsmobs lobster
+    alexsmobs_maned_wolf: Alexsmobs maned wolf
+    alexsmobs_mantis_shrimp: Alexsmobs mantis shrimp
+    alexsmobs_mimicube: Alexsmobs mimicube
+    alexsmobs_mimic_octopus: Alexsmobs mimic octopus
+    alexsmobs_moose: Alexsmobs moose
+    alexsmobs_mosquito_spit: Alexsmobs mosquito spit
+    alexsmobs_mudskipper: Alexsmobs mudskipper
+    alexsmobs_mud_ball: Alexsmobs mud ball
+    alexsmobs_mungus: Alexsmobs mungus
+    alexsmobs_murmur: Alexsmobs murmur
+    alexsmobs_murmur_head: Alexsmobs murmur head
+    alexsmobs_orca: Alexsmobs orca
+    alexsmobs_platypus: Alexsmobs platypus
+    alexsmobs_pollen_ball: Alexsmobs pollen ball
+    alexsmobs_potoo: Alexsmobs potoo
+    alexsmobs_raccoon: Alexsmobs raccoon
+    alexsmobs_rain_frog: Alexsmobs rain frog
+    alexsmobs_rattlesnake: Alexsmobs rattlesnake
+    alexsmobs_rhinoceros: Alexsmobs rhinoceros
+    alexsmobs_roadrunner: Alexsmobs roadrunner
+    alexsmobs_rocky_roller: Alexsmobs rocky roller
+    alexsmobs_sand_shot: Alexsmobs sand shot
+    alexsmobs_seagull: Alexsmobs seagull
+    alexsmobs_seal: Alexsmobs seal
+    alexsmobs_sea_bear: Alexsmobs sea bear
+    alexsmobs_shark_tooth_arrow: Alexsmobs shark tooth arrow
+    alexsmobs_shoebill: Alexsmobs shoebill
+    alexsmobs_skelewag: Alexsmobs skelewag
+    alexsmobs_skreecher: Alexsmobs skreecher
+    alexsmobs_skunk: Alexsmobs skunk
+    alexsmobs_snow_leopard: Alexsmobs snow leopard
+    alexsmobs_soul_vulture: Alexsmobs soul vulture
+    alexsmobs_spectre: Alexsmobs spectre
+    alexsmobs_squid_grapple: Alexsmobs squid grapple
+    alexsmobs_straddleboard: Alexsmobs straddleboard
+    alexsmobs_straddler: Alexsmobs straddler
+    alexsmobs_stradpole: Alexsmobs stradpole
+    alexsmobs_sugar_glider: Alexsmobs sugar glider
+    alexsmobs_sunbird: Alexsmobs sunbird
+    alexsmobs_tarantula_hawk: Alexsmobs tarantula hawk
+    alexsmobs_tasmanian_devil: Alexsmobs tasmanian devil
+    alexsmobs_tendon_segment: Alexsmobs tendon segment
+    alexsmobs_terrapin: Alexsmobs terrapin
+    alexsmobs_tiger: Alexsmobs tiger
+    alexsmobs_tossed_item: Alexsmobs tossed item
+    alexsmobs_toucan: Alexsmobs toucan
+    alexsmobs_triops: Alexsmobs triops
+    alexsmobs_tusklin: Alexsmobs tusklin
+    alexsmobs_underminer: Alexsmobs underminer
+    alexsmobs_vine_lasso: Alexsmobs vine lasso
+    alexsmobs_void_portal: Alexsmobs void portal
+    alexsmobs_void_worm: Alexsmobs void worm
+    alexsmobs_void_worm_part: Alexsmobs void worm part
+    alexsmobs_void_worm_shot: Alexsmobs void worm shot
+    alexsmobs_warped_mosco: Alexsmobs warped mosco
+    alexsmobs_warped_toad: Alexsmobs warped toad
+    allay: Allay
+    area_effect_cloud: Area effect cloud
+    armor_stand: Armor stand
+    arrow: Arrow
+    ars_nouveau_ally_vex: Ars nouveau ally vex
+    ars_nouveau_amethyst_golem: Ars nouveau amethyst golem
+    ars_nouveau_animated_block: Ars nouveau animated block
+    ars_nouveau_animated_head: Ars nouveau animated head
+    ars_nouveau_an_lightning: Ars nouveau an lightning
+    ars_nouveau_arcing_spell_proj: Ars nouveau arcing spell proj
+    ars_nouveau_blazing_weald_walker: Ars nouveau blazing weald walker
+    ars_nouveau_bookwyrm: Ars nouveau bookwyrm
+    ars_nouveau_cascading_weald_walker: Ars nouveau cascading weald walker
+    ars_nouveau_cinder: Ars nouveau cinder
+    ars_nouveau_drygmy: Ars nouveau drygmy
+    ars_nouveau_dummy: Ars nouveau dummy
+    ars_nouveau_enchanted_falling_block: Ars nouveau enchanted falling block
+    ars_nouveau_enchanted_head_block: Ars nouveau enchanted head block
+    ars_nouveau_enchanted_mage_block: Ars nouveau enchanted mage block
+    ars_nouveau_familiar_amethyst_golem: Ars nouveau familiar amethyst golem
+    ars_nouveau_familiar_bookwyrm: Ars nouveau familiar bookwyrm
+    ars_nouveau_familiar_drygmy: Ars nouveau familiar drygmy
+    ars_nouveau_familiar_starbuncle: Ars nouveau familiar starbuncle
+    ars_nouveau_familiar_whirlisprig: Ars nouveau familiar whirlisprig
+    ars_nouveau_familiar_wixie: Ars nouveau familiar wixie
+    ars_nouveau_fangs: Ars nouveau fangs
+    ars_nouveau_flourishing_weald_walker: Ars nouveau flourishing weald walker
+    ars_nouveau_flying_item: Ars nouveau flying item
+    ars_nouveau_follow_proj: Ars nouveau follow proj
+    ars_nouveau_gift_starby: Ars nouveau gift starby
+    ars_nouveau_homing_spell_proj: Ars nouveau homing spell proj
+    ars_nouveau_ice_shard: Ars nouveau ice shard
+    ars_nouveau_lily: Ars nouveau lily
+    ars_nouveau_linger: Ars nouveau linger
+    ars_nouveau_orbit: Ars nouveau orbit
+    ars_nouveau_ritual: Ars nouveau ritual
+    ars_nouveau_scryer_camera: Ars nouveau scryer camera
+    ars_nouveau_spell_arrow: Ars nouveau spell arrow
+    ars_nouveau_spell_proj: Ars nouveau spell proj
+    ars_nouveau_spike: Ars nouveau spike
+    ars_nouveau_starbuncle: Ars nouveau starbuncle
+    ars_nouveau_summon_horse: Ars nouveau summon horse
+    ars_nouveau_summon_skeleton: Ars nouveau summon skeleton
+    ars_nouveau_summon_wolf: Ars nouveau summon wolf
+    ars_nouveau_vexing_weald_walker: Ars nouveau vexing weald walker
+    ars_nouveau_wall: Ars nouveau wall
+    ars_nouveau_whirlisprig: Ars nouveau whirlisprig
+    ars_nouveau_wilden_boss: Ars nouveau wilden boss
+    ars_nouveau_wilden_guardian: Ars nouveau wilden guardian
+    ars_nouveau_wilden_hunter: Ars nouveau wilden hunter
+    ars_nouveau_wilden_stalker: Ars nouveau wilden stalker
+    ars_nouveau_wixie: Ars nouveau wixie
+    axolotl: Axolotl
+    bat: Bat
+    bee: Bee
+    blaze: Blaze
+    block_display: Block display
+    boat: Boat
+    boh_angler: Boh angler
+    boh_ao_oni: Boh ao oni
+    boh_baldi: Boh baldi
+    boh_ben_drowned: Boh ben drowned
+    boh_big_daddy: Boh big daddy
+    boh_bloodwave: Boh bloodwave
+    boh_blood_spill: Boh blood spill
+    boh_boiled_one: Boh boiled one
+    boh_book_simon: Boh book simon
+    boh_bruce: Boh bruce
+    boh_cartoon_cat: Boh cartoon cat
+    boh_celebi: Boh celebi
+    boh_chestburster: Boh chestburster
+    boh_chucky: Boh chucky
+    boh_chucky_grab: Boh chucky grab
+    boh_crucifix_projectile: Boh crucifix projectile
+    boh_death_horse: Boh death horse
+    boh_decoy_dog: Boh decoy dog
+    boh_deer: Boh deer
+    boh_deer_mimic: Boh deer mimic
+    boh_demogorgon: Boh demogorgon
+    boh_demon: Boh demon
+    boh_entity_well: Boh entity well
+    boh_exe_monitor: Boh exe monitor
+    boh_eyeless_jack: Boh eyeless jack
+    boh_facehugger: Boh facehugger
+    boh_famine_horse: Boh famine horse
+    boh_figure: Boh figure
+    boh_flatwoods_monster: Boh flatwoods monster
+    boh_freddy_krueger: Boh freddy krueger
+    boh_fresno_nightcrawler: Boh fresno nightcrawler
+    boh_fuwatti: Boh fuwatti
+    boh_gaster: Boh gaster
+    boh_gaster_blaster: Boh gaster blaster
+    boh_gaster_blaster_projectile: Boh gaster blaster projectile
+    boh_ghost: Boh ghost
+    boh_ghostface: Boh ghostface
+    boh_ghostface_decoy: Boh ghostface decoy
+    boh_goji: Boh goji
+    boh_gold_hostile: Boh gold hostile
+    boh_gold_lost: Boh gold lost
+    boh_grafton_monster: Boh grafton monster
+    boh_granny: Boh granny
+    boh_gray_alien: Boh gray alien
+    boh_herobrine: Boh herobrine
+    boh_holy_water: Boh holy water
+    boh_horror_sans: Boh horror sans
+    boh_hypno: Boh hypno
+    boh_hypno_shot_projectile: Boh hypno shot projectile
+    boh_ink_demon: Boh ink demon
+    boh_jackalope: Boh jackalope
+    boh_james_sunderland: Boh james sunderland
+    boh_jane_the_killer: Boh jane the killer
+    boh_jason_mask: Boh jason mask
+    boh_jason_voorhees: Boh jason voorhees
+    boh_jeff_the_killer: Boh jeff the killer
+    boh_kirie_himuro: Boh kirie himuro
+    boh_krampus: Boh krampus
+    boh_krasue: Boh krasue
+    boh_laughing_jack: Boh laughing jack
+    boh_leatherface: Boh leatherface
+    boh_lifeform: Boh lifeform
+    boh_light_head: Boh light head
+    boh_little_sister: Boh little sister
+    boh_martian_drone: Boh martian drone
+    boh_michael_davies: Boh michael davies
+    boh_michael_myers: Boh michael myers
+    boh_mothling: Boh mothling
+    boh_mothman: Boh mothman
+    boh_mothmanbast_projectile: Boh mothmanbast projectile
+    boh_mx: Boh mx
+    boh_neco_arc: Boh neco arc
+    boh_nemesis: Boh nemesis
+    boh_newborn: Boh newborn
+    boh_nothing_there: Boh nothing there
+    boh_patrick_bateman: Boh patrick bateman
+    boh_pestilence_horse: Boh pestilence horse
+    boh_phantom_bb: Boh phantom bb
+    boh_phantom_chica: Boh phantom chica
+    boh_phantom_foxy: Boh phantom foxy
+    boh_phantom_freddy: Boh phantom freddy
+    boh_phantom_mangle: Boh phantom mangle
+    boh_phantom_puppet: Boh phantom puppet
+    boh_predator: Boh predator
+    boh_predator_sight: Boh predator sight
+    boh_pumpkin_player: Boh pumpkin player
+    boh_pyramid_head: Boh pyramid head
+    boh_raatma: Boh raatma
+    boh_rabbid: Boh rabbid
+    boh_rake: Boh rake
+    boh_rat: Boh rat
+    boh_ratazana: Boh ratazana
+    boh_ray_gun_projectile_projectile: Boh ray gun projectile projectile
+    boh_red: Boh red
+    boh_rend_projectile: Boh rend projectile
+    boh_rexy: Boh rexy
+    boh_rolling_giant: Boh rolling giant
+    boh_russian_sleep_experiment: Boh russian sleep experiment
+    boh_sadako: Boh sadako
+    boh_saucer: Boh saucer
+    boh_saw_runner: Boh saw runner
+    boh_scissorman: Boh scissorman
+    boh_seed_eater: Boh seed eater
+    boh_shotgun_projectile: Boh shotgun projectile
+    boh_simonhenriksson: Boh simonhenriksson
+    boh_siren_head: Boh siren head
+    boh_six: Boh six
+    boh_slender_man: Boh slender man
+    boh_smile_dog: Boh smile dog
+    boh_sonic_boom: Boh sonic boom
+    boh_sonic_exe: Boh sonic exe
+    boh_sotiris: Boh sotiris
+    boh_souichi: Boh souichi
+    boh_specimen_9_boss: Boh specimen 9 boss
+    boh_springtrap: Boh springtrap
+    boh_squidward: Boh squidward
+    boh_squidward_doomed: Boh squidward doomed
+    boh_stiltwalker: Boh stiltwalker
+    boh_subject_3: Boh subject 3
+    boh_suicide_mouse: Boh suicide mouse
+    boh_swamp_monster: Boh swamp monster
+    boh_tails: Boh tails
+    boh_tails_doll: Boh tails doll
+    boh_taken_hands: Boh taken hands
+    boh_taken_pillar: Boh taken pillar
+    boh_tamed_rat: Boh tamed rat
+    boh_taperecorderbaldi: Boh taperecorderbaldi
+    boh_tar_ball: Boh tar ball
+    boh_the_thing_dog: Boh the thing dog
+    boh_the_thing_villager: Boh the thing villager
+    boh_tinky_tank: Boh tinky tank
+    boh_tinky_winky: Boh tinky winky
+    boh_torment_pyramid: Boh torment pyramid
+    boh_trimming: Boh trimming
+    boh_unicorn: Boh unicorn
+    boh_unown_1: Boh unown 1
+    boh_unown_10: Boh unown 10
+    boh_unown_11: Boh unown 11
+    boh_unown_12: Boh unown 12
+    boh_unown_13: Boh unown 13
+    boh_unown_14: Boh unown 14
+    boh_unown_15: Boh unown 15
+    boh_unown_2: Boh unown 2
+    boh_unown_3: Boh unown 3
+    boh_unown_4: Boh unown 4
+    boh_unown_5: Boh unown 5
+    boh_unown_6: Boh unown 6
+    boh_unown_7: Boh unown 7
+    boh_unown_8: Boh unown 8
+    boh_unown_9: Boh unown 9
+    boh_vampire: Boh vampire
+    boh_vampire_bat: Boh vampire bat
+    boh_vita_mimic: Boh vita mimic
+    boh_war_horse: Boh war horse
+    boh_wendigo: Boh wendigo
+    boh_werewolf: Boh werewolf
+    boh_werewolf_dummy: Boh werewolf dummy
+    boh_wf_pistol_projectile: Boh wf pistol projectile
+    boh_whiteface: Boh whiteface
+    boh_whiteface_friendly: Boh whiteface friendly
+    boh_willowisp: Boh willowisp
+    boh_xenomorph: Boh xenomorph
+    boh_x_1x_1x_1x: Boh x 1x 1x 1x
+    boh_x_1_slash: Boh x 1 slash
+    brutalbosses_thrownitem: Brutalbosses thrownitem
+    camel: Camel
+    cat: Cat
+    cave_spider: Cave spider
+    celestisynth_aquaflora_camera: Celestisynth aquaflora camera
+    celestisynth_breezebreaker_tornado: Celestisynth breezebreaker tornado
+    celestisynth_crescentia_dragon: Celestisynth crescentia dragon
+    celestisynth_crescentia_ranged: Celestisynth crescentia ranged
+    celestisynth_cs_effect: Celestisynth cs effect
+    celestisynth_frostbound_ice_cast: Celestisynth frostbound ice cast
+    celestisynth_frostbound_shard: Celestisynth frostbound shard
+    celestisynth_keres_rend: Celestisynth keres rend
+    celestisynth_keres_shadow: Celestisynth keres shadow
+    celestisynth_keres_slash: Celestisynth keres slash
+    celestisynth_keres_slash_wave: Celestisynth keres slash wave
+    celestisynth_keres_smash: Celestisynth keres smash
+    celestisynth_poltergeist_ward: Celestisynth poltergeist ward
+    celestisynth_rainfall_arrow: Celestisynth rainfall arrow
+    celestisynth_rainfall_laser_marker: Celestisynth rainfall laser marker
+    celestisynth_rainfall_rain: Celestisynth rainfall rain
+    celestisynth_rainfall_turret: Celestisynth rainfall turret
+    celestisynth_solaris_bomb: Celestisynth solaris bomb
+    celestisynth_star_monolith: Celestisynth star monolith
+    celestisynth_tempest: Celestisynth tempest
+    celestisynth_traverser: Celestisynth traverser
+    celestisynth_veilguard: Celestisynth veilguard
+    chest_boat: Chest boat
+    chicken: Chicken
+    cod: Cod
+    cow: Cow
+    creeper: Creeper
+    deeperdarker_angler_fish: Deeperdarker angler fish
+    deeperdarker_boat: Deeperdarker boat
+    deeperdarker_chest_boat: Deeperdarker chest boat
+    deeperdarker_sculk_centipede: Deeperdarker sculk centipede
+    deeperdarker_sculk_leech: Deeperdarker sculk leech
+    deeperdarker_sculk_snapper: Deeperdarker sculk snapper
+    deeperdarker_shattered: Deeperdarker shattered
+    deeperdarker_shriek_worm: Deeperdarker shriek worm
+    deeperdarker_sludge: Deeperdarker sludge
+    deeperdarker_stalker: Deeperdarker stalker
+    dolphin: Dolphin
+    donkey: Donkey
+    dragon_fireball: Dragon fireball
+    dropped_item: Dropped item
+    drowned: Drowned
+    dungeons_and_combat_acid_fire_ball: Dungeons and combat acid fire ball
+    dungeons_and_combat_ammit: Dungeons and combat ammit
+    dungeons_and_combat_bloodymancer_cultist: Dungeons and combat bloodymancer cultist
+    dungeons_and_combat_bloodymancer_dark_magic: Dungeons and combat bloodymancer
+      dark magic
+    dungeons_and_combat_bloody_arrow: Dungeons and combat bloody arrow
+    dungeons_and_combat_bloody_cultist: Dungeons and combat bloody cultist
+    dungeons_and_combat_blood_slash: Dungeons and combat blood slash
+    dungeons_and_combat_bottled_acid_fire_trow: Dungeons and combat bottled acid fire
+      trow
+    dungeons_and_combat_chained: Dungeons and combat chained
+    dungeons_and_combat_counselor_skull: Dungeons and combat counselor skull
+    dungeons_and_combat_ernos: Dungeons and combat ernos
+    dungeons_and_combat_failure: Dungeons and combat failure
+    dungeons_and_combat_fairy_proyectile: Dungeons and combat fairy proyectile
+    dungeons_and_combat_fire_ball: Dungeons and combat fire ball
+    dungeons_and_combat_flower_fairy: Dungeons and combat flower fairy
+    dungeons_and_combat_fractured_vex: Dungeons and combat fractured vex
+    dungeons_and_combat_ghoul: Dungeons and combat ghoul
+    dungeons_and_combat_gigant_scorpion: Dungeons and combat gigant scorpion
+    dungeons_and_combat_hermit_witch: Dungeons and combat hermit witch
+    dungeons_and_combat_high_priest: Dungeons and combat high priest
+    dungeons_and_combat_horuso: Dungeons and combat horuso
+    dungeons_and_combat_horuso_feather_poryectile: Dungeons and combat horuso feather
+      poryectile
+    dungeons_and_combat_infernus: Dungeons and combat infernus
+    dungeons_and_combat_kamath: Dungeons and combat kamath
+    dungeons_and_combat_lady_blaze: Dungeons and combat lady blaze
+    dungeons_and_combat_laser_beam: Dungeons and combat laser beam
+    dungeons_and_combat_magic_arrow: Dungeons and combat magic arrow
+    dungeons_and_combat_mimy_chest: Dungeons and combat mimy chest
+    dungeons_and_combat_mummy: Dungeons and combat mummy
+    dungeons_and_combat_palehand: Dungeons and combat palehand
+    dungeons_and_combat_palehand_minion: Dungeons and combat palehand minion
+    dungeons_and_combat_prisoner_skull: Dungeons and combat prisoner skull
+    dungeons_and_combat_pyro_knight: Dungeons and combat pyro knight
+    dungeons_and_combat_remanent: Dungeons and combat remanent
+    dungeons_and_combat_royal_skull: Dungeons and combat royal skull
+    dungeons_and_combat_sandstone_golem: Dungeons and combat sandstone golem
+    dungeons_and_combat_skull: Dungeons and combat skull
+    dungeons_and_combat_skull_deserter: Dungeons and combat skull deserter
+    dungeons_and_combat_skull_mimic: Dungeons and combat skull mimic
+    dungeons_and_combat_sunleia: Dungeons and combat sunleia
+    dungeons_and_combat_the_aberrator: Dungeons and combat the aberrator
+    dungeons_and_combat_the_grave_watcher: Dungeons and combat the grave watcher
+    dungeons_and_combat_tomahawk_of_steel: Dungeons and combat tomahawk of steel
+    dungeons_and_combat_torture: Dungeons and combat torture
+    dungeons_and_combat_weakness: Dungeons and combat weakness
+    dungeons_and_combat_weakness_despawn: Dungeons and combat weakness despawn
+    egg: Egg
+    elder_guardian: Elder guardian
+    enderman: Enderman
+    endermite: Endermite
+    ender_crystal: Ender crystal
+    ender_dragon: Ender dragon
+    ender_pearl: Ender pearl
+    ender_signal: Ender signal
+    evoker: Evoker
+    evoker_fangs: Evoker fangs
+    experience_orb: Experience orb
+    falling_block: Falling block
+    fireball: Fireball
+    firework: Firework
+    fishing_hook: Fishing hook
+    forge_mod_animal: Forge mod animal
+    forge_mod_chest_horse: Forge mod chest horse
+    forge_mod_horse: Forge mod horse
+    forge_mod_minecart_container: Forge mod minecart container
+    forge_mod_monster: Forge mod monster
+    forge_mod_projectile: Forge mod projectile
+    forge_mod_tameable_animals: Forge mod tameable animals
+    fox: Fox
+    frog: Frog
+    ghast: Ghast
+    giant: Giant
+    glow_item_frame: Glow item frame
+    glow_squid: Glow squid
+    goat: Goat
+    guardian: Guardian
+    hoglin: Hoglin
+    horse: Horse
+    husk: Husk
+    iceandfire_amphithere: Iceandfire amphithere
+    iceandfire_amphithere_arrow: Iceandfire amphithere arrow
+    iceandfire_chain_tie: Iceandfire chain tie
+    iceandfire_cockatrice: Iceandfire cockatrice
+    iceandfire_cockatrice_egg: Iceandfire cockatrice egg
+    iceandfire_cyclops: Iceandfire cyclops
+    iceandfire_cylcops_multipart: Iceandfire cylcops multipart
+    iceandfire_deathworm: Iceandfire deathworm
+    iceandfire_deathworm_egg: Iceandfire deathworm egg
+    iceandfire_dragon_arrow: Iceandfire dragon arrow
+    iceandfire_dragon_egg: Iceandfire dragon egg
+    iceandfire_dragon_multipart: Iceandfire dragon multipart
+    iceandfire_dragon_skull: Iceandfire dragon skull
+    iceandfire_dread_beast: Iceandfire dread beast
+    iceandfire_dread_ghoul: Iceandfire dread ghoul
+    iceandfire_dread_horse: Iceandfire dread horse
+    iceandfire_dread_knight: Iceandfire dread knight
+    iceandfire_dread_lich: Iceandfire dread lich
+    iceandfire_dread_lich_skull: Iceandfire dread lich skull
+    iceandfire_dread_scuttler: Iceandfire dread scuttler
+    iceandfire_dread_thrall: Iceandfire dread thrall
+    iceandfire_fire_dragon: Iceandfire fire dragon
+    iceandfire_fire_dragon_charge: Iceandfire fire dragon charge
+    iceandfire_ghost: Iceandfire ghost
+    iceandfire_ghost_sword: Iceandfire ghost sword
+    iceandfire_gorgon: Iceandfire gorgon
+    iceandfire_hippocampus: Iceandfire hippocampus
+    iceandfire_hippogryph: Iceandfire hippogryph
+    iceandfire_hippogryph_egg: Iceandfire hippogryph egg
+    iceandfire_hydra: Iceandfire hydra
+    iceandfire_hydra_arrow: Iceandfire hydra arrow
+    iceandfire_hydra_breath: Iceandfire hydra breath
+    iceandfire_hydra_multipart: Iceandfire hydra multipart
+    iceandfire_ice_dragon: Iceandfire ice dragon
+    iceandfire_ice_dragon_charge: Iceandfire ice dragon charge
+    iceandfire_lightning_dragon: Iceandfire lightning dragon
+    iceandfire_lightning_dragon_charge: Iceandfire lightning dragon charge
+    iceandfire_mob_skull: Iceandfire mob skull
+    iceandfire_multipart: Iceandfire multipart
+    iceandfire_myrmex_egg: Iceandfire myrmex egg
+    iceandfire_myrmex_queen: Iceandfire myrmex queen
+    iceandfire_myrmex_royal: Iceandfire myrmex royal
+    iceandfire_myrmex_sentinel: Iceandfire myrmex sentinel
+    iceandfire_myrmex_soldier: Iceandfire myrmex soldier
+    iceandfire_myrmex_swarmer: Iceandfire myrmex swarmer
+    iceandfire_myrmex_worker: Iceandfire myrmex worker
+    iceandfire_pixie: Iceandfire pixie
+    iceandfire_pixie_charge: Iceandfire pixie charge
+    iceandfire_sea_serpent: Iceandfire sea serpent
+    iceandfire_sea_serpent_arrow: Iceandfire sea serpent arrow
+    iceandfire_sea_serpent_bubbles: Iceandfire sea serpent bubbles
+    iceandfire_siren: Iceandfire siren
+    iceandfire_stone_statue: Iceandfire stone statue
+    iceandfire_stymphalian_arrow: Iceandfire stymphalian arrow
+    iceandfire_stymphalian_bird: Iceandfire stymphalian bird
+    iceandfire_stymphalian_feather: Iceandfire stymphalian feather
+    iceandfire_tide_trident: Iceandfire tide trident
+    iceandfire_troll: Iceandfire troll
+    illusioner: Illusioner
+    interaction: Interaction
+    iron_golem: Iron golem
+    item_display: Item display
+    item_frame: Item frame
+    leash_hitch: Leash hitch
+    legendary_monsters_ambusher: Legendary monsters ambusher
+    legendary_monsters_ancient_guardian: Legendary monsters ancient guardian
+    legendary_monsters_big_shulker_bullet: Legendary monsters big shulker bullet
+    legendary_monsters_bomb: Legendary monsters bomb
+    legendary_monsters_bomber: Legendary monsters bomber
+    legendary_monsters_camera_shake: Legendary monsters camera shake
+    legendary_monsters_chorusling: Legendary monsters chorusling
+    legendary_monsters_chorus_bomb: Legendary monsters chorus bomb
+    legendary_monsters_chorus_breath: Legendary monsters chorus breath
+    legendary_monsters_chorus_energy_bullet: Legendary monsters chorus energy bullet
+    legendary_monsters_cloud: Legendary monsters cloud
+    legendary_monsters_cloud_golem: Legendary monsters cloud golem
+    legendary_monsters_dimensional_bomb: Legendary monsters dimensional bomb
+    legendary_monsters_dune_sentinel: Legendary monsters dune sentinel
+    legendary_monsters_electric_burst: Legendary monsters electric burst
+    legendary_monsters_endersent: Legendary monsters endersent
+    legendary_monsters_energy_beam: Legendary monsters energy beam
+    legendary_monsters_energy_disc: Legendary monsters energy disc
+    legendary_monsters_energy_explosion: Legendary monsters energy explosion
+    legendary_monsters_energy_laser: Legendary monsters energy laser
+    legendary_monsters_falling_cloud: Legendary monsters falling cloud
+    legendary_monsters_falling_cloud_small: Legendary monsters falling cloud small
+    legendary_monsters_falling_soul_blade: Legendary monsters falling soul blade
+    legendary_monsters_fire_breath: Legendary monsters fire breath
+    legendary_monsters_fire_pillar: Legendary monsters fire pillar
+    legendary_monsters_frostbitten_golem: Legendary monsters frostbitten golem
+    legendary_monsters_golden_halbert: Legendary monsters golden halbert
+    legendary_monsters_green_flame_strike: Legendary monsters green flame strike
+    legendary_monsters_guard: Legendary monsters guard
+    legendary_monsters_haunted_guard: Legendary monsters haunted guard
+    legendary_monsters_haunted_knight: Legendary monsters haunted knight
+    legendary_monsters_hovering_hurricane: Legendary monsters hovering hurricane
+    legendary_monsters_ice_spike: Legendary monsters ice spike
+    legendary_monsters_knights_armor: Legendary monsters knights armor
+    legendary_monsters_lava_eater: Legendary monsters lava eater
+    legendary_monsters_lightning_beam: Legendary monsters lightning beam
+    legendary_monsters_lightning_strike: Legendary monsters lightning strike
+    legendary_monsters_lm_falling_block: Legendary monsters lm falling block
+    legendary_monsters_mossy_golem: Legendary monsters mossy golem
+    legendary_monsters_overgrown_colossus: Legendary monsters overgrown colossus
+    legendary_monsters_player_tornado: Legendary monsters player tornado
+    legendary_monsters_poison_shockwave: Legendary monsters poison shockwave
+    legendary_monsters_poison_shockwave_spawner: Legendary monsters poison shockwave
+      spawner
+    legendary_monsters_posessed_paladin: Legendary monsters posessed paladin
+    legendary_monsters_shockwave: Legendary monsters shockwave
+    legendary_monsters_shockwave_spawner: Legendary monsters shockwave spawner
+    legendary_monsters_shulker_mimic: Legendary monsters shulker mimic
+    legendary_monsters_skeletosaurus: Legendary monsters skeletosaurus
+    legendary_monsters_skeloraptor: Legendary monsters skeloraptor
+    legendary_monsters_small_cloud: Legendary monsters small cloud
+    legendary_monsters_small_dimensional_bomb: Legendary monsters small dimensional
+      bomb
+    legendary_monsters_soul_arm: Legendary monsters soul arm
+    legendary_monsters_soul_pillar: Legendary monsters soul pillar
+    legendary_monsters_soul_strike: Legendary monsters soul strike
+    legendary_monsters_spear: Legendary monsters spear
+    legendary_monsters_spiky_bug: Legendary monsters spiky bug
+    legendary_monsters_stratling: Legendary monsters stratling
+    legendary_monsters_thunder_cloud: Legendary monsters thunder cloud
+    legendary_monsters_tornado: Legendary monsters tornado
+    legendary_monsters_tracking_bomb: Legendary monsters tracking bomb
+    legendary_monsters_underground_soul_blade: Legendary monsters underground soul
+      blade
+    legendary_monsters_warped_fungussus: Legendary monsters warped fungussus
+    legendary_monsters_withered_abomination: Legendary monsters withered abomination
+    lightning: Lightning
+    llama: Llama
+    llama_spit: Llama spit
+    magma_cube: Magma cube
+    majruszsdifficulty_cerberus: Majruszsdifficulty cerberus
+    majruszsdifficulty_creeperling: Majruszsdifficulty creeperling
+    majruszsdifficulty_cursed_armor: Majruszsdifficulty cursed armor
+    majruszsdifficulty_giant: Majruszsdifficulty giant
+    majruszsdifficulty_illusioner: Majruszsdifficulty illusioner
+    majruszsdifficulty_tank: Majruszsdifficulty tank
+    marker: Marker
+    minecart: Minecart
+    minecart_chest: Minecart chest
+    minecart_command: Minecart command
+    minecart_furnace: Minecart furnace
+    minecart_hopper: Minecart hopper
+    minecart_mob_spawner: Minecart mob spawner
+    minecart_tnt: Minecart tnt
+    mowziesmobs_axe_attack: Mowziesmobs axe attack
+    mowziesmobs_baby_foliaath: Mowziesmobs baby foliaath
+    mowziesmobs_block_swapper: Mowziesmobs block swapper
+    mowziesmobs_block_swapper_tunneling: Mowziesmobs block swapper tunneling
+    mowziesmobs_bluff: Mowziesmobs bluff
+    mowziesmobs_boulder_platform: Mowziesmobs boulder platform
+    mowziesmobs_boulder_platform_crumbling: Mowziesmobs boulder platform crumbling
+    mowziesmobs_boulder_projectile: Mowziesmobs boulder projectile
+    mowziesmobs_camera_shake: Mowziesmobs camera shake
+    mowziesmobs_dart: Mowziesmobs dart
+    mowziesmobs_earth_spike: Mowziesmobs earth spike
+    mowziesmobs_falling_block: Mowziesmobs falling block
+    mowziesmobs_ferrous_wroughtnaut: Mowziesmobs ferrous wroughtnaut
+    mowziesmobs_fissure: Mowziesmobs fissure
+    mowziesmobs_fissure_piece: Mowziesmobs fissure piece
+    mowziesmobs_foliaath: Mowziesmobs foliaath
+    mowziesmobs_frostmaw: Mowziesmobs frostmaw
+    mowziesmobs_frozen_controller: Mowziesmobs frozen controller
+    mowziesmobs_grottol: Mowziesmobs grottol
+    mowziesmobs_ice_ball: Mowziesmobs ice ball
+    mowziesmobs_ice_breath: Mowziesmobs ice breath
+    mowziesmobs_lantern: Mowziesmobs lantern
+    mowziesmobs_naga: Mowziesmobs naga
+    mowziesmobs_pillar: Mowziesmobs pillar
+    mowziesmobs_pillar_piece: Mowziesmobs pillar piece
+    mowziesmobs_pillar_sculptor: Mowziesmobs pillar sculptor
+    mowziesmobs_poison_ball: Mowziesmobs poison ball
+    mowziesmobs_rock_sling: Mowziesmobs rock sling
+    mowziesmobs_sculptor: Mowziesmobs sculptor
+    mowziesmobs_solar_beam: Mowziesmobs solar beam
+    mowziesmobs_sunstrike: Mowziesmobs sunstrike
+    mowziesmobs_super_nova: Mowziesmobs super nova
+    mowziesmobs_umvuthana: Mowziesmobs umvuthana
+    mowziesmobs_umvuthana_crane: Mowziesmobs umvuthana crane
+    mowziesmobs_umvuthana_crane_player: Mowziesmobs umvuthana crane player
+    mowziesmobs_umvuthana_follower_player: Mowziesmobs umvuthana follower player
+    mowziesmobs_umvuthana_follower_raptor: Mowziesmobs umvuthana follower raptor
+    mowziesmobs_umvuthana_raptor: Mowziesmobs umvuthana raptor
+    mowziesmobs_umvuthi: Mowziesmobs umvuthi
+    mule: Mule
+    mushroom_cow: Mushroom cow
+    ocelot: Ocelot
+    painting: Painting
+    panda: Panda
+    parrot: Parrot
+    phantom: Phantom
+    pig: Pig
+    piglin: Piglin
+    piglin_brute: Piglin brute
+    pillager: Pillager
+    player: Player
+    polar_bear: Polar bear
+    primed_tnt: Primed tnt
+    pufferfish: Pufferfish
+    quark_crab: Quark crab
+    quark_dyed_item_frame: Quark dyed item frame
+    quark_flamerang: Quark flamerang
+    quark_forgotten: Quark forgotten
+    quark_foxhound: Quark foxhound
+    quark_glass_frame: Quark glass frame
+    quark_gravisand: Quark gravisand
+    quark_parrot_egg: Quark parrot egg
+    quark_pickarang: Quark pickarang
+    quark_quark_boat: Quark quark boat
+    quark_quark_chest_boat: Quark quark chest boat
+    quark_shiba: Quark shiba
+    quark_skull_pike: Quark skull pike
+    quark_soul_bead: Quark soul bead
+    quark_stoneling: Quark stoneling
+    quark_stool: Quark stool
+    quark_torch_arrow: Quark torch arrow
+    quark_toretoise: Quark toretoise
+    quark_totem: Quark totem
+    quark_wraith: Quark wraith
+    rabbit: Rabbit
+    ravager: Ravager
+    refurbished_furniture_seat: Refurbished furniture seat
+    salmon: Salmon
+    securitycraft_bouncingbetty: Securitycraft bouncingbetty
+    securitycraft_bullet: Securitycraft bullet
+    securitycraft_imsbomb: Securitycraft imsbomb
+    securitycraft_securitycamera: Securitycraft securitycamera
+    securitycraft_security_sea_boat: Securitycraft security sea boat
+    securitycraft_sentry: Securitycraft sentry
+    sheep: Sheep
+    shulker: Shulker
+    shulker_bullet: Shulker bullet
+    silverfish: Silverfish
+    skeleton: Skeleton
+    skeleton_horse: Skeleton horse
+    slime: Slime
+    small_fireball: Small fireball
+    sniffer: Sniffer
+    snowball: Snowball
+    snowman: Snowman
+    sophisticatedbackpacks_everlasting_backpack_item: Sophisticatedbackpacks everlasting
+      backpack item
+    spectral_arrow: Spectral arrow
+    spelunkers_charm_projectile_basalt_rock_projectile: Spelunkers charm projectile
+      basalt rock projectile
+    spelunkers_charm_projectile_deepslate_rock_projectile: Spelunkers charm projectile
+      deepslate rock projectile
+    spelunkers_charm_projectile_dripstone_rock_projectile: Spelunkers charm projectile
+      dripstone rock projectile
+    spelunkers_charm_projectile_rock_projectile: Spelunkers charm projectile rock
+      projectile
+    spelunkers_charm_sound_entity: Spelunkers charm sound entity
+    spelunkers_charm_tremor_handler: Spelunkers charm tremor handler
+    spider: Spider
+    splash_potion: Splash potion
+    squid: Squid
+    stray: Stray
+    strider: Strider
+    supplementaries_bomb: Supplementaries bomb
+    supplementaries_brick_projectile: Supplementaries brick projectile
+    supplementaries_cannonball: Supplementaries cannonball
+    supplementaries_dispenser_minecart: Supplementaries dispenser minecart
+    supplementaries_falling_ash: Supplementaries falling ash
+    supplementaries_falling_sack: Supplementaries falling sack
+    supplementaries_falling_urn: Supplementaries falling urn
+    supplementaries_hat_stand: Supplementaries hat stand
+    supplementaries_pearl_marker: Supplementaries pearl marker
+    supplementaries_red_merchant: Supplementaries red merchant
+    supplementaries_rope_arrow: Supplementaries rope arrow
+    supplementaries_slimeball_projectile: Supplementaries slimeball projectile
+    supplementaries_slingshot_projectile: Supplementaries slingshot projectile
+    tacz_bullet: Tacz bullet
+    tacz_target_minecart: Tacz target minecart
+    tadpole: Tadpole
+    text_display: Text display
+    thrown_exp_bottle: Thrown exp bottle
+    tombstone_cloud: Tombstone cloud
+    tombstone_grave_guardian: Tombstone grave guardian
+    tombstone_spectral_bite: Tombstone spectral bite
+    tombstone_spectral_wolf: Tombstone spectral wolf
+    trader_llama: Trader llama
+    trident: Trident
+    tropical_fish: Tropical fish
+    turtle: Turtle
+    unknown: Unknown
+    vex: Vex
+    villager: Villager
+    vindicator: Vindicator
+    wandering_trader: Wandering trader
+    warden: Warden
+    witch: Witch
+    wither: Wither
+    wither_skeleton: Wither skeleton
+    wither_skull: Wither skull
+    wolf: Wolf
+    zoglin: Zoglin
+    zombie: Zombie
+    zombie_horse: Zombie horse
+    zombie_villager: Zombie villager
+    zombified_piglin: Zombified piglin
+  # Avoid adding color codes to the enchant name
+  EnchantNames:
+    frost_walker: Frost_Walker
+    swift_sneak: Swift_Sneak
+    straddle_jump: Straddle_Jump
+    fishing_fanatic: Fishing_Fanatic
+    punch: Punch
+    protection: Protection
+    blast_protection: Blast_Protection
+    lure: Lure
+    harvester: Harvester
+    corrosion_curse: Corrosion_Curse
+    soulbound: Soulbound
+    curse_of_bones: Curse_Of_Bones
+    horse_swiftness: Horse_Swiftness
+    silk_touch: Silk_Touch
+    infinity: Infinity
+    vanishing_curse: Vanishing_Curse
+    dodge: Dodge
+    flame: Flame
+    piercing: Piercing
+    lavawax: Lavawax
+    fire_protection: Fire_Protection
+    gold_fuelled: Gold_Fuelled
+    sharpness: Sharpness
+    sweeping: Sweeping
+    spectral_bite: Spectral_Bite
+    aqua_affinity: Aqua_Affinity
+    binding_curse: Binding_Curse
+    spectral_conjurer: Spectral_Conjurer
+    blessing: Blessing
+    bane_of_arthropods: Bane_Of_Arthropods
+    frostbite: Frostbite
+    reactive: Reactive
+    looting: Looting
+    efficiency: Efficiency
+    serpentfriend: Serpentfriend
+    pulsation: Pulsation
+    quick_charge: Quick_Charge
+    catalysis: Catalysis
+    loyalty: Loyalty
+    enlightenment: Enlightenment
+    feather_falling: Feather_Falling
+    unbreaking: Unbreaking
+    leech: Leech
+    repulsion: Repulsion
+    knockback: Knockback
+    projectile_protection: Projectile_Protection
+    smelter: Smelter
+    respiration: Respiration
+    magic_protection: Magic_Protection
+    incompatibility_curse: Incompatibility_Curse
+    fatigue_curse: Fatigue_Curse
+    board_return: Board_Return
+    death_wish: Death_Wish
+    telekinesis: Telekinesis
+    immortality: Immortality
+    impaling: Impaling
+    smite: Smite
+    sanctified: Sanctified
+    luck_of_the_sea: Luck_Of_The_Sea
+    thorns: Thorns
+    horse_frost_walker: Horse_Frost_Walker
+    multishot: Multishot
+    fire_aspect: Fire_Aspect
+    decrepitude: Decrepitude
+    rend: Rend
+    depth_strider: Depth_Strider
+    breaking_curse: Breaking_Curse
+    sculk_smite: Sculk_Smite
+    stasis: Stasis
+    horse_protection: Horse_Protection
+    power: Power
+    plague_bringer: Plague_Bringer
+    fuse_cutter: Fuse_Cutter
+    ruthless_strike: Ruthless_Strike
+    soul_speed: Soul_Speed
+    magic_siphon: Magic_Siphon
+    mending: Mending
+    riptide: Riptide
+    mana_regen: Mana_Regen
+    hunter: Hunter
+    misanthropy: Misanthropy
+    fortune: Fortune
+    channeling: Channeling
+    slippery_curse: Slippery_Curse
+    sixth_sense: Sixth_Sense
+    incurable_wounds: Incurable_Wounds
+    mana_boost: Mana_Boost
+  PotionEffectAliases:
+    speed:
+    - Speed
+    slowness:
+    - Slowness
+    haste:
+    - Haste
+    miningfatigue:
+    - Mining fatigue
+    strength:
+    - Strength
+    instanthealth:
+    - Instant health
+    instantdamage:
+    - Instant damage
+    jumpboost:
+    - Jump boost
+    nausea:
+    - Nausea
+    regeneration:
+    - Regeneration
+    resistance:
+    - Resistance
+    fireresistance:
+    - Fire resistance
+    waterbreathing:
+    - Water breathing
+    invisibility:
+    - Invisibility
+    blindness:
+    - Blindness
+    nightvision:
+    - Night vision
+    hunger:
+    - Hunger
+    weakness:
+    - Weakness
+    poison:
+    - Poison
+    wither:
+    - Wither
+    healthboost:
+    - Health boost
+    absorption:
+    - Absorption
+    saturation:
+    - Saturation
+    glowing:
+    - Glowing
+    levitation:
+    - Levitation
+    luck:
+    - Luck
+    unluck:
+    - Unluck
+    slowfalling:
+    - Slow falling
+    conduitpower:
+    - Conduit power
+    dolphinsgrace:
+    - Dolphins grace
+    badomen:
+    - Bad omen
+    heroofthevillage:
+    - Hero of the village
+    darkness:
+    - Darkness
+dialog:
+  signEditor: Sign Editor
+  update: Update
+  save: Save
+  close: Close
+  line: Line [line]
+direction:
+  n: North
+  ne: North East
+  e: East
+  se: South East
+  s: South
+  sw: South West
+  w: West
+  nw: North West
+modify:
+  middlemouse: '{gcn}Middle mouse click to edit'
+  qButtonEdit: '{gcn}Click Q to edit'
+  newItem: '{gcp}Place new item here'
+  newLine: '{gcn}<NewLine>'
+  newLineHover: '{gcp}Add new line'
+  newPage: '{gcn}<NewPage>'
+  newPageHover: '{gcp}Create new page'
+  removePage: '{gcw}<RemovePage>'
+  removePageHover: '{gcw}Remove page'
+  deleteSymbol: ' {gcw}[X]'
+  deleteSymbolHover: '{gcw}Delete {gcs}[text]'
+  extraEditSymbol: ' {gcp}!'
+  addSymbol: '{gcu}[+]'
+  addSymbolHover: '{gcu}Add new'
+  cancelSymbol: ' {gcn}&l[X]'
+  cancelSymbolHover: '{gcn}Cancel'
+  acceptSymbol: ' {gcu}&l[✔]'
+  acceptSymbolHover: '{gcu}Accept'
+  denySymbol: ' {gcd}&l[X]'
+  denySymbolHover: '{gcw}Deny'
+  enabledSymbol: '{gcu}[+]'
+  disabledSymbol: '{gcw}[-]'
+  enabled: '{gcu}Enabled'
+  disabled: '{gcw}Disabled'
+  running: '{gcp}Running'
+  paused: '{gcw}Paused'
+  editSymbol: '{gcs}✎'
+  editSymbolHover: '{gcp}Edit {gcs}[text]'
+  editLineColor: '&f'
+  listUpSymbol: '{gcp}⇑'
+  listUpSymbolHover: '{gcp}Up'
+  listDownSymbol: '{gcp}⇓'
+  listDownSymbolHover: '{gcp}Down'
+  listNumbering: '{gcs}[number]. '
+  listAlign: '&80'
+  ChangeHover: '{gcp}Click to change'
+  ChangeCommands: '{gcp}Commands'
+  enabledColor: '{gcu}'
+  disabledColor: '{gcd}'
+  commandTitle: ' {gcp}--- {gcs}[name] {gcp}---'
+  commandList: ' {gcs}[command]  '
+  emptyLine: '{gcn}[Empty line]'
+  commandEdit: '{gcp}Edit list'
+  nameAddInfo: '{gcp}Enter new name. Type {gcs}cancel {gcp}to cancel'
+  lineAddInfo: '{gcp}Enter new line. Type {gcs}cancel {gcp}to cancel'
+  commandAddInfo: '{gcp}Enter new command. Type {gcs}cancel {gcp}to cancel'
+  commandAddInformationHover: "{gcp}[playerName] can be used to get player name \n\
+    {gcp}To include delay in commands: \n{gcp}delay! 5 \n{gcp}Specialized commands\
+    \ are supported. More info at \n{gcp}https://www.zrips.net/cmi/commands/specialized/"
+  commandEditInfo: '{gcp}Click to paste old text. Type {gcs}cancel {gcp}to cancel
+    action'
+  listLimit: '{gcp}List can''t be bigger than {gcs}[amount] {gcp}entries'
+  commandEditInfoHover: '{gcp}Click to paste old text'
+teleportation:
+  relocation: '!actionbar!{gcd}Your teleport location was obstructed. You have been
+    teleported to a safe location.'
+econ:
+  noMoney: '{gcw}You have no money'
+  charged: '!actionbar!{gcp}Charged: {gcs}[amount]'
+  notEnoughMoney: '{gcw}You don''t have enough money. Required ({gcs}[amount]{gcw})'
+  tooMuchMoney: '{gcw}You have too much money'
+Selection:
+  SelectPoints: '{gcw}Select 2 points with selection tool! AKA: {gcs}[tool]'
+  PrimaryPoint: '{gcp}Placed {gcs}Primary {gcp}Selection Point [point]'
+  SecondaryPoint: '{gcp}Placed {gcs}Secondary {gcp}Selection Point [point]'
+  CoordsTop: '{gcp}X:{gcs}[x] {gcp}Y:{gcs}[y] {gcp}Z:{gcs}[z]'
+  CoordsBottom: '{gcp}X:{gcs}[x] {gcp}Y:{gcs}[y] {gcp}Z:{gcs}[z]'
+  Area: '{gcn}[world] {gcp}({gcs}[x1]:[y1]:[z1] {gcp}[x2]:[y2]:[z2]{gcp})'
+Location:
+  Title: '{gcp}Players location'
+  Killer: '{gcp}Killer: {gcs}[killer]'
+  OneLiner: '{gcp}Location: {gcs}[location]'
+  DeathReason: '{gcp}Death Reason: {gcs}[reason]'
+  Full: '{gcp}[world] {gcs}[x]{gcp}:{gcs}[y]{gcp}:{gcs}[z]'
+  World: '{gcp}World: {gcs}[world]'
+  X: '{gcp}X: {gcs}[x]'
+  Y: '{gcp}Y: {gcs}[y]'
+  Z: '{gcp}Z: {gcs}[z]'
+  Pitch: '{gcp}Pitch: {gcs}[pitch]'
+  Yaw: '{gcp}Yaw: {gcs}[yaw]'
+  WorldNames:
+  - world-&2World
+  - DIM-1-&2Dim-1
+  - gaster_dimension-&2Gaster Dimension
+  - otherside-&2Otherside
+  - DIM1-&2Dim1
+  - level_0-&2Level 0
+  - boiler_room_dimension-&2Boiler Room Dimension
+Locations: '{gcp}Locations: '
+command:
+  help:
+    output:
+      usage: '&eUsage: &7%usage%'
+      cmdInfoFormat: '[command] &f- &e[description]'
+      cmdFormat: '&6/[command]&f[arguments]'
+      helpPageDescription: '&e* [description]'
+      explanation: '&e * [explanation]'
+      title: '&e------ ======= &6Help&e &e======= ------'
+  nocmd:
+    help:
+      info: '&eShows all available commands'
+      args: ''
+  clearcache:
+    help:
+      info: '&eClear cache'
+      args: ''
+  reload:
+    help:
+      info: '&eReloads plugins config and locale files'
+      args: ''
+    info:
+      feedback: '&6CMIL Configs and locale files reloaded! Took [ms]ms'
+      failedConfig: '&4Failed to load config file! Check spelling!'
+      failedLocale: '&4Failed to load locale file! Check spelling!'

@@ -1,0 +1,49 @@
+pages:
+  page1:
+    gui-rows: 3
+    title: "&9&lProtecciones"
+    items:
+      '1':
+        material: COAL_ORE
+        displayname: "&a&lBloque de Protección: &f&lBásico"
+        lore:
+          - "&7Protege un área de &f11x11 &7bloques."
+          - "&7Ideal para iniciar tu aventura."
+          - "&ePrecio: $30,000"
+        buy: 30000
+        giveItem: false
+        buy-commands:
+          - "console: ps give %player% ps-basico"
+      '2':
+        material: REDSTONE_ORE
+        displayname: "&b&lBloque de Protección: &f&lMedio"
+        lore:
+          - "&7Protege un área de &f21x21 &7bloques."
+          - "&7Espacio suficiente para tu casa y jardín."
+          - "&ePrecio: $75,000"
+        buy: 75000
+        giveItem: false
+        buy-commands:
+          - "console: ps give %player% ps-medio"
+      '3':
+        material: LAPIS_ORE
+        displayname: "&d&lBloque de Protección: &f&lAvanzado"
+        lore:
+          - "&7Protege un área de &f51x51 &7bloques."
+          - "&7Máxima seguridad. &cNo spawnean mobs."
+          - "&ePrecio: $180,000"
+        buy: 180000
+        giveItem: false
+        buy-commands:
+          - "console: ps give %player% ps-avanzado"
+      '4':
+        material: EMERALD_ORE
+        displayname: "&a&lBloque de Protección: &f&lRegión 64"
+        lore:
+          - "&7Protege un área de &f129x129 &7bloques (Radio 64)."
+          - "&7Para grandes construcciones y ciudades."
+          - "&ePrecio: $450,000"
+        buy: 450000
+        giveItem: false
+        buy-commands:
+          - "console: ps give %player% 64"

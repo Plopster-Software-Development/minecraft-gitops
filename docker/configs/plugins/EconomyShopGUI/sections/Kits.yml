@@ -1,0 +1,17 @@
+enable: true
+slot: 23
+title: '&6&lKits'
+hidden: false
+sub-section: false
+display-item: false
+fill-item:
+  material: AIR
+nav-bar:
+  mode: INHERIT
+item:
+  material: CHEST
+  displayname: '&6&lKits'
+  name: '&6&lKits'
+  lore:
+    - '&7Adquiere kits de herramientas,'
+    - '&7armaduras y recursos.'
