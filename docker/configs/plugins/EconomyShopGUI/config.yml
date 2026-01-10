@@ -149,7 +149,7 @@ currency-formats:
   vault:
     singular: '%currency-symbol%'
     plural: '%currency-symbol%'
-    friendly: money
+    friendly: Astrals
   gems-economy:Example:
     singular: Example
     plural: Examples

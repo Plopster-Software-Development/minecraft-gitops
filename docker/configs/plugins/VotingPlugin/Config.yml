@@ -725,7 +725,7 @@ PreventRepeatMilestones: false
 
 # Number of points to give on vote
 # Set to 0 to give no points
-PointsOnVote: 1
+PointsOnVote: 0
 
 # May need to enable this for bungee setups
 # Let players who never joined before vote

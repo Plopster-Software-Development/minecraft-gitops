@@ -20,40 +20,40 @@ Jobs:
       # Maderas comunes
       OAK_LOG:
         income: 2.0
-        points: 2.0
+        points: 0.0
         experience: 5.0
       BIRCH_LOG:
         income: 2.0
-        points: 2.0
+        points: 0.0
         experience: 5.0
       SPRUCE_LOG:
         income: 2.0
-        points: 2.0
+        points: 0.0
         experience: 5.0
       JUNGLE_LOG:
         income: 2.5
-        points: 2.5
+        points: 0.0
         experience: 6.0
       ACACIA_LOG:
         income: 2.5
-        points: 2.5
+        points: 0.0
         experience: 6.0
       DARK_OAK_LOG:
         income: 2.5
-        points: 2.5
+        points: 0.0
         experience: 6.0
       MANGROVE_LOG:
         income: 3.0
-        points: 3.0
+        points: 0.0
         experience: 7.0
       CHERRY_LOG:
         income: 3.0
-        points: 3.0
+        points: 0.0
         experience: 7.0
       # Pelar troncos paga un poco menos
       STRIPPED_OAK_LOG:
         income: 0.5
-        points: 0.5
+        points: 0.0
         experience: 1.0
 
   # --- TRABAJO: MINERO (Miner) ---
@@ -73,40 +73,40 @@ Jobs:
     Break:
       STONE:
         income: 0.5
-        points: 0.5
+        points: 0.0
         experience: 1.0
       DEEPSLATE:
         income: 0.7
-        points: 0.7
+        points: 0.0
         experience: 1.5
       COAL_ORE:
         income: 3.0
-        points: 3.0
+        points: 0.0
         experience: 5.0
       IRON_ORE:
         income: 5.0
-        points: 5.0
+        points: 0.0
         experience: 10.0
       COPPER_ORE:
         income: 4.0
-        points: 4.0
+        points: 0.0
         experience: 8.0
       GOLD_ORE:
         income: 8.0
-        points: 8.0
+        points: 0.0
         experience: 15.0
       DIAMOND_ORE:
         income: 20.0
-        points: 20.0
+        points: 0.0
         experience: 50.0
         from-spawner: false
       EMERALD_ORE:
         income: 25.0
-        points: 25.0
+        points: 0.0
         experience: 60.0
       ANCIENT_DEBRIS:
         income: 50.0
-        points: 50.0
+        points: 0.0
         experience: 100.0
   
   # --- TRABAJO: EXCAVADOR (Digger) ---
@@ -126,21 +126,73 @@ Jobs:
     Break:
       DIRT:
         income: 0.2
-        points: 0.2
+        points: 0.0
         experience: 0.5
       GRASS_BLOCK:
         income: 0.3
-        points: 0.3
+        points: 0.0
         experience: 0.6
       SAND:
         income: 0.3
-        points: 0.3
+        points: 0.0
         experience: 0.6
       GRAVEL:
         income: 0.5
-        points: 0.5
+        points: 0.0
         experience: 1.0
       CLAY:
         income: 1.0
-        points: 1.0
+        points: 0.0
         experience: 2.0
+
+  # --- TRABAJO: CAZADOR (Hunter) ---
+  Hunter:
+    fullname: "&cCazador"
+    shortname: "C"
+    description: 
+      - "&cGana dinero cazando monstruos."
+      - "&c¡Protege el mundo de la oscuridad!"
+    ChatColour: RED
+    chat-display: full
+    max-level: 100
+    leveling-progression-equation: 100 + ((level - 1) * 100 * 1.05)
+    income-progression-equation: baseIncome * ((level - 1) * 0.005 + 1)
+    points-progression-equation: basePoints * ((level - 1) * 0.005 + 1)
+    
+    Kill:
+      ZOMBIE:
+        income: 0.5
+        points: 0.0
+        experience: 2.0
+      SKELETON:
+        income: 0.5
+        points: 0.0
+        experience: 2.0
+      SPIDER:
+        income: 0.5
+        points: 0.0
+        experience: 2.0
+      CREEPER:
+        income: 1.0
+        points: 0.0
+        experience: 5.0
+      WITCH:
+        income: 2.0
+        points: 0.0
+        experience: 10.0
+      ENDERMAN:
+        income: 3.0
+        points: 0.0
+        experience: 15.0
+      PILLAGER:
+        income: 2.0
+        points: 0.0
+        experience: 10.0
+      RAVAGER:
+        income: 20.0
+        points: 0.0
+        experience: 50.0
+      PHANTOM:
+        income: 3.0
+        points: 0.0
+        experience: 15.0
