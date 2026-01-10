@@ -65,9 +65,13 @@ EmperorAurelius:
   Display: '&6&lEmperador Aurelius'
   Health: 3000
   Damage: 18
+  LevelModifiers:
+    Health: 500
+    Damage: 2
+    Power: 0.1
   BossBar:
     Enabled: true
-    Title: '&6Emperador Aurelius'
+    Title: '&6Emperador Aurelius (Nv. <mob.level>)'
     Range: 40
     Color: YELLOW
     Style: SOLID
@@ -83,6 +87,10 @@ EmperorAurelius:
     KnockbackResistance: 1.0
     FollowRange: 40
   Skills:
+  # Leveling System
+  - skill{s=AureliusApplyLevel} @self ~onSpawn
+  - skill{s=AureliusGlobalLevelUp} @self ~onDeath
+  
   # Rewards on Death
   - skill{s=ColosseumBossReward} @self ~onDeath
   # Combat Skills

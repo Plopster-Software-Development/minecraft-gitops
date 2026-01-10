@@ -14,3 +14,36 @@ ColosseumBossReward:
   - command{c="give <target.name> diamond_block 1"} @PlayersInRadius{r=60}
   - command{c="give <target.name> golden_apple 3"} @PlayersInRadius{r=60}
   - command{c="give <target.name> experience_bottle 16"} @PlayersInRadius{r=60}
+  # Check for Streak Bonus
+  - skill{s=AureliusStreakCheck} @self
+
+# --- Sistema de Nivel Infinito ---
+AureliusGlobalLevelUp:
+  Skills:
+  # Incrementa la variable GLOBAL 'AureliusLevel' en 1 (Dificultad)
+  - variableadd{var=AureliusLevel;scope=GLOBAL;amount=1} @self
+  # Incrementa la variable GLOBAL 'AureliusStreak' en 1 (Recompensa)
+  - variableadd{var=AureliusStreak;scope=GLOBAL;amount=1} @self
+  
+  - message{m="&4&k;&r &c&lEL PODER DEL EMPERADOR CRECE &4&k;"} @PlayersInRadius{r=60}
+  - message{m="&7(El próximo Aurelius será Nivel &c<var.global.AureliusLevel>&7)"} @PlayersInRadius{r=60}
+
+AureliusApplyLevel:
+  Skills:
+  - setlevel{l=<var.global.AureliusLevel>} @self
+  - message{m="&eAurelius (Nivel <mob.level>): &f¿Creen que pueden derrotarme de nuevo?"} @PlayersInRadius{r=40}
+
+# --- Sistema de Bonus (Cada 3 Victorias) ---
+AureliusStreakCheck:
+  Conditions:
+  - variableEquals{var=AureliusStreak;value=3;scope=GLOBAL}
+  Skills:
+  - message{m="&d&l¡RACHA DE 3 VICTORIAS! &f¡El Emperador libera su Bóveda Secreta!"} @PlayersInRadius{r=60}
+  - sound{s=ui.toast.challenge_complete;v=1;p=1} @PlayersInRadius{r=60}
+  # Bonus Masivo
+  - command{c="eco give <target.name> 10000"} @PlayersInRadius{r=60}
+  - command{c="give <target.name> netherite_block 1"} @PlayersInRadius{r=60}
+  - command{c="give <target.name> beacon 1"} @PlayersInRadius{r=60}
+  - command{c="give <target.name> enchanted_golden_apple 1"} @PlayersInRadius{r=60}
+  # Resetear Streak
+  - variableSet{var=AureliusStreak;value=0;scope=GLOBAL} @self
