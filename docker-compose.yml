@@ -1,0 +1,130 @@
+version: "3.8"
+
+services:
+  minecraft:
+    build: .
+    container_name: minecraft-gitops-local
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "MOHIST"
+      VERSION: "1.20.1"
+      # Usar Java 21 como en el Dockerfile
+      JAVA_VERSION: "21"
+      
+      # Memoria para local (ajustable)
+      MEMORY: "4G"
+      
+      # Flags de optimización (Copiados de values.yaml)
+      USE_AIKAR_FLAGS: "true"
+      SIMULATION_DISTANCE: "4"
+      
+      # Semilla
+      SEED: "-7871749140102981904"
+      
+      # Lista de Mods (Copiado de values.yaml para paridad completa)
+      MODS: >
+        https://mediafilez.forgecdn.net/files/7087/245/balm-forge-1.20.1-7.3.37-all.jar,
+        https://mediafilez.forgecdn.net/files/5137/938/architectury-9.2.14-forge.jar,
+        https://mediafilez.forgecdn.net/files/7296/748/ftb-library-forge-2001.2.12.jar,
+        https://mediafilez.forgecdn.net/files/6555/287/ftb-essentials-forge-2001.2.3.jar,
+        https://mediafilez.forgecdn.net/files/6130/786/ftb-teams-forge-2001.3.1.jar,
+        https://mediafilez.forgecdn.net/files/4810/975/ferritecore-6.0.1-forge.jar,
+        https://mediafilez.forgecdn.net/files/4631/193/starlight-1.1.2%2Bforge.1cda73c.jar,
+        https://mediafilez.forgecdn.net/files/6856/603/waystones-forge-1.20.1-14.1.17.jar,
+        https://mediafilez.forgecdn.net/files/6956/885/tombstone-1.20.1-9.0.9.jar,
+        https://mediafilez.forgecdn.net/files/6047/153/Dungeon%20Crawl-1.20.1-2.3.15.jar,
+        https://mediafilez.forgecdn.net/files/4983/862/DungeonsArise-1.20.x-2.1.58-release.jar,
+        https://mediafilez.forgecdn.net/files/4923/828/Towns-and-Towers-1.12-Fabric%2BForge.jar,
+        https://mediafilez.forgecdn.net/files/4638/51/ironchests-5.0.2-forge.jar,
+        https://mediafilez.forgecdn.net/files/7010/10/brutalbosses-1.20.1-8.4.jar,
+        https://mediafilez.forgecdn.net/files/7110/922/refurbished_furniture-forge-1.20.1-1.0.20.jar,
+        https://mediafilez.forgecdn.net/files/5333/907/spelunkers_charm-3.6.0-1.20.1.jar,
+        https://mediafilez.forgecdn.net/files/5280/609/moremobvariants-forge%2B1.20.1-1.3.0.1.jar,
+        https://mediafilez.forgecdn.net/files/7024/377/PhilipsRuins1.20.1-5.7.jar,
+        https://mediafilez.forgecdn.net/files/7113/231/supplementaries-1.20-3.1.41.jar,
+        https://mediafilez.forgecdn.net/files/6427/817/Quark-4.0-462.jar,
+        https://mediafilez.forgecdn.net/files/6330/928/effortlessbuilding-1.20.1-3.10.jar,
+        https://mediafilez.forgecdn.net/files/7335/229/Zeta-1.0-31.jar,
+        https://mediafilez.forgecdn.net/files/7291/67/kotlinforforge-4.12.0-all.jar,
+        https://mediafilez.forgecdn.net/files/6531/428/framework-forge-1.20.1-0.7.15.jar,
+        https://mediafilez.forgecdn.net/files/5869/180/cristellib-1.1.6-forge.jar,
+        https://mediafilez.forgecdn.net/files/5470/32/cupboard-1.20.1-2.7.jar,
+        https://mediafilez.forgecdn.net/files/7388/296/moonlight-1.20-2.16.19-forge.jar,
+        https://mediafilez.forgecdn.net/files/5208/511/libIPN-forge-1.20-4.0.2.jar,
+        https://mediafilez.forgecdn.net/files/7414/216/sophisticatedbackpacks-1.20.1-3.24.18.1488.jar,
+        https://mediafilez.forgecdn.net/files/7402/37/sophisticatedcore-1.20.1-1.2.117.1347.jar,
+        https://mediafilez.forgecdn.net/files/6231/176/resourcefulconfig-forge-1.20.1-2.1.3.jar,
+        https://mediafilez.forgecdn.net/files/5659/871/resourcefullib-forge-1.20.1-2.1.29.jar,
+        https://mediafilez.forgecdn.net/files/7025/129/geckolib-forge-1.20.1-4.8.2.jar,
+        https://mediafilez.forgecdn.net/files/7306/749/modernfix-forge-5.25.2%2Bmc1.20.1.jar,
+        https://mediafilez.forgecdn.net/files/5089/991/canary-mc1.20.1-0.3.3.jar,
+        https://mediafilez.forgecdn.net/files/5093/785/saturn-mc1.20.1-0.1.3.jar,
+        https://mediafilez.forgecdn.net/files/5320/28/Chunky-1.3.146.jar,
+        https://mediafilez.forgecdn.net/files/7335/503/boh-0.0.9-forge-1.20.1.jar,
+        https://mediafilez.forgecdn.net/files/4577/89/allarrowsinfinityfix-1.5-forge-mc1.20.jar,
+        https://mediafilez.forgecdn.net/files/6602/224/elevatorid-1.20.1-1.9.1-forge.jar,
+        https://mediafilez.forgecdn.net/files/7422/964/chisels-and-bits-forge-20.1.19.jar,
+        https://mediafilez.forgecdn.net/files/5754/567/DarkUtilities-Forge-1.20.1-17.0.5.jar,
+        https://mediafilez.forgecdn.net/files/6702/68/citadel-2.6.2-1.20.1.jar,
+        https://mediafilez.forgecdn.net/files/5698/791/alexsmobs-1.22.9.jar,
+        https://mediafilez.forgecdn.net/files/6528/751/mcw-bridges-3.1.0-mc1.20.1forge.jar,
+        https://mediafilez.forgecdn.net/files/4939/735/netherportalfix-forge-1.20-13.0.1.jar,
+        https://mediafilez.forgecdn.net/files/6315/241/watut-forge-1.20.1-1.2.3.jar,
+        https://mediafilez.forgecdn.net/files/5714/556/viner-2.2.2.jar,
+        https://mediafilez.forgecdn.net/files/6668/653/kurolib-0.1-forge-1.20.1.jar,
+        https://mediafilez.forgecdn.net/files/4587/214/player-animation-lib-forge-1.0.2-rc1%2B1.20.jar,
+        https://mediafilez.forgecdn.net/files/5423/987/Bookshelf-Forge-1.20.1-20.2.13.jar,
+        https://mediafilez.forgecdn.net/files/5096/38/coroutil-forge-1.20.1-1.3.7.jar,
+        https://cdn.modrinth.com/data/IAvnm8Mq/versions/IbBS4IKW/villagerinabucket-1.20.1-1.4.2.jar,
+        https://mediafilez.forgecdn.net/files/5906/86/deeperdarker-forge-1.20.1-1.3.3.jar,
+        https://mediafilez.forgecdn.net/files/5293/465/majruszs-difficulty-forge-1.20.1-1.9.10.jar,
+        https://mediafilez.forgecdn.net/files/5293/997/majruszs-enchantments-forge-1.20.1-1.10.8.jar,
+        https://mediafilez.forgecdn.net/files/5302/100/majrusz-library-forge-1.20.1-7.0.8.jar,
+        https://mediafilez.forgecdn.net/files/5512/76/Terralith_1.20.x_v2.5.4.jar,
+        https://mediafilez.forgecdn.net/files/7401/617/tacz-1.20.1-1.1.7-hotfix.jar,
+        https://mediafilez.forgecdn.net/files/5633/453/iceandfire-2.1.13-1.20.1-beta-5.jar,
+        https://mediafilez.forgecdn.net/files/7126/708/TES-forge-1.20.1-1.6.1.jar,
+        https://mediafilez.forgecdn.net/files/6586/86/mowziesmobs-1.7.3.jar,
+        https://mediafilez.forgecdn.net/files/6776/766/legendarymonsters-1.9.8%20MC%201.20.1.jar,
+        https://mediafilez.forgecdn.net/files/6688/854/ars_nouveau-1.20.1-4.12.7-all.jar,
+        https://mediafilez.forgecdn.net/files/6900/952/celestisynth-1.20.1-1.3.3-all.jar,
+        https://cdn.modrinth.com/data/5sy6g3kz/versions/rnhiaw3t/bettercombat-forge-1.9.0%2B1.20.1.jar,
+        https://mediafilez.forgecdn.net/files/7416/882/voicechat-forge-1.20.1-2.6.11.jar,
+        https://mediafilez.forgecdn.net/files/5729/105/cloth-config-11.1.136-forge.jar,
+        https://mediafilez.forgecdn.net/files/6164/575/Patchouli-1.20.1-84.1-FORGE.jar,
+        https://mediafilez.forgecdn.net/files/6563/409/bettervillage-forge-1.20.1-3.3.1-all.jar,
+        https://mediafilez.forgecdn.net/files/7193/486/dungeons_and_combat-1.2.4-forge-1.20.1.jar,
+        https://mediafilez.forgecdn.net/files/5280/243/mcdw-9.0.4.jar,
+        https://mediafilez.forgecdn.net/files/7148/563/%5B1.20.1%5D%20SecurityCraft%20v1.10.1.jar,
+        https://mediafilez.forgecdn.net/files/4601/234/libraryferret-forge-1.20.1-4.0.0.jar,
+        https://mediafilez.forgecdn.net/files/6418/456/curios-forge-5.14.1%2B1.20.1.jar
+        
+      # Plugin URLs (Copiado de values.yaml)
+      PLUGIN_URLS: >
+        https://github.com/espidev/ProtectionStones/releases/download/2.10.4/ProtectionStones-2.10.4.jar,
+        https://mediafilez.forgecdn.net/files/4675/318/worldguard-bukkit-7.0.9-dist.jar,
+        https://mediafilez.forgecdn.net/files/5326/355/worldedit-bukkit-7.3.1.jar,
+        https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar,
+        https://github.com/gecolay/GSit/releases/download/3.1.1/GSit-3.1.1.jar,
+        https://mediafilez.forgecdn.net/files/3198/633/Clearlag.jar,
+        https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsX-2.22.0-dev+53-9ad754b.jar,
+        https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXChat-2.22.0-dev+53-9ad754b.jar,
+        https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXSpawn-2.22.0-dev+53-9ad754b.jar,
+        https://download.luckperms.net/1611/bukkit/loader/LuckPerms-Bukkit-5.5.22.jar,
+        https://github.com/NEZNAMY/TAB/releases/download/5.4.0/TAB.v5.4.0.jar,
+        https://cdn.modrinth.com/data/bYazc7fd/versions/c0iAbWyA/InvSee%2B%2B.jar,
+        https://cdn.modrinth.com/data/9kNC5Mrh/versions/ChwhnIpa/BuildPastePlugin-1.16-1.21.10v2.01.jar
+
+    volumes:
+      # Persistencia de datos
+      - ./docker-data:/data
+      # Montar configs locales para no tener que reconstruir la imagen en cada cambio
+      # Esto permite editar configs en windows y reiniciar el container para ver cambios
+      #- ./docker/configs:/opt/gitops:ro
+    
+    # Sobrescribimos el entrypoint para ejecutar nuestro script de GitOps antes de iniciar
+    entrypoint: ["/bin/bash", "-c", "/usr/local/bin/gitops-entrypoint.sh && /start"]
+    
+    restart: "no"
