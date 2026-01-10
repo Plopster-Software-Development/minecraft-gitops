@@ -1,0 +1,17 @@
+enable: true
+slot: 21
+title: '&9&lProtecciones'
+hidden: false
+sub-section: false
+display-item: false
+fill-item:
+  material: AIR
+nav-bar:
+  mode: INHERIT
+item:
+  material: GOLD_BLOCK
+  displayname: '&9&lProtecciones'
+  name: '&9&lProtecciones'
+  lore:
+    - '&7Compra piedras de protección'
+    - '&7para asegurar tu terreno.'

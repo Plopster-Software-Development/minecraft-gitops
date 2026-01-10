@@ -1,0 +1,585 @@
+pages:
+  page1:
+    items:
+      '1':
+        material: CHAIN
+        buy: 21.06
+        sell: 5.28
+      '2':
+        material: FLOWER_POT
+        buy: 208.38
+        sell: 52.11
+      '3':
+        material: HONEYCOMB_BLOCK
+        buy: 39.69
+        sell: 9.93
+      '4':
+        material: JACK_O_LANTERN
+        buy: 20.58
+        sell: 5.16
+      '5':
+        material: POINTED_DRIPSTONE
+        buy: 3
+        sell: 0.75
+      '6':
+        material: SPORE_BLOSSOM
+        buy: 10.50
+        sell: 2.64
+      '7':
+        material: BLACK_CANDLE
+        buy: 50.13
+        sell: 12.54
+      '8':
+        material: BLUE_CANDLE
+        buy: 36.90
+        sell: 9.24
+      '9':
+        material: BROWN_CANDLE
+        buy: 53.43
+        sell: 13.38
+      '10':
+        material: CANDLE
+        buy: 31.98
+        sell: 8.01
+      '11':
+        material: CYAN_CANDLE
+        buy: 35.49
+        sell: 8.88
+      '12':
+        material: GRAY_CANDLE
+        buy: 44.97
+        sell: 11.25
+      '13':
+        material: GREEN_CANDLE
+        buy: 33.93
+        sell: 8.49
+      '14':
+        material: LIGHT_BLUE_CANDLE
+        buy: 36.90
+        sell: 9.24
+      '15':
+        material: LIGHT_GRAY_CANDLE
+        buy: 36.90
+        sell: 9.24
+      '16':
+        material: LIME_CANDLE
+        buy: 53.43
+        sell: 13.38
+      '17':
+        material: MAGENTA_CANDLE
+        buy: 36.90
+        sell: 9.24
+      '18':
+        material: ORANGE_CANDLE
+        buy: 36.90
+        sell: 9.24
+      '19':
+        material: PINK_CANDLE
+        buy: 36.90
+        sell: 9.24
+      '20':
+        material: PURPLE_CANDLE
+        buy: 37.05
+        sell: 9.27
+      '21':
+        material: RED_CANDLE
+        buy: 36.90
+        sell: 9.24
+      '22':
+        material: WHITE_CANDLE
+        buy: 38.70
+        sell: 9.69
+      '23':
+        material: YELLOW_CANDLE
+        buy: 35.79
+        sell: 8.97
+      '24':
+        material: BRAIN_CORAL
+        buy: 15
+        sell: 3.75
+      '25':
+        material: BRAIN_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '26':
+        material: BRAIN_CORAL_FAN
+        buy: 9
+        sell: 2.25
+      '27':
+        material: BUBBLE_CORAL
+        buy: 15
+        sell: 3.75
+      '28':
+        material: BUBBLE_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '29':
+        material: BUBBLE_CORAL_FAN
+        buy: 9
+        sell: 2.25
+      '30':
+        material: DEAD_BRAIN_CORAL
+        buy: 15
+        sell: 3.75
+      '31':
+        material: DEAD_BRAIN_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '32':
+        material: DEAD_BRAIN_CORAL_FAN
+        buy: 9
+        sell: 2.25
+      '33':
+        material: DEAD_BUBBLE_CORAL
+        buy: 15
+        sell: 3.75
+      '34':
+        material: DEAD_BUBBLE_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '35':
+        material: DEAD_BUBBLE_CORAL_FAN
+        buy: 9
+        sell: 2.25
+      '36':
+        material: DEAD_FIRE_CORAL
+        buy: 15
+        sell: 3.75
+      '37':
+        material: DEAD_FIRE_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '38':
+        material: DEAD_FIRE_CORAL_FAN
+        buy: 9
+        sell: 2.25
+      '39':
+        material: DEAD_HORN_CORAL
+        buy: 15
+        sell: 3.75
+      '40':
+        material: DEAD_HORN_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '41':
+        material: DEAD_HORN_CORAL_FAN
+        buy: 9
+        sell: 2.25
+      '42':
+        material: DEAD_TUBE_CORAL
+        buy: 15
+        sell: 3.75
+      '43':
+        material: DEAD_TUBE_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '44':
+        material: DEAD_TUBE_CORAL_FAN
+        buy: 9
+        sell: 2.25
+      '45':
+        material: FIRE_CORAL
+        buy: 15
+        sell: 3.75
+  page2:
+    items:
+      '46':
+        material: FIRE_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '47':
+        material: FIRE_CORAL_FAN
+        buy: 9
+        sell: 2.25
+      '48':
+        material: HORN_CORAL
+        buy: 15
+        sell: 3.75
+      '49':
+        material: HORN_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '50':
+        material: HORN_CORAL_FAN
+        buy: 9
+        sell: 2.25
+      '51':
+        material: TUBE_CORAL
+        buy: 15
+        sell: 3.75
+      '52':
+        material: TUBE_CORAL_BLOCK
+        buy: 48
+        sell: 12
+      '53':
+        material: TUBE_CORAL_FAN
+        buy: 18
+        sell: 4.50
+      '54':
+        material: ACACIA_LEAVES
+        buy: 9
+        sell: 2.25
+      '55':
+        material: AZALEA_LEAVES
+        buy: 9.45
+        sell: 2.37
+      '56':
+        material: BIRCH_LEAVES
+        buy: 9
+        sell: 2.25
+      '57':
+        material: CHERRY_LEAVES
+        buy: 9
+        sell: 2.25
+      '58':
+        material: DARK_OAK_LEAVES
+        buy: 9
+        sell: 2.25
+      '59':
+        material: FLOWERING_AZALEA_LEAVES
+        buy: 9.45
+        sell: 2.37
+      '60':
+        material: JUNGLE_LEAVES
+        buy: 9
+        sell: 2.25
+      '61':
+        material: OAK_LEAVES
+        buy: 9
+        sell: 2.25
+      '62':
+        material: SPRUCE_LEAVES
+        buy: 9
+        sell: 2.25
+      '63':
+        material: SEA_LANTERN
+        buy: 198.45
+        sell: 49.62
+      '64':
+        material: SHROOMLIGHT
+        buy: 24
+        sell: 6
+      '65':
+        material: OCHRE_FROGLIGHT
+        buy: 18
+        sell: 4.50
+      '66':
+        material: PEARLESCENT_FROGLIGHT
+        buy: 18
+        sell: 4.50
+      '67':
+        material: VERDANT_FROGLIGHT
+        buy: 18
+        sell: 4.50
+      '68':
+        material: MANGROVE_LEAVES
+        buy: 9
+        sell: 2.25
+      '69':
+        material: MANGROVE_ROOTS
+        buy: 9
+        sell: 2.25
+      '70':
+        material: MUDDY_MANGROVE_ROOTS
+        buy: 9
+        sell: 2.25
+      '71':
+        material: ACACIA_SAPLING
+        buy: 9
+        sell: 2.25
+      '72':
+        material: AZALEA
+        buy: 9
+        sell: 2.25
+      '73':
+        material: BIRCH_SAPLING
+        buy: 9
+        sell: 2.25
+      '74':
+        material: CHERRY_SAPLING
+        buy: 9
+        sell: 2.25
+      '75':
+        material: DARK_OAK_SAPLING
+        buy: 9
+        sell: 2.25
+      '76':
+        material: FLOWERING_AZALEA
+        buy: 9
+        sell: 2.25
+      '77':
+        material: JUNGLE_SAPLING
+        buy: 9
+        sell: 2.25
+      '78':
+        material: MANGROVE_PROPAGULE
+        buy: 9
+        sell: 2.25
+      '79':
+        material: OAK_SAPLING
+        buy: 9
+        sell: 2.25
+      '80':
+        material: SPRUCE_SAPLING
+        buy: 9
+        sell: 2.25
+      '81':
+        material: ACACIA_HANGING_SIGN
+        buy: 10.86
+        sell: 2.73
+      '82':
+        material: ACACIA_SIGN
+        buy: 7.56
+        sell: 1.89
+      '83':
+        material: BAMBOO_HANGING_SIGN
+        buy: 8.94
+        sell: 2.25
+      '84':
+        material: BAMBOO_SIGN
+        buy: 3.75
+        sell: 0.96
+      '85':
+        material: BIRCH_HANGING_SIGN
+        buy: 10.86
+        sell: 2.73
+      '86':
+        material: BIRCH_SIGN
+        buy: 7.56
+        sell: 1.89
+      '87':
+        material: CHERRY_HANGING_SIGN
+        buy: 9.87
+        sell: 2.49
+      '88':
+        material: CHERRY_SIGN
+        buy: 5.58
+        sell: 1.41
+      '89':
+        material: CRIMSON_HANGING_SIGN
+        buy: 9.87
+        sell: 2.49
+      '90':
+        material: CRIMSON_SIGN
+        buy: 5.58
+        sell: 1.41
+  page3:
+    items:
+      '91':
+        material: DARK_OAK_HANGING_SIGN
+        buy: 10.86
+        sell: 2.73
+      '92':
+        material: DARK_OAK_SIGN
+        buy: 7.56
+        sell: 1.89
+      '93':
+        material: JUNGLE_HANGING_SIGN
+        buy: 10.86
+        sell: 2.73
+      '94':
+        material: JUNGLE_SIGN
+        buy: 7.56
+        sell: 1.89
+      '95':
+        material: MANGROVE_HANGING_SIGN
+        buy: 9.87
+        sell: 2.49
+      '96':
+        material: MANGROVE_SIGN
+        buy: 5.58
+        sell: 1.41
+      '97':
+        material: OAK_HANGING_SIGN
+        buy: 10.86
+        sell: 2.73
+      '98':
+        material: OAK_SIGN
+        buy: 7.56
+        sell: 1.89
+      '99':
+        material: SPRUCE_HANGING_SIGN
+        buy: 10.86
+        sell: 2.73
+      '100':
+        material: SPRUCE_SIGN
+        buy: 7.56
+        sell: 1.89
+      '101':
+        material: WARPED_HANGING_SIGN
+        buy: 9.87
+        sell: 2.49
+      '102':
+        material: WARPED_SIGN
+        buy: 5.58
+        sell: 1.41
+      '103':
+        material: GLOW_LICHEN
+        buy: 3
+        sell: 0.75
+      '104':
+        material: TWISTING_VINES
+        buy: 18
+        sell: 4.50
+      '105':
+        material: VINE
+        buy: 21
+        sell: 5.25
+      '106':
+        material: WEEPING_VINES
+        buy: 18
+        sell: 4.50
+      '107':
+        material: ANGLER_POTTERY_SHERD
+        buy: 89.73
+        sell: 22.44
+      '108':
+        material: ARCHER_POTTERY_SHERD
+        buy: 84.15
+        sell: 21.06
+      '109':
+        material: ARMS_UP_POTTERY_SHERD
+        buy: 72.12
+        sell: 18.03
+      '110':
+        material: BLADE_POTTERY_SHERD
+        buy: 89.73
+        sell: 22.44
+      '111':
+        material: BREWER_POTTERY_SHERD
+        buy: 72.12
+        sell: 18.03
+      '112':
+        material: BURN_POTTERY_SHERD
+        buy: 88.17
+        sell: 22.05
+      '113':
+        material: DANGER_POTTERY_SHERD
+        buy: 88.17
+        sell: 22.05
+      '114':
+        material: DECORATED_POT
+        buy: 277.83
+        sell: 69.48
+      '115':
+        material: EXPLORER_POTTERY_SHERD
+        buy: 89.73
+        sell: 22.44
+      '116':
+        material: FRIEND_POTTERY_SHERD
+        buy: 88.17
+        sell: 22.05
+      '117':
+        material: HEART_POTTERY_SHERD
+        buy: 88.17
+        sell: 22.05
+      '118':
+        material: HEARTBREAK_POTTERY_SHERD
+        buy: 88.17
+        sell: 22.05
+      '119':
+        material: HOWL_POTTERY_SHERD
+        buy: 88.17
+        sell: 22.05
+      '120':
+        material: MINER_POTTERY_SHERD
+        buy: 84.15
+        sell: 21.06
+      '121':
+        material: MOURNER_POTTERY_SHERD
+        buy: 89.73
+        sell: 22.44
+      '122':
+        material: PLENTY_POTTERY_SHERD
+        buy: 89.73
+        sell: 22.44
+      '123':
+        material: PRIZE_POTTERY_SHERD
+        buy: 84.15
+        sell: 21.06
+      '124':
+        material: SHEAF_POTTERY_SHERD
+        buy: 88.17
+        sell: 22.05
+      '125':
+        material: SHELTER_POTTERY_SHERD
+        buy: 89.73
+        sell: 22.44
+      '126':
+        material: SKULL_POTTERY_SHERD
+        buy: 84.15
+        sell: 21.06
+      '127':
+        material: SNORT_POTTERY_SHERD
+        buy: 89.73
+        sell: 22.44
+      '128':
+        material: COAST_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 579.90
+        sell: 144.99
+      '129':
+        material: DUNE_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 597.72
+        sell: 149.43
+      '130':
+        material: EYE_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 586.71
+        sell: 146.70
+      '131':
+        material: HOST_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 613.56
+        sell: 153.39
+      '132':
+        material: NETHERITE_UPGRADE_SMITHING_TEMPLATE
+        buy: 579.15
+        sell: 144.81
+      '133':
+        material: RAISER_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 613.56
+        sell: 153.39
+      '134':
+        material: RIB_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 579.15
+        sell: 144.81
+      '135':
+        material: SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 579.90
+        sell: 144.99
+  page4:
+    items:
+      '136':
+        material: SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 613.56
+        sell: 153.39
+      '137':
+        material: SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 579.90
+        sell: 144.99
+      '138':
+        material: SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 580.02
+        sell: 145.02
+      '139':
+        material: SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 584.04
+        sell: 146.01
+      '140':
+        material: TIDE_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 625.14
+        sell: 156.30
+      '141':
+        material: VEX_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 579.90
+        sell: 144.99
+      '142':
+        material: WARD_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 579.90
+        sell: 144.99
+      '143':
+        material: WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 613.56
+        sell: 153.39
+      '144':
+        material: WILD_ARMOR_TRIM_SMITHING_TEMPLATE
+        buy: 591.54
+        sell: 147.90

@@ -1,0 +1,99 @@
+pages:
+  page1:
+    items:
+      '1':
+        material: AMETHYST_BLOCK
+        buy: 16.56
+        sell: 4.14
+      '2':
+        material: AMETHYST_SHARD
+        buy: 3.96
+        sell: 0.99
+      '3':
+        material: ANCIENT_DEBRIS
+        buy: 1587
+        sell: 396.75
+      '4':
+        material: COAL
+        buy: 15.75
+        sell: 3.96
+      '5':
+        material: COAL_BLOCK
+        buy: 148.86
+        sell: 37.23
+      '6':
+        material: COPPER_BLOCK
+        buy: 11.58
+        sell: 2.91
+      '7':
+        material: COPPER_INGOT
+        buy: 2.76
+        sell: 0.69
+      '8':
+        material: COPPER_ORE
+        buy: 45
+        sell: -1
+      '9':
+        material: DIAMOND
+        buy: 157.50
+        sell: 39.39
+      '10':
+        material: DIAMOND_BLOCK
+        buy: 1488.39
+        sell: 372.12
+      '11':
+        material: EMERALD
+        buy: 118.14
+        sell: 29.55
+      '12':
+        material: EMERALD_BLOCK
+        buy: 1116.30
+        sell: 279.09
+      '13':
+        material: GOLD_BLOCK
+        buy: 234.42
+        sell: 58.62
+      '14':
+        material: GOLD_INGOT
+        buy: 24.81
+        sell: 6.21
+      '15':
+        material: IRON_BLOCK
+        buy: 156.30
+        sell: 39.09
+      '16':
+        material: IRON_INGOT
+        buy: 16.56
+        sell: 4.14
+      '17':
+        material: LAPIS_BLOCK
+        buy: 204.66
+        sell: 51.18
+      '18':
+        material: LAPIS_LAZULI
+        buy: 21.66
+        sell: 5.43
+      '19':
+        material: NETHERITE_BLOCK
+        buy: 67122
+        sell: 16780.50
+      '20':
+        material: NETHERITE_INGOT
+        buy: 7102.86
+        sell: 1775.73
+      '21':
+        material: QUARTZ
+        buy: 24.81
+        sell: 6.21
+      '22':
+        material: QUARTZ_BLOCK
+        buy: 104.19
+        sell: 26.07
+      '23':
+        material: REDSTONE
+        buy: 10.50
+        sell: 2.64
+      '24':
+        material: REDSTONE_BLOCK
+        buy: 99.24
+        sell: 24.81
