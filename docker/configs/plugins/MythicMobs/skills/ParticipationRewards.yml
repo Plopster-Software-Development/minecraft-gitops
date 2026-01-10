@@ -1,0 +1,16 @@
+ParticipationReward:
+  Skills:
+  - message{m="&6&l¡Has derrotado al Jefe! &fRecibes tu recompensa por participar."} @PlayersInRadius{r=40}
+  - command{c="eco give <target.name> 500"} @PlayersInRadius{r=40}
+  - command{c="give <target.name> diamond 2"} @PlayersInRadius{r=40}
+  - command{c="give <target.name> golden_apple 1"} @PlayersInRadius{r=40}
+
+ColosseumBossReward:
+  Skills:
+  - message{m="&6&l¡EL EMPERADOR AURELIUS HA CAÍDO!"} @PlayersInRadius{r=60}
+  - message{m="&e&lRecompensa de Victoria: &f5000 Astrals, Netherite y Tesoros."} @PlayersInRadius{r=60}
+  - command{c="eco give <target.name> 5000"} @PlayersInRadius{r=60}
+  - command{c="give <target.name> netherite_ingot 1"} @PlayersInRadius{r=60}
+  - command{c="give <target.name> diamond_block 1"} @PlayersInRadius{r=60}
+  - command{c="give <target.name> golden_apple 3"} @PlayersInRadius{r=60}
+  - command{c="give <target.name> experience_bottle 16"} @PlayersInRadius{r=60}
