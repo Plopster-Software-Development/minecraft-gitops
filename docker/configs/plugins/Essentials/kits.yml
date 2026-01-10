@@ -109,3 +109,10 @@ kits:
       - enchanted_golden_apple 5 name:&6&lManzana_del_Olimpo
       - firework_rocket 16 name:&eCelebración_Real power:2
       - /broadcast &6&l{PLAYER} &eha canjeado su kit &b&lRey!
+
+  # Kit Proteccion (Solo 1 vez en la vida)
+  proteccion:
+    delay: -1
+    items:
+      - /ps give {PLAYER} ps-basico
+      - /msg {PLAYER} &a¡Has recibido tu Bloque de Protección Básico (11x11)! &7Colócalo para proteger tu casa.

@@ -90,7 +90,7 @@ economy:
   inflation_rate: 0.0
   
   # Starting money for new players (Sincronizado con Essentials)
-  starting_money: 500
+  starting_money: 0
   
   # Maximum money a player can hold
   max_money: 10000000

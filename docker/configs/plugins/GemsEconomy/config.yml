@@ -8,7 +8,7 @@
 
 storage: yaml
 debug: false
-vault: false
+vault: true
 transaction_log: true
 mysql:
   database: minecraft

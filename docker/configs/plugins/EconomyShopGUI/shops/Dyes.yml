@@ -3,129 +3,129 @@ pages:
     items:
       '1':
         material: BLACK_DYE
-        buy: 15.75
-        sell: 3.96
+        buy: 0.79
+        sell: 0.2
       '2':
         material: BLUE_DYE
-        buy: 3.15
-        sell: 0.81
+        buy: 0.16
+        sell: 0.05
       '3':
         material: BROWN_DYE
-        buy: 18.90
-        sell: 4.74
+        buy: 0.94
+        sell: 0.24
       '4':
         material: CYAN_DYE
-        buy: 1.83
-        sell: 0.48
+        buy: 0.1
+        sell: 0.05
       '5':
         material: GRAY_DYE
-        buy: 10.86
-        sell: 2.73
+        buy: 0.54
+        sell: 0.14
       '6':
         material: GREEN_DYE
-        buy: 0.33
-        sell: 0.09
+        buy: 0.1
+        sell: 0.05
       '7':
         material: LIGHT_BLUE_DYE
-        buy: 3.15
-        sell: 0.81
+        buy: 0.16
+        sell: 0.05
       '8':
         material: LIGHT_GRAY_DYE
-        buy: 3.15
-        sell: 0.81
+        buy: 0.16
+        sell: 0.05
       '9':
         material: LIME_DYE
-        buy: 18.90
-        sell: 4.74
+        buy: 0.94
+        sell: 0.24
       '10':
         material: MAGENTA_DYE
-        buy: 3.15
-        sell: 0.81
+        buy: 0.16
+        sell: 0.05
       '11':
         material: ORANGE_DYE
-        buy: 3.15
-        sell: 0.81
+        buy: 0.16
+        sell: 0.05
       '12':
         material: PINK_DYE
-        buy: 3.15
-        sell: 0.81
+        buy: 0.16
+        sell: 0.05
       '13':
         material: PURPLE_DYE
-        buy: 3.33
-        sell: 0.84
+        buy: 0.17
+        sell: 0.05
       '14':
         material: RED_DYE
-        buy: 3.15
-        sell: 0.81
+        buy: 0.16
+        sell: 0.05
       '15':
         material: WHITE_DYE
-        buy: 4.89
-        sell: 1.23
+        buy: 0.24
+        sell: 0.06
       '16':
         material: YELLOW_DYE
-        buy: 2.10
-        sell: 0.54
+        buy: 0.11
+        sell: 0.05
       '17':
         material: AZURE_BLUET
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '18':
         material: BLUE_ORCHID
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '19':
         material: CORNFLOWER
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '20':
         material: LILAC
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '21':
         material: LILY_OF_THE_VALLEY
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '22':
         material: ORANGE_TULIP
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '23':
         material: OXEYE_DAISY
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '24':
         material: PEONY
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '25':
         material: PINK_PETALS
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '26':
         material: PINK_TULIP
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '27':
         material: PITCHER_PLANT
-        buy: 62.25
-        sell: 15.57
+        buy: 3.11
+        sell: 0.78
       '28':
         material: POPPY
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '29':
         material: RED_TULIP
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '30':
         material: SUNFLOWER
-        buy: 3
-        sell: 0.75
+        buy: 0.15
+        sell: 0.05
       '31':
         material: TORCHFLOWER
-        buy: 62.25
-        sell: 15.57
+        buy: 3.11
+        sell: 0.78
       '32':
         material: INK_SAC
-        buy: 15
-        sell: 3.75
+        buy: 0.75
+        sell: 0.19

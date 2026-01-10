@@ -59,3 +59,45 @@ ChariotRider:
     PreventSunburn: true
   Skills:
   - mount{type=SkeletonChariot} @self ~onSpawn
+
+EmperorAurelius:
+  Type: WITHER_SKELETON
+  Display: '&6&lEmperador Aurelius'
+  Health: 3000
+  Damage: 18
+  LevelModifiers:
+    Health: 500
+    Damage: 2
+    Power: 0.1
+  BossBar:
+    Enabled: true
+    Title: '&6Emperador Aurelius (Nv. <mob.level>)'
+    Range: 40
+    Color: YELLOW
+    Style: SOLID
+  Equipment:
+  - NETHERITE_SWORD HAND
+  - GOLDEN_HELMET HEAD
+  - GOLDEN_CHESTPLATE CHEST
+  - GOLDEN_LEGGINGS LEGS
+  - GOLDEN_BOOTS FEET
+  Options:
+    MovementSpeed: 0.28
+    PreventSunburn: true
+    KnockbackResistance: 1.0
+    FollowRange: 40
+  Skills:
+  # Leveling System
+  - skill{s=AureliusApplyLevel} @self ~onSpawn
+  - skill{s=AureliusGlobalLevelUp} @self ~onDeath
+  
+  # Rewards on Death
+  - skill{s=ColosseumBossReward} @self ~onDeath
+  # Combat Skills
+  - message{m="&eAurelius: &f¡Arrodíllense ante el Emperador!"} @PlayersInRadius{r=40} ~onSpawn
+  - ignite{ticks=100} @PlayersInRadius{r=5} ~onTimer:100
+  - effect:lightning @PlayersInRadius{r=20} ~onTimer:200
+  - damage{amount=10;ignoreArmor=true} @PlayersInRadius{r=20} ~onTimer:200
+  - message{m="&eAurelius: &c¡Guardias! ¡A mí!"} @PlayersInRadius{r=40} ~onTimer:600
+  - summon{type=Retiarius;amount=2;radius=4} @self ~onTimer:600
+  - pull{v=5} @PlayersInRadius{r=15} ~onTimer:300
