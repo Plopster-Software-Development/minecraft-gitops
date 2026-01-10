@@ -1,0 +1,61 @@
+WarBoar:
+  Type: HOGLIN
+  Display: '&cWar Boar'
+  Health: 60
+  Damage: 8
+  Options:
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    KnockbackResistance: 0.5
+    HuntHumans: true
+  Skills:
+  - throw{velocity=10;velocityY=5} @Target ~onAttack
+
+Retiarius:
+  Type: DROWNED
+  Display: '&bRetiarius'
+  Health: 30
+  Damage: 6
+  Equipment:
+  - TRIDENT HAND
+  - NETHERITE_HELMET HEAD
+  Options:
+    MovementSpeed: 0.25
+    PreventSunburn: true
+  Drops:
+  - PRISMARINE_SHARD 1to2 0.5
+  Skills:
+  - lunge{velocity=1.5;velocityY=0.5} @Target ~onTimer:100
+
+DarkMage:
+  Type: WITCH
+  Display: '&5Dark Mage'
+  Health: 25
+  Damage: 0
+  Options:
+    MovementSpeed: 0.2
+    PreventSunburn: true
+  Skills:
+  - potion{type=POISON;duration=100;level=1} @PlayersInRadius{r=15} ~onTimer:120
+  - potion{type=SLOW;duration=60;level=2} @PlayersInRadius{r=15} ~onTimer:180
+
+SkeletonChariot:
+  Type: SKELETON_HORSE
+  Display: '&7Undead Chariot'
+  Health: 50
+  Options:
+    MovementSpeed: 0.3
+    PreventSunburn: true
+    Tamed: true
+
+ChariotRider:
+  Type: SKELETON
+  Display: '&7Chariot Rider'
+  Health: 30
+  Equipment:
+  - BOW HAND
+  - LEATHER_HELMET HEAD
+  Options:
+    PreventSunburn: true
+  Skills:
+  - mount{type=SkeletonChariot} @self ~onSpawn
