@@ -274,7 +274,7 @@ custom-bedrock-player-profile:
     material: SUNFLOWER
     name: '%player_displayname%'
     lore:
-    - '%translations-money%: &c%player_balance%'
+    - '%translations-money%: &c%vault_eco_balance%'
 
 
 #---------------------------------------------Inventory's------------------------------------------------
