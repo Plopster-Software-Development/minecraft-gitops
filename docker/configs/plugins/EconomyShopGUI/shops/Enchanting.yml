@@ -69,7 +69,7 @@ pages:
         - ARROW_FIRE:1
       '12':
         material: ENCHANTED_BOOK
-        buy: 105.84
+        buy: 1200.0
         sell: 26.46
         enchantments:
         - LOOT_BONUS_BLOCKS:3
@@ -123,7 +123,7 @@ pages:
         - LURE:3
       '21':
         material: ENCHANTED_BOOK
-        buy: 24.0
+        buy: 2500.0
         sell: 6.0
         enchantments:
         - MENDING:1
@@ -153,7 +153,7 @@ pages:
         - PROTECTION_PROJECTILE:4
       '26':
         material: ENCHANTED_BOOK
-        buy: 69.46
+        buy: 1000.0
         sell: 17.37
         enchantments:
         - PROTECTION_ENVIRONMENTAL:4

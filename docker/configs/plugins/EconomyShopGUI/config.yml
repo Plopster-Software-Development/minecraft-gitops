@@ -326,7 +326,7 @@ main-menu-nav-bar:
       skullowner: '%player_name%'
       name: '%player_displayname%'
       lore:
-      - '%translations-money%: &c%player_balance%'
+      - '%translations-money%: &c%vault_eco_balance%'
     2:
       material: air
     3:
@@ -356,7 +356,7 @@ shops-nav-bar:
       skullowner: '%player_name%'
       name: '%player_displayname%'
       lore:
-      - '%translations-money%: &c%player_balance%'
+      - '%translations-money%: &c%vault_eco_balance%'
     2:
       material: air
     3:
@@ -399,7 +399,7 @@ transaction-screens-nav-bar:
       skullowner: '%player_name%'
       name: '%player_displayname%'
       lore:
-      - '%translations-money%: &c%player_balance%'
+      - '%translations-money%: &c%vault_eco_balance%'
     2:
       material: air
     3:
@@ -432,7 +432,7 @@ shopstands-transaction-screens-nav-bar:
       skullowner: '%player_name%'
       name: '%player_displayname%'
       lore:
-      - '%translations-money%: &c%player_balance%'
+      - '%translations-money%: &c%vault_eco_balance%'
     2:
       material: air
     3:
