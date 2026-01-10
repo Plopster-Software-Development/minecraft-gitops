@@ -101,3 +101,19 @@ EmperorAurelius:
   - message{m="&eAurelius: &c¡Guardias! ¡A mí!"} @PlayersInRadius{r=40} ~onTimer:600
   - summon{type=Retiarius;amount=2;radius=4} @self ~onTimer:600
   - pull{v=5} @PlayersInRadius{r=15} ~onTimer:300
+
+# Evento: Invasión del Coliseo (Spawnear todo junto)
+ColosseumInvasion:
+  Type: ARMOR_STAND
+  Display: '&c&lALERTA DE INVASION'
+  Options:
+    Marker: true
+    Invisible: true
+  Skills:
+  - 'message{m="&4&l¡LA PUERTA DEL COLISEO SE HA ABIERTO! &c¡A PELEAR!"} @PlayersInRadius{r=100} ~onSpawn'
+  - summon{type=WarBoar;amount=5;radius=5} @self ~onSpawn
+  - summon{type=Retiarius;amount=3;radius=5} @self ~onSpawn
+  - summon{type=DarkMage;amount=2;radius=5} @self ~onSpawn
+  - summon{type=SkeletonChariot;amount=1;radius=5} @self ~onSpawn
+  - summon{type=EmperorAurelius;amount=1;radius=0} @self ~onSpawn
+  - remove @self ~onSpawn

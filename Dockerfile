@@ -18,6 +18,8 @@ COPY docker/static-plugins/*.jar $GITOPS_DIR/plugins/
 
 # 4. Copiamos scripts de inyección y utilidades
 COPY docker/scripts/*.sh /usr/local/bin/
+# Corregir saltos de línea de Windows (CRLF -> LF) para evitar "required file not found"
+RUN sed -i 's/\r$//' /usr/local/bin/*.sh
 RUN chmod +x /usr/local/bin/*.sh
 
 # 5. Permisos: Aseguramos que el usuario 'minecraft' (UID 1000) sea dueño de esto

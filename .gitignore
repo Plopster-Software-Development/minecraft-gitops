@@ -1,7 +1,7 @@
 # System
 .DS_Store
 Thumbs.db
-
+docker-data/
 # Logs
 *.log
 logs/
