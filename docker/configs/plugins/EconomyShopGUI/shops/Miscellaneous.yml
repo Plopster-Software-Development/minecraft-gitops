@@ -31,7 +31,7 @@ pages:
         sell: 0.97
       '8':
         material: ELYTRA
-        buy: 362.28
+        buy: 15000.0
         sell: -1
       '9':
         material: ENDER_CHEST
@@ -101,7 +101,7 @@ pages:
         sell: 3.75
       '22':
         material: NETHER_STAR
-        buy: 210.0
+        buy: 2500.0
         sell: 52.5
       '23':
         material: POWDER_SNOW_BUCKET
@@ -129,7 +129,7 @@ pages:
         sell: 0.05
       '29':
         material: SHULKER_SHELL
-        buy: 1.05
+        buy: 150.0
         sell: 0.26
       '30':
         material: SNIFFER_EGG
@@ -145,7 +145,7 @@ pages:
         sell: 0.11
       '33':
         material: SPONGE
-        buy: 78.75
+        buy: 500.0
         sell: 19.69
       '34':
         material: SPYGLASS
@@ -157,11 +157,11 @@ pages:
         sell: 0.73
       '36':
         material: TOTEM_OF_UNDYING
-        buy: 15.0
+        buy: 1000.0
         sell: 3.75
       '37':
         material: TRIDENT
-        buy: 27.0
+        buy: 2000.0
         sell: 6.75
       '38':
         material: TROPICAL_FISH_BUCKET

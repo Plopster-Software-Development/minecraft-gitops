@@ -19,7 +19,7 @@ pages:
         sell: 0.33
       '5':
         material: HOPPER
-        buy: 5.8
+        buy: 100.0
         sell: 1.45
       '6':
         material: IRON_DOOR
@@ -43,7 +43,7 @@ pages:
         sell: 0.49
       '11':
         material: OBSERVER
-        buy: 3.05
+        buy: 50.0
         sell: 0.76
       '12':
         material: REDSTONE_LAMP
@@ -91,7 +91,7 @@ pages:
         sell: 0.59
       '23':
         material: STICKY_PISTON
-        buy: 3.28
+        buy: 40.0
         sell: 0.82
       '24':
         material: CHERRY_PRESSURE_PLATE
