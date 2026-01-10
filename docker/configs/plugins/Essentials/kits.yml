@@ -101,14 +101,17 @@ kits:
   rey:
     delay: 604800 # Puede pedirlo cada semana
     items:
-      - golden_helmet 1 name:&6&lCorona_del_Rey_Legendario lore:&eForjada_en_el_corazón_del_Cluster enchant:protection:10,unbreaking:5,glint:true
-      - golden_chestplate 1 name:&6&lManto_Real lore:&eProtección_divina_del_Administrador enchant:protection:10,unbreaking:5
-      - golden_leggings 1 name:&6&lPantalones_de_Gala lore:&eElegancia_y_poder enchant:protection:10,unbreaking:5
-      - golden_boots 1 name:&6&lBotas_de_Vuelo lore:&eCuidado_con_la_velocidad_de_vuelo enchant:protection:10,unbreaking:5,feather_falling:10
-      - golden_sword 1 name:&6&lCetro_de_Mando lore:&eUn_golpe_y_a_dormir enchant:sharpness:10,fire_aspect:2,unbreaking:5
-      - enchanted_golden_apple 5 name:&6&lManzana_del_Olimpo
-      - firework_rocket 16 name:&eCelebración_Real power:2
-      - /broadcast &6&l{PLAYER} &eha canjeado su kit &b&lRey!
+      - netherite_helmet 1 name:&6&lCorona_Real lore:&eLa_cumbre_del_poder protection:5 unbreaking:5 respiration:3 aqua_affinity:1 mending:1
+      - netherite_chestplate 1 name:&6&lManto_Real lore:&eDureza_Soberana protection:5 unbreaking:5 thorns:3 mending:1
+      - netherite_leggings 1 name:&6&lPantalones_Reales lore:&ePaso_Firme protection:5 unbreaking:5 swift_sneak:3 mending:1
+      - netherite_boots 1 name:&6&lBotas_Reales lore:&eVelocidad_Real protection:5 unbreaking:5 feather_falling:4 depth_strider:3 soul_speed:3 mending:1
+      - netherite_sword 1 name:&6&lCetro_de_Guerra lore:&eJusticia_Real sharpness:6 fire_aspect:2 looting:4 unbreaking:5 mending:1 sweeping:3
+      - enchanted_golden_apple 10 name:&6&lManzana_del_Olimpo
+      - totem_of_undying 2
+      - beacon 1
+      - netherite_block 2
+      - firework_rocket 32 name:&eCelebración_Real power:3
+      - /broadcast &6&l👑 {PLAYER} &eha reclamado el kit &6&lREY &ey gobierna el servidor!
 
   # Kit Proteccion (Solo 1 vez en la vida)
   proteccion:

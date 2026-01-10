@@ -15,7 +15,7 @@ pages:
         buy-commands:
           - "console: ps give %player% ps-basico"
       '2':
-        material: REDSTONE_ORE
+        material: IRON_ORE
         displayname: "&b&lBloque de Protección: &f&lMedio"
         lore:
           - "&7Protege un área de &f21x21 &7bloques."
@@ -26,7 +26,7 @@ pages:
         buy-commands:
           - "console: ps give %player% ps-medio"
       '3':
-        material: LAPIS_ORE
+        material: DIAMOND_ORE
         displayname: "&d&lBloque de Protección: &f&lAvanzado"
         lore:
           - "&7Protege un área de &f51x51 &7bloques."

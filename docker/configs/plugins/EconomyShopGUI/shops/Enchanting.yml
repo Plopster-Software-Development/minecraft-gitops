@@ -3,7 +3,7 @@ pages:
     items:
       '1':
         material: ENCHANTED_BOOK
-        buy: 24.0
+        buy: 2500.0
         sell: 6.0
         enchantments:
         - WATER_WORKER:1
@@ -39,13 +39,13 @@ pages:
         - DEPTH_STRIDER:3
       '7':
         material: ENCHANTED_BOOK
-        buy: 145.86
+        buy: 1200.0
         sell: 36.47
         enchantments:
         - DIG_SPEED:5
       '8':
         material: ENCHANTED_BOOK
-        buy: 138.92
+        buy: 1000.0
         sell: 34.73
         enchantments:
         - PROTECTION_FALL:4
@@ -111,7 +111,7 @@ pages:
         - LOYALTY:3
       '19':
         material: ENCHANTED_BOOK
-        buy: 105.84
+        buy: 1200.0
         sell: 26.46
         enchantments:
         - LUCK:3
@@ -183,13 +183,13 @@ pages:
         - RIPTIDE:3
       '31':
         material: ENCHANTED_BOOK
-        buy: 145.86
+        buy: 1200.0
         sell: 36.47
         enchantments:
         - DAMAGE_ALL:5
       '32':
         material: ENCHANTED_BOOK
-        buy: 30.0
+        buy: 1500.0
         sell: 7.5
         enchantments:
         - SILK_TOUCH:1
@@ -225,7 +225,7 @@ pages:
         - THORNS:3
       '38':
         material: ENCHANTED_BOOK
-        buy: 66.15
+        buy: 800.0
         sell: 16.54
         enchantments:
         - DURABILITY:3
