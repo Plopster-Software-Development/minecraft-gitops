@@ -861,6 +861,9 @@ currency-symbol: ' Astrals'
 # For example, the euro symbol typically appears after the current amount.
 currency-symbol-suffix: true
 
+# Set the starting balance for new players.
+starting-balance: 0
+
 # Set the maximum amount of money a player can have.
 # Note: Extremely large numbers may have unintended consequences.
 max-money: 10000000000000
@@ -868,7 +871,7 @@ max-money: 10000000000000
 # Set the minimum amount of money a player can have (must be greater than the negative value of max-money).
 # Setting this to 0 will disable overdrafts/loans completely.
 # Players need 'essentials.eco.loan' permission to have a negative balance.
-min-money: -10000
+min-money: 0
 
 # Enable this to log all interactions with buy/sell/trade signs and the sell command.
 economy-log-enabled: false

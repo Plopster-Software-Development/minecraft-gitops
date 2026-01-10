@@ -19,40 +19,40 @@ Jobs:
     Break:
       # Maderas comunes
       OAK_LOG:
-        income: 2.0
+        income: 0.5
         points: 0.0
-        experience: 5.0
+        experience: 2.0
       BIRCH_LOG:
-        income: 2.0
+        income: 0.5
         points: 0.0
-        experience: 5.0
+        experience: 2.0
       SPRUCE_LOG:
-        income: 2.0
+        income: 0.5
         points: 0.0
-        experience: 5.0
+        experience: 2.0
       JUNGLE_LOG:
-        income: 2.5
+        income: 0.6
         points: 0.0
-        experience: 6.0
+        experience: 3.0
       ACACIA_LOG:
-        income: 2.5
+        income: 0.6
         points: 0.0
-        experience: 6.0
+        experience: 3.0
       DARK_OAK_LOG:
-        income: 2.5
+        income: 0.6
         points: 0.0
-        experience: 6.0
+        experience: 3.0
       MANGROVE_LOG:
-        income: 3.0
+        income: 0.7
         points: 0.0
-        experience: 7.0
+        experience: 4.0
       CHERRY_LOG:
-        income: 3.0
+        income: 0.7
         points: 0.0
-        experience: 7.0
+        experience: 4.0
       # Pelar troncos paga un poco menos
       STRIPPED_OAK_LOG:
-        income: 0.5
+        income: 0.2
         points: 0.0
         experience: 1.0
 
@@ -72,42 +72,42 @@ Jobs:
     
     Break:
       STONE:
-        income: 0.5
+        income: 0.1
         points: 0.0
-        experience: 1.0
+        experience: 0.5
       DEEPSLATE:
-        income: 0.7
+        income: 0.15
         points: 0.0
-        experience: 1.5
+        experience: 0.8
       COAL_ORE:
-        income: 3.0
+        income: 1.0
+        points: 0.0
+        experience: 3.0
+      IRON_ORE:
+        income: 1.5
         points: 0.0
         experience: 5.0
-      IRON_ORE:
-        income: 5.0
-        points: 0.0
-        experience: 10.0
       COPPER_ORE:
-        income: 4.0
+        income: 1.2
+        points: 0.0
+        experience: 4.0
+      GOLD_ORE:
+        income: 2.5
         points: 0.0
         experience: 8.0
-      GOLD_ORE:
+      DIAMOND_ORE:
         income: 8.0
         points: 0.0
-        experience: 15.0
-      DIAMOND_ORE:
-        income: 20.0
-        points: 0.0
-        experience: 50.0
+        experience: 25.0
         from-spawner: false
       EMERALD_ORE:
-        income: 25.0
+        income: 10.0
         points: 0.0
-        experience: 60.0
+        experience: 30.0
       ANCIENT_DEBRIS:
-        income: 50.0
+        income: 15.0
         points: 0.0
-        experience: 100.0
+        experience: 50.0
   
   # --- TRABAJO: EXCAVADOR (Digger) ---
   Digger:
@@ -125,25 +125,25 @@ Jobs:
     
     Break:
       DIRT:
-        income: 0.2
+        income: 0.05
         points: 0.0
-        experience: 0.5
+        experience: 0.2
       GRASS_BLOCK:
-        income: 0.3
+        income: 0.08
         points: 0.0
-        experience: 0.6
+        experience: 0.3
       SAND:
-        income: 0.3
+        income: 0.1
         points: 0.0
-        experience: 0.6
+        experience: 0.3
       GRAVEL:
-        income: 0.5
+        income: 0.1
+        points: 0.0
+        experience: 0.4
+      CLAY:
+        income: 0.3
         points: 0.0
         experience: 1.0
-      CLAY:
-        income: 1.0
-        points: 0.0
-        experience: 2.0
 
   # --- TRABAJO: CAZADOR (Hunter) ---
   Hunter:

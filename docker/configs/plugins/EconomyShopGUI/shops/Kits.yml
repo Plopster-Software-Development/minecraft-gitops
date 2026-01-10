@@ -1,93 +1,93 @@
 pages:
   page1:
     gui-rows: 4
-    title: "&6&lKits"
+    title: '&6&lKits'
     items:
       '1':
         material: IRON_PICKAXE
-        displayname: "&f&lKit Inicio"
+        displayname: '&f&lKit Inicio'
         lore:
-          - "&7Kit básico para empezar."
-          - "&7Cooldown: 24 horas"
-          - "&eGratis"
+        - "&7Kit b\xC3\xA1sico para empezar."
+        - '&7Cooldown: 24 horas'
+        - '&eGratis'
         buy: 0
         giveItem: false
         buy-commands:
-          - "console: kit inicio %player%"
+        - 'console: kit inicio %player%'
       '2':
         material: COOKED_BEEF
-        displayname: "&e&lKit Comida"
+        displayname: '&e&lKit Comida'
         lore:
-          - "&7Comida para emergencias."
-          - "&7Cooldown: 1 hora"
-          - "&ePrecio: $500"
-        buy: 500
+        - '&7Comida para emergencias.'
+        - '&7Cooldown: 1 hora'
+        - '&ePrecio: $500'
+        buy: 25.0
         giveItem: false
         buy-commands:
-          - "console: kit comida %player%"
+        - 'console: kit comida %player%'
       '3':
         material: GOLDEN_PICKAXE
-        displayname: "&6&lKit Minero"
+        displayname: '&6&lKit Minero'
         lore:
-          - "&7Herramientas para minar."
-          - "&7Cooldown: 12 horas"
-          - "&ePrecio: $2,500"
-        buy: 2500
+        - '&7Herramientas para minar.'
+        - '&7Cooldown: 12 horas'
+        - '&ePrecio: $2,500'
+        buy: 125.0
         giveItem: false
         buy-commands:
-          - "console: kit minero %player%"
+        - 'console: kit minero %player%'
       '4':
         material: BRICKS
-        displayname: "&c&lKit Bloques"
+        displayname: '&c&lKit Bloques'
         lore:
-          - "&7Materiales de construcción."
-          - "&7Cooldown: 12 horas"
-          - "&ePrecio: $5,000"
-        buy: 5000
+        - "&7Materiales de construcci\xC3\xB3n."
+        - '&7Cooldown: 12 horas'
+        - '&ePrecio: $5,000'
+        buy: 250.0
         giveItem: false
         buy-commands:
-          - "console: kit bloques %player%"
+        - 'console: kit bloques %player%'
       '5':
         material: DIAMOND_SWORD
-        displayname: "&b&lKit VIP"
+        displayname: '&b&lKit VIP'
         lore:
-          - "&7Equipamiento VIP."
-          - "&7Cooldown: 3 días"
-          - "&ePrecio: $90,000"
-        buy: 90000
+        - '&7Equipamiento VIP.'
+        - "&7Cooldown: 3 d\xC3\xADas"
+        - '&ePrecio: $90,000'
+        buy: 4500.0
         giveItem: false
         buy-commands:
-          - "console: kit vip %player%"
+        - 'console: kit vip %player%'
       '6':
         material: NETHERITE_SWORD
-        displayname: "&d&lKit MVP"
+        displayname: '&d&lKit MVP'
         lore:
-          - "&7Equipamiento MVP."
-          - "&7Cooldown: 7 días"
-          - "&ePrecio: $300,000"
-        buy: 300000
+        - '&7Equipamiento MVP.'
+        - "&7Cooldown: 7 d\xC3\xADas"
+        - '&ePrecio: $300,000'
+        buy: 15000.0
         giveItem: false
         buy-commands:
-          - "console: kit mvp %player%"
+        - 'console: kit mvp %player%'
       '7':
         material: NETHER_STAR
-        displayname: "&4&lKit LEYENDA"
+        displayname: '&4&lKit LEYENDA'
         lore:
-          - "&7El kit definitivo."
-          - "&7Cooldown: 15 días"
-          - "&ePrecio: $3,000,000"
-        buy: 3000000
+        - '&7El kit definitivo.'
+        - "&7Cooldown: 15 d\xC3\xADas"
+        - '&ePrecio: $3,000,000'
+        buy: 150000.0
         giveItem: false
         buy-commands:
-          - "console: kit leyenda %player%"
+        - 'console: kit leyenda %player%'
       '8':
         material: GOLDEN_HELMET
-        displayname: "&6&lKit REY"
+        displayname: '&6&lKit REY'
         lore:
-          - "&7Solo para la realeza."
-          - "&7Cooldown: 7 días"
-          - "&ePrecio: $5,000,000"
-        buy: 5000000
+        - '&7Solo para la realeza.'
+        - "&7Cooldown: 7 d\xC3\xADas"
+        - '&ePrecio: $5,000,000'
+        buy: 250000.0
         giveItem: false
         buy-commands:
-          - "console: kit rey %player%"
+        - 'console: kit rey %player%'
