@@ -1,0 +1,41 @@
+ColosseumArcher:
+  Type: SKELETON
+  Display: '&eColosseum Archer'
+  Health: 25
+  Damage: 4
+  Equipment:
+  - CHAINMAIL_HELMET HEAD
+  - CHAINMAIL_CHESTPLATE CHEST
+  - CHAINMAIL_LEGGINGS LEGS
+  - CHAINMAIL_BOOTS FEET
+  - BOW HAND
+  Options:
+    MovementSpeed: 0.25
+    PreventSunburn: true
+    PreventOtherDrops: true
+  Skills:
+  - arrowvolley{a=5;v=10;r=10} @Target ~onTimer:60
+
+ColosseumBrute:
+  Type: VINDICATOR
+  Display: '&cColosseum Brute'
+  Health: 50
+  Damage: 8
+  Equipment:
+  - IRON_AXE HAND
+  Options:
+    MovementSpeed: 0.35
+    PreventSunburn: true
+  Skills:
+  - leap{velocity=1.0} @Target ~onTimer:80
+
+ColosseumBeast:
+  Type: RAVAGER
+  Display: '&4Arena Beast'
+  Health: 150
+  Damage: 12
+  Options:
+    PreventSunburn: true
+    KnockbackResistance: 1.0
+  Skills:
+  - roar{d=3} @PlayersInRadius{r=10} ~onTimer:100

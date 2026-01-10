@@ -1,6 +1,6 @@
 Gladiator:
   Type: ZOMBIE
-  Display: '&6Gladiator &7[Lvl 1]'
+  Display: '&6Gladiator'
   Health: 40
   Damage: 5
   Equipment:
@@ -10,14 +10,13 @@ Gladiator:
   - IRON_BOOTS FEET
   - IRON_SWORD HAND
   - SHIELD OFFHAND
+  Drops:
+  - GOLD_NUGGET 1to3 0.5
   Options:
     MovementSpeed: 0.3
     PreventOtherDrops: true
     PreventItemPickup: true
     Silent: false
-    # This prevents them from burning in sunlight, which is good for open colosseums
     PreventSunburn: true
-  Drops:
-  - GOLD_NUGGET 1-3 0.5
   Skills:
   - message{m="&6Gladiator&f: &cI will crush you!"} @PlayersInRadius{r=20} ~onSpawn
