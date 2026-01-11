@@ -12,9 +12,8 @@ pages:
           - "&ePrecio: $30,000"
         buy: 30000
         giveItem: false
-        give-item: false
         buy-commands:
-          - "ps give %player% ps-basico"
+          - "[console] ps give %player% ps-basico"
       '2':
         material: IRON_ORE
         displayname: "&b&lBloque de Protección: &f&lMedio"
@@ -24,9 +23,8 @@ pages:
           - "&ePrecio: $75,000"
         buy: 75000
         giveItem: false
-        give-item: false
         buy-commands:
-          - "ps give %player% ps-medio"
+          - "[console] ps give %player% ps-medio"
       '3':
         material: DIAMOND_ORE
         displayname: "&d&lBloque de Protección: &f&lAvanzado"
@@ -36,9 +34,8 @@ pages:
           - "&ePrecio: $180,000"
         buy: 180000
         giveItem: false
-        give-item: false
         buy-commands:
-          - "ps give %player% ps-avanzado"
+          - "[console] ps give %player% ps-avanzado"
       '4':
         material: EMERALD_ORE
         displayname: "&a&lBloque de Protección: &f&lRegión 64"
@@ -48,6 +45,5 @@ pages:
           - "&ePrecio: $450,000"
         buy: 450000
         giveItem: false
-        give-item: false
         buy-commands:
-          - "ps give %player% 64"
+          - "[console] ps give %player% 64"
