@@ -12,9 +12,8 @@ pages:
         - '&eGratis'
         buy: 0
         giveItem: false
-        give-item: false
         buy-commands:
-        - 'kit inicio %player%'
+        - '[console] kit inicio %player%'
       '2':
         material: COOKED_BEEF
         displayname: '&e&lKit Comida'
@@ -24,9 +23,8 @@ pages:
         - '&ePrecio: $25'
         buy: 25.0
         giveItem: false
-        give-item: false
         buy-commands:
-        - 'kit comida %player%'
+        - '[console] kit comida %player%'
       '3':
         material: GOLDEN_PICKAXE
         displayname: '&6&lKit Minero'
@@ -36,9 +34,8 @@ pages:
         - '&ePrecio: $125'
         buy: 125.0
         giveItem: false
-        give-item: false
         buy-commands:
-        - 'kit minero %player%'
+        - '[console] kit minero %player%'
       '4':
         material: BRICKS
         displayname: '&c&lKit Bloques'
@@ -48,9 +45,8 @@ pages:
         - '&ePrecio: $250'
         buy: 250.0
         giveItem: false
-        give-item: false
         buy-commands:
-        - 'kit bloques %player%'
+        - '[console] kit bloques %player%'
       '5':
         material: DIAMOND_SWORD
         displayname: '&b&lKit VIP'
@@ -60,9 +56,8 @@ pages:
         - '&ePrecio: $45,000'
         buy: 45000.0
         giveItem: false
-        give-item: false
         buy-commands:
-        - 'kit vip %player%'
+        - '[console] kit vip %player%'
       '6':
         material: NETHERITE_SWORD
         displayname: '&d&lKit MVP'
@@ -72,9 +67,8 @@ pages:
         - '&ePrecio: $70,000'
         buy: 70000.0
         giveItem: false
-        give-item: false
         buy-commands:
-        - 'kit mvp %player%'
+        - '[console] kit mvp %player%'
       '7':
         material: NETHER_STAR
         displayname: '&4&lKit LEYENDA'
@@ -84,9 +78,8 @@ pages:
         - '&ePrecio: $300,000'
         buy: 300000.0
         giveItem: false
-        give-item: false
         buy-commands:
-        - 'kit leyenda %player%'
+        - '[console] kit leyenda %player%'
       '8':
         material: GOLDEN_HELMET
         displayname: '&6&lKit REY'
@@ -96,6 +89,5 @@ pages:
         - '&ePrecio: $500,000'
         buy: 500000.0
         giveItem: false
-        give-item: false
         buy-commands:
-        - 'console: kit rey %player%'
+        - '[console] kit rey %player%'
