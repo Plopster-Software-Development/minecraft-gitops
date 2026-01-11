@@ -110,24 +110,33 @@ jobs:
           POD_NAME=$(kubectl get pods -n minecraft -l app=survival-server-minecraft -o jsonpath="{.items[0].metadata.name}" || echo "")
           
           if [ ! -z "$POD_NAME" ]; then
-            echo "Pod encontrado: $POD_NAME"
-            # Mandamos alerta RCON
+            # 1. PRIMER GUARDADO
+            echo "💾 Primer guardado..."
             kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "title @a title {\"text\":\"⚠ ACTUALIZACIÓN ⚠\",\"color\":\"red\"}" || true
-            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "title @a subtitle {\"text\":\"Reinicio en 30s - Guardando datos...\",\"color\":\"yellow\"}" || true
-            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §c⚠ SERVIDOR REINICIANDO PARA ACTUALIZACIÓN ⚠" || true
-            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §eGuardando mundo..." || true
-            
-            # Forzamos guardado
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "title @a subtitle {\"text\":\"Iniciando protocolo de seguridad (1/2)...\",\"color\":\"yellow\"}" || true
             kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "save-all" || true
             
+            # ESPERA DE SEGURIDAD (5 MINUTOS)
+            echo "⏳ Esperando 5 minutos para asegurar persistencia..."
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §eEsperando 5 minutos para asegurar datos antes del reinicio..." || true
+            sleep 300 
+            
+            # 2. SEGUNDO GUARDADO
+            echo "💾 Segundo guardado (Confirmación)..."
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "title @a subtitle {\"text\":\"Guardado final (2/2) \",\"color\":\"yellow\"}" || true
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "save-all" || true
+            sleep 300 
+
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "title @a subtitle {\"text\":\"Reiniciando en 60s... \",\"color\":\"yellow\"}" || true
+
             # BACKUP DE EMERGENCIA
             echo "📦 Generando backup de emergencia (world)..."
-            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §7[System] Creando copia de seguridad..." || true
+            kubectl exec -n minecraft "$POD_NAME" -- rcon-cli "say §7[System] Creando copia de seguridad final..." || true
             # Usamos el script unificado de backup (con save-off/trap)
             kubectl exec -n minecraft "$POD_NAME" -- /usr/local/bin/essentials-backup.sh || echo "⚠ Aviso: El backup falló, pero continuamos."
 
             # Esperamos un poco para que lean el mensaje
-            sleep 5
+            sleep 60
           else
             echo "No se encontró un pod activo. Saltando notificación ingame."
           fi

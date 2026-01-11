@@ -22,6 +22,15 @@ deploymentStrategy:
     maxUnavailable: 0
     maxSurge: 1
 
+# Asegurar que K8s espere lo suficiente para que el servidor guarde datos (2 minutos)
+terminationGracePeriodSeconds: 120
+
+# Hook de Ciclo de Vida: Forzar guardado antes de que el pod muera
+lifecycle:
+  preStop:
+    exec:
+      command: ["/bin/sh", "-c", "exec rcon-cli save-all"]
+
 securityContext:
   fsGroup: 1000
 

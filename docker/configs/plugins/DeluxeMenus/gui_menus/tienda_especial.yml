@@ -1,0 +1,214 @@
+menu_title: '&8Tienda Especial: Kits y Protecciones'
+open_command: tiendaespecial
+size: 45
+items:
+  '1':
+    material: PAPER
+    slot: 4
+    display_name: '&e&lInformación'
+    lore:
+    - '&7Aquí puedes comprar Kits y Protecciones.'
+    - '&7Asegurate de tener espacio en el inventario.'
+
+  # --- SECCIÓN: PROTECCIONES (Fila 2) ---
+  '10':
+    material: COAL_ORE
+    slot: 10
+    display_name: '&a&lBloque de Protección: &f&lBásico'
+    lore:
+    - '&7Protege un área de &f11x11 &7bloques.'
+    - '&ePrecio: $30,000'
+    left_click_commands:
+    - '[console] ps give %player_name% ps-basico'
+    - '[takemoney] 30000'
+    - '[message] &a¡Has comprado una Protección Básica!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 30000
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero ($30,000).'
+
+  '11':
+    material: IRON_ORE
+    slot: 11
+    display_name: '&b&lBloque de Protección: &f&lMedio'
+    lore:
+    - '&7Protege un área de &f21x21 &7bloques.'
+    - '&ePrecio: $75,000'
+    left_click_commands:
+    - '[console] ps give %player_name% ps-medio'
+    - '[takemoney] 75000'
+    - '[message] &a¡Has comprado una Protección Media!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 75000
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero ($75,000).'
+
+  '12':
+    material: DIAMOND_ORE
+    slot: 12
+    display_name: '&d&lBloque de Protección: &f&lAvanzado'
+    lore:
+    - '&7Protege un área de &f51x51 &7bloques.'
+    - '&ePrecio: $180,000'
+    left_click_commands:
+    - '[console] ps give %player_name% ps-avanzado'
+    - '[takemoney] 180000'
+    - '[message] &a¡Has comprado una Protección Avanzada!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 180000
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero ($180,000).'
+
+  '13':
+    material: EMERALD_ORE
+    slot: 13
+    display_name: '&a&lBloque de Protección: &f&lRegión 64'
+    lore:
+    - '&7Protege un área de &f129x129 &7bloques.'
+    - '&ePrecio: $450,000'
+    left_click_commands:
+    - '[console] ps give %player_name% 64'
+    - '[takemoney] 450000'
+    - '[message] &a¡Has comprado una Protección Region 64!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 450000
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero ($450,000).'
+
+  # --- SECCIÓN: KITS (Fila 3 y 4) ---
+  '20':
+    material: IRON_PICKAXE
+    slot: 28
+    display_name: '&f&lKit Inicio'
+    lore:
+    - '&7Kit básico.'
+    - '&eGratis'
+    left_click_commands:
+    - '[console] kit inicio %player_name%'
+    - '[message] &a¡Has recibido el Kit Inicio!'
+  
+  '21':
+    material: COOKED_BEEF
+    slot: 29
+    display_name: '&e&lKit Comida'
+    lore:
+    - '&7Comida para emergencias.'
+    - '&ePrecio: $25'
+    left_click_commands:
+    - '[console] kit comida %player_name%'
+    - '[takemoney] 25'
+    - '[message] &a¡Has comprado el Kit Comida!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 25
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero.'
+
+  '22':
+    material: GOLDEN_PICKAXE
+    slot: 30
+    display_name: '&6&lKit Minero'
+    lore:
+    - '&7Herramientas para minar.'
+    - '&ePrecio: $125'
+    left_click_commands:
+    - '[console] kit minero %player_name%'
+    - '[takemoney] 125'
+    - '[message] &a¡Has comprado el Kit Minero!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 125
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero.'
+
+  '23':
+    material: BRICKS
+    slot: 31
+    display_name: '&c&lKit Bloques'
+    lore:
+    - '&7Materiales de construcción.'
+    - '&ePrecio: $250'
+    left_click_commands:
+    - '[console] kit bloques %player_name%'
+    - '[takemoney] 250'
+    - '[message] &a¡Has comprado el Kit Bloques!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 250
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero.'
+
+  '24':
+    material: DIAMOND_SWORD
+    slot: 32
+    display_name: '&b&lKit VIP'
+    lore:
+    - '&7Equipamiento VIP.'
+    - '&ePrecio: $45,000'
+    left_click_commands:
+    - '[console] kit vip %player_name%'
+    - '[takemoney] 45000'
+    - '[message] &a¡Has comprado el Kit VIP!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 45000
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero.'
+
+  '25':
+    material: NETHERITE_SWORD
+    slot: 33
+    display_name: '&d&lKit MVP'
+    lore:
+    - '&7Equipamiento MVP.'
+    - '&ePrecio: $70,000'
+    left_click_commands:
+    - '[console] kit mvp %player_name%'
+    - '[takemoney] 70000'
+    - '[message] &a¡Has comprado el Kit MVP!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 70000
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero.'
+
+  '26':
+    material: NETHER_STAR
+    slot: 34
+    display_name: '&4&lKit LEYENDA'
+    lore:
+    - '&7El kit definitivo.'
+    - '&ePrecio: $300,000'
+    left_click_commands:
+    - '[console] kit leyenda %player_name%'
+    - '[takemoney] 300000'
+    - '[message] &a¡Has comprado el Kit LEYENDA!'
+    left_click_requirement:
+      requirements:
+        money_check:
+          type: has money
+          amount: 300000
+      deny_commands:
+        - '[message] &cNo tienes suficiente dinero.'
