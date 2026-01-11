@@ -15,10 +15,8 @@ database:
     connection_string: "mongodb://localhost:27017/dynamicjobs"
 
 # Jobs Settings
-# ACTIVADO: Usamos DynamicJobsEconomy- [x] Limitar trabajos simultáneos a 1 (DynamicJobsEconomy) <!-- id: 10 -->
-# [/] Proponer mejoras de experiencia (Menús, Chat, Tab) <!-- id: 11 -->
 jobs:
-  enabled: true
+  enabled: false
   
   # Maximum jobs a player can have simultaneously
   max_jobs_per_player: 1
