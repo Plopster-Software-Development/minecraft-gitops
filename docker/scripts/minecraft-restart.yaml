@@ -59,12 +59,22 @@ spec:
 
               # 6. REINICIO FINAL
               kubectl exec -n minecraft $POD_NAME -- rcon-cli "save-all"
-              if kubectl delete pod $POD_NAME -n minecraft --now; then
+              
+              # Parada elegante: Forzar guardado y detener proceso interno
+              echo "🛑 Enviando comando de parada suave..."
+              kubectl exec -n minecraft $POD_NAME -- rcon-cli "stop"
+              
+              # Esperar unos segundos para permitir que el proceso Java termine y guarde en disco
+              sleep 15
+
+              # Borrar el pod (esto forzará al Deployment/StatefulSet a recrearlo)
+              # Quitamos --now para permitir terminationGracePeriodSeconds (usualmente 30s) si aun sigue vivo
+              if kubectl delete pod $POD_NAME -n minecraft; then
                 wget --post-data="{\"content\": \"🚀 **El servidor se está reiniciando.**\n⌛ Estará en línea en breve (aprox 1-2 min).\"}" \
                   --header="Content-Type: application/json" \
                   "$DISCORD_WEBHOOK_URL" -O /dev/null
               else
-                wget --post-data="{\"content\": \"❌ **Error al reiniciar.**\"}" \
+                wget --post-data="{\"content\": \"❌ **Error al reiniciar (Pod no borrado/encontrado).**\"}" \
                   --header="Content-Type: application/json" \
                   "$DISCORD_WEBHOOK_URL" -O /dev/null
               fi

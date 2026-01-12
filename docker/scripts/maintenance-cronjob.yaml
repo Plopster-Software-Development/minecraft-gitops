@@ -17,30 +17,47 @@ spec:
             - /bin/sh
             - -c
             - |
-              echo "🧹 Iniciando Limpieza de Backups Antiguos..."
-              if [ -d "/data/Backups" ]; then
-                # Borrar archivos .tar.gz y .zip en /data/Backups que tengan más de 3 días
-                find /data/Backups -type f \( -name "*.tar.gz" -o -name "*.zip" \) -mtime +3 -exec rm {} \; -print
-                echo "✅ Limpieza completada."
-              else
-                echo "⚠️ No se encontró la carpeta /data/Backups. Saltando limpieza."
-              fi
+            - |
+              echo "🧹 Iniciando Mantenimiento..."
               
+              # Función de limpieza segura: Mantiene siempre el backup más nuevo
+              clean_safe() {
+                  TARGET_DIR=$1
+                  if [ -d "$TARGET_DIR" ]; then
+                      echo "📂 Procesando: $TARGET_DIR"
+                      # Ir al directorio para facilitar manejo de nombres
+                      cd "$TARGET_DIR" || return
+                      
+                      # Obtener el archivo más reciente (zip o tar.gz)
+                      # Is -t ordena por fecha descendente (primero = más nuevo)
+                      NEWEST=$(ls -t | grep -E '\.(zip|tar\.gz)$' | head -n 1)
+                      
+                      if [ -n "$NEWEST" ]; then
+                          echo "🛡️ Backup protegido (Más reciente): $NEWEST"
+                          
+                          # Borrar archivos antiguos (>3 días) PERO excluyendo el más reciente
+                          # ! -name "$NEWEST" es la clave aquí
+                          find . -maxdepth 1 -type f \( -name "*.zip" -o -name "*.tar.gz" \) -mtime +3 ! -name "$NEWEST" -exec rm -v {} \;
+                      else
+                          echo "⚠️ No se encontraron backups válidos."
+                      fi
+                  else
+                      echo "⚠️ Directorio no existe: $TARGET_DIR"
+                  fi
+              }
+
+              # 1. Backups del Servidor
+              clean_safe "/data/Backups"
+
+              # 2. Backups de VotingPlugin
+              echo "🗳️ Limpiando VotingPlugin..."
+              clean_safe "/data/plugins/VotingPlugin/Backups"
+              
+              # 3. Limpieza de Logs (Mantiene lógica simple > 1 día)
               echo "📜 Limpiando Logs antiguos..."
               if [ -d "/data/logs" ]; then
-                # Borrar logs comprimidos o antiguos (>1 días)
-                find /data/logs -type f \( -name "*.log" -o -name "*.gz" \) -mtime +1 -exec rm {} \; -print
-                echo "✅ Logs limpiados."
-              fi
-              
-              echo "🗳️ Limpiando Backups de VotingPlugin..."
-              VP_BACKUPS="/data/plugins/VotingPlugin/Backups"
-              if [ -d "$VP_BACKUPS" ]; then
-                # Borrar backups de VotingPlugin antiguos (>3 días)
-                find "$VP_BACKUPS" -type f \( -name "*.zip" -o -name "*.tar.gz" \) -mtime +3 -exec rm {} \; -print
-                echo "✅ VotingPlugin Backups limpiados."
-              else
-                echo "⚠️ No se encontró $VP_BACKUPS. Saltando."
+                find /data/logs -type f \( -name "*.log" -o -name "*.gz" \) -mtime +1 -exec rm {} \;
+                echo "✅ Logs procesados."
               fi
             volumeMounts:
             - name: datadir

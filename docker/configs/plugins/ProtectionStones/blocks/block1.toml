@@ -76,18 +76,17 @@ placing_bypasses_wg_passthrough = true
     flags = [
         "pvp deny",
         "tnt deny",
-        "greeting &lEntering &b&l%player%'s &f&lprotected area",
-        "farewell &lLeaving &b&l%player%'s &f&lprotected area",
-        "greeting-action &lEntering &b&l%player%'s &f&lprotected area",
-        "farewell-action &lLeaving &b&l%player%'s &f&lprotected area",
-        "creeper-explosion deny",
-        "wither-damage deny",
         "creeper-explosion deny",
         "wither-damage deny",
         "ghast-fireball deny",
-        "interact allow",
-        "chest-access allow",
-        "use allow",
+        "interact deny",
+        "chest-access deny",
+        "use deny",
+        "entry deny",
+        "greeting &lEntering &b&l%player%'s &f&lprotected area",
+        "farewell &lLeaving &b&l%player%'s &f&lprotected area",
+        "greeting-action &lEntering &b&l%player%'s &f&lprotected area",
+        "farewell-action &lLeaving &b&l%player%'s &f&lprotected area"
     ]
 
     # List all the flags that can be set by region owners.
