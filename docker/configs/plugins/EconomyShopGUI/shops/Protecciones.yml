@@ -10,7 +10,7 @@ pages:
           - "&7Protege un área de &f11x11 &7bloques."
           - "&7Ideal para iniciar tu aventura."
           - "&ePrecio: $30,000"
-        buy: 30000
+        buy: 150000
         giveItem: false
         buy-commands:
           - "[console] ps give %player% ps-basico"
@@ -21,7 +21,7 @@ pages:
           - "&7Protege un área de &f21x21 &7bloques."
           - "&7Espacio suficiente para tu casa y jardín."
           - "&ePrecio: $75,000"
-        buy: 75000
+        buy: 375000
         giveItem: false
         buy-commands:
           - "[console] ps give %player% ps-medio"
@@ -32,7 +32,7 @@ pages:
           - "&7Protege un área de &f51x51 &7bloques."
           - "&7Máxima seguridad. &cNo spawnean mobs."
           - "&ePrecio: $180,000"
-        buy: 180000
+        buy: 900000
         giveItem: false
         buy-commands:
           - "[console] ps give %player% ps-avanzado"
@@ -43,7 +43,7 @@ pages:
           - "&7Protege un área de &f129x129 &7bloques (Radio 64)."
           - "&7Para grandes construcciones y ciudades."
           - "&ePrecio: $450,000"
-        buy: 450000
+        buy: 2250000
         giveItem: false
         buy-commands:
           - "[console] ps give %player% 64"

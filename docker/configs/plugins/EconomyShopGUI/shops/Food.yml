@@ -3,85 +3,85 @@ pages:
     items:
       '1':
         material: APPLE
-        buy: 1.5
-        sell: 0.38
+        buy: 750
+        sell: 187.5
       '2':
         material: BREAD
-        buy: 2.36
-        sell: 0.59
+        buy: 1175
+        sell: 300
       '3':
         material: CAKE
-        buy: 11.9
-        sell: 2.97
+        buy: 6000
+        sell: 1500
       '4':
         material: COOKED_SALMON
-        buy: 0.94
-        sell: 0.24
+        buy: 475
+        sell: 125
       '5':
         material: COOKIE
-        buy: 0.32
-        sell: 0.08
+        buy: 162.5
+        sell: 37.5
       '6':
         material: GLISTERING_MELON_SLICE
-        buy: 1.2
-        sell: 0.3
+        buy: 600
+        sell: 150
       '7':
         material: GLOW_BERRIES
-        buy: 0.15
-        sell: 0.05
+        buy: 75
+        sell: 25
       '8':
         material: GOLDEN_CARROT
-        buy: 1.83
-        sell: 0.46
+        buy: 925
+        sell: 225
       '9':
         material: HONEY_BOTTLE
-        buy: 1.19
-        sell: 0.3
+        buy: 600
+        sell: 150
       '10':
         material: BAKED_POTATO
-        buy: 0.79
-        sell: 0.2
+        buy: 400
+        sell: 100
       '11':
         material: COOKED_BEEF
-        buy: 0.94
-        sell: 0.24
+        buy: 475
+        sell: 125
       '12':
         material: COOKED_CHICKEN
-        buy: 0.94
-        sell: 0.24
+        buy: 475
+        sell: 125
       '13':
         material: COOKED_MUTTON
-        buy: 0.94
-        sell: 0.24
+        buy: 475
+        sell: 125
       '14':
         material: COOKED_PORKCHOP
-        buy: 0.94
-        sell: 0.24
+        buy: 475
+        sell: 125
       '15':
         material: COOKED_RABBIT
-        buy: 0.94
-        sell: 0.24
+        buy: 475
+        sell: 125
       '16':
         material: BEEF
-        buy: 0.9
-        sell: 0.23
+        buy: 450
+        sell: 112.5
       '17':
         material: CHICKEN
-        buy: 0.9
-        sell: 0.23
+        buy: 450
+        sell: 112.5
       '18':
         material: MUTTON
-        buy: 0.9
-        sell: 0.23
+        buy: 450
+        sell: 112.5
       '19':
         material: PORKCHOP
-        buy: 0.9
-        sell: 0.23
+        buy: 450
+        sell: 112.5
       '20':
         material: RABBIT
-        buy: 0.9
-        sell: 0.23
+        buy: 450
+        sell: 112.5
       '21':
         material: BEETROOT_SOUP
-        buy: 5.81
-        sell: 1.45
+        buy: 2900
+        sell: 725

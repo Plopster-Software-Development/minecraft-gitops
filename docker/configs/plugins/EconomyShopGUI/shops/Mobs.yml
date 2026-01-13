@@ -3,73 +3,73 @@ pages:
     items:
       '1':
         material: ARROW
-        buy: 0.34
-        sell: 0.09
+        buy: 1.7
+        sell: 0.4
       '2':
         material: BLAZE_POWDER
-        buy: 0.39
-        sell: 0.1
+        buy: 2.0
+        sell: 0.5
       '3':
         material: BLAZE_ROD
-        buy: 0.75
-        sell: 0.19
+        buy: 3.8
+        sell: 0.9
       '4':
         material: BONE
-        buy: 0.9
-        sell: 0.23
+        buy: 4.5
+        sell: 1.2
       '5':
         material: ENDER_PEARL
-        buy: 1.05
-        sell: 0.26
+        buy: 5.2
+        sell: 1.3
       '6':
         material: FEATHER
-        buy: 0.9
-        sell: 0.23
+        buy: 4.5
+        sell: 1.2
       '7':
         material: FERMENTED_SPIDER_EYE
-        buy: 1.44
-        sell: 0.36
+        buy: 7.2
+        sell: 1.8
       '8':
         material: GHAST_TEAR
-        buy: 6.0
-        sell: 1.5
+        buy: 30
+        sell: 7.5
       '9':
         material: GUNPOWDER
-        buy: 2.33
-        sell: 0.58
+        buy: 11.7
+        sell: 2.9
       '10':
         material: MAGMA_CREAM
-        buy: 1.2
-        sell: 0.3
+        buy: 6
+        sell: 1.5
       '11':
         material: NAUTILUS_SHELL
-        buy: 27.0
-        sell: 6.75
+        buy: 135
+        sell: 33.8
       '12':
         material: PHANTOM_MEMBRANE
-        buy: 18.77
-        sell: 4.69
+        buy: 93.8
+        sell: 23.5
       '13':
         material: RABBIT_FOOT
-        buy: 27.0
-        sell: 6.75
+        buy: 135
+        sell: 33.8
       '14':
         material: RABBIT_HIDE
-        buy: 1.2
-        sell: 0.3
+        buy: 6
+        sell: 1.5
       '15':
         material: ROTTEN_FLESH
-        buy: 0.75
-        sell: 0.19
+        buy: 3.8
+        sell: 0.9
       '16':
         material: SLIME_BALL
-        buy: 0.75
-        sell: 0.19
+        buy: 3.8
+        sell: 0.9
       '17':
         material: SPIDER_EYE
-        buy: 1.05
-        sell: 0.26
+        buy: 5.2
+        sell: 1.3
       '18':
         material: STRING
-        buy: 1.05
-        sell: 0.26
+        buy: 5.2
+        sell: 1.3
