@@ -17,9 +17,9 @@ items:
     display_name: '&a&lBloque de Protección: &f&lBásico'
     lore:
     - '&7Protege un área de &f11x11 &7bloques.'
-    - '&ePrecio: $150,000'
+    - '&ePrecio: $15,000'
     left_click_commands:
-    - '[takemoney] 150000'
+    - '[takemoney] 15000'
     - '[console] ps give %player% ps-basico'
     - '[message] &a¡Has comprado una Protección Básica!'
     - '[close]'
