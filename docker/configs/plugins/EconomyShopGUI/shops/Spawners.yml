@@ -4,185 +4,185 @@ pages:
       '1':
         material: SPAWNER
         spawnertype: ALLAY
-        buy: 6750.0
+        buy: 4500000
         sell: -1
       '2':
         material: SPAWNER
         spawnertype: AXOLOTL
-        buy: 4500.0
+        buy: 2500000
         sell: -1
       '3':
         material: SPAWNER
         spawnertype: BAT
-        buy: 300.0
+        buy: 1000000
         sell: -1
       '4':
         material: SPAWNER
         spawnertype: BLAZE
-        buy: 3750.0
+        buy: 4000000
         sell: -1
       '5':
         material: SPAWNER
         spawnertype: CAMEL
-        buy: 1500.0
+        buy: 2000000
         sell: -1
       '6':
         material: SPAWNER
         spawnertype: CAT
-        buy: 750.0
+        buy: 1500000
         sell: -1
       '7':
         material: SPAWNER
         spawnertype: CAVE_SPIDER
-        buy: 1500.0
+        buy: 3000000
         sell: -1
       '8':
         material: SPAWNER
         spawnertype: CHICKEN
-        buy: 450.0
+        buy: 1750000
         sell: -1
       '9':
         material: SPAWNER
         spawnertype: COD
-        buy: 300.0
+        buy: 1250000
         sell: -1
       '10':
         material: SPAWNER
         spawnertype: COW
-        buy: 3000.0
+        buy: 2250000
         sell: -1
       '11':
         material: SPAWNER
         spawnertype: CREEPER
-        buy: 4500.0
+        buy: 3500000
         sell: -1
       '12':
         material: SPAWNER
         spawnertype: ENDERMAN
-        buy: 5250.0
+        buy: 6000000
         sell: -1
       '13':
         material: SPAWNER
         spawnertype: FROG
-        buy: 11850.0
+        buy: 7500000
         sell: -1
       '14':
         material: SPAWNER
         spawnertype: GLOW_SQUID
-        buy: 3000.0
+        buy: 2750000
         sell: -1
       '15':
         material: SPAWNER
         spawnertype: GOAT
-        buy: 3600.0
+        buy: 3000000
         sell: -1
       '16':
         material: SPAWNER
         spawnertype: HORSE
-        buy: 1950.0
+        buy: 2250000
         sell: -1
       '17':
         material: SPAWNER
         spawnertype: HUSK
-        buy: 3750.0
+        buy: 3250000
         sell: -1
       '18':
         material: SPAWNER
         spawnertype: IRON_GOLEM
-        buy: 30000.0
+        buy: 10000000
         sell: -1
       '19':
         material: SPAWNER
         spawnertype: MAGMA_CUBE
-        buy: 15000.0
+        buy: 6000000
         sell: -1
       '20':
         material: SPAWNER
         spawnertype: MUSHROOM_COW
-        buy: 3750.0
+        buy: 2750000
         sell: -1
       '21':
         material: SPAWNER
         spawnertype: PANDA
-        buy: 1500.0
+        buy: 2500000
         sell: -1
       '22':
         material: SPAWNER
         spawnertype: PARROT
-        buy: 900.0
+        buy: 2000000
         sell: -1
       '23':
         material: SPAWNER
         spawnertype: PHANTOM
-        buy: 7500.0
+        buy: 5000000
         sell: -1
       '24':
         material: SPAWNER
         spawnertype: PIGLIN_BRUTE
-        buy: 60000.0
+        buy: 15000000
         sell: -1
       '25':
         material: SPAWNER
         spawnertype: RABBIT
-        buy: 1350.0
+        buy: 2000000
         sell: -1
       '26':
         material: SPAWNER
         spawnertype: SHEEP
-        buy: 1350.0
+        buy: 2000000
         sell: -1
       '27':
         material: SPAWNER
         spawnertype: SHULKER
-        buy: 15000.0
+        buy: 12500000
         sell: -1
       '28':
         material: SPAWNER
         spawnertype: SKELETON
-        buy: 3750.0
+        buy: 3500000
         sell: -1
       '29':
         material: SPAWNER
         spawnertype: SLIME
-        buy: 16500.0
+        buy: 9000000
         sell: -1
       '30':
         material: SPAWNER
         spawnertype: SNIFFER
-        buy: 1350.0
+        buy: 3000000
         sell: -1
       '31':
         material: SPAWNER
         spawnertype: SPIDER
-        buy: 1350.0
+        buy: 2500000
         sell: -1
       '32':
         material: SPAWNER
         spawnertype: SQUID
-        buy: 3000.0
+        buy: 2250000
         sell: -1
       '33':
         material: SPAWNER
         spawnertype: STRIDER
-        buy: 1350.0
+        buy: 2500000
         sell: -1
       '34':
         material: SPAWNER
         spawnertype: WITCH
-        buy: 15000.0
+        buy: 7000000
         sell: -1
       '35':
         material: SPAWNER
         spawnertype: WOLF
-        buy: 7500.0
+        buy: 4000000
         sell: -1
       '36':
         material: SPAWNER
         spawnertype: ZOMBIE
-        buy: 3600.0
+        buy: 3250000
         sell: -1
       '37':
         material: SPAWNER
         spawnertype: ZOMBIFIED_PIGLIN
-        buy: 3600.0
+        buy: 3750000
         sell: -1

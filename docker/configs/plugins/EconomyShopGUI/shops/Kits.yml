@@ -21,7 +21,7 @@ pages:
         - '&7Comida para emergencias.'
         - '&7Cooldown: 1 hora'
         - '&ePrecio: $25'
-        buy: 25.0
+        buy: 125
         giveItem: false
         buy-commands:
         - '[console] kit comida %player%'
@@ -32,7 +32,7 @@ pages:
         - '&7Herramientas para minar.'
         - '&7Cooldown: 12 horas'
         - '&ePrecio: $125'
-        buy: 125.0
+        buy: 625
         giveItem: false
         buy-commands:
         - '[console] kit minero %player%'
@@ -43,7 +43,7 @@ pages:
         - "&7Materiales de construcci\xC3\xB3n."
         - '&7Cooldown: 12 horas'
         - '&ePrecio: $250'
-        buy: 250.0
+        buy: 1250
         giveItem: false
         buy-commands:
         - '[console] kit bloques %player%'
@@ -54,7 +54,7 @@ pages:
         - '&7Equipamiento VIP.'
         - "&7Cooldown: 3 d\xC3\xADas"
         - '&ePrecio: $45,000'
-        buy: 45000.0
+        buy: 225000
         giveItem: false
         buy-commands:
         - '[console] kit vip %player%'
@@ -65,7 +65,7 @@ pages:
         - '&7Equipamiento MVP.'
         - "&7Cooldown: 7 d\xC3\xADas"
         - '&ePrecio: $70,000'
-        buy: 70000.0
+        buy: 350000
         giveItem: false
         buy-commands:
         - '[console] kit mvp %player%'
@@ -76,7 +76,7 @@ pages:
         - '&7El kit definitivo.'
         - "&7Cooldown: 15 d\xC3\xADas"
         - '&ePrecio: $300,000'
-        buy: 300000.0
+        buy: 1500000
         giveItem: false
         buy-commands:
         - '[console] kit leyenda %player%'
@@ -87,7 +87,7 @@ pages:
         - '&7Solo para la realeza.'
         - "&7Cooldown: 7 d\xC3\xADas"
         - '&ePrecio: $500,000'
-        buy: 500000.0
+        buy: 2500000
         giveItem: false
         buy-commands:
         - '[console] kit rey %player%'
